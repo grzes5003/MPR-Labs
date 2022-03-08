@@ -112,6 +112,8 @@ int main(int argc, char *argv[]) {
         send(world_rank);
     } else if (variant == 2) {
         ssend(world_rank);
+    } else if (variant == 3) {
+        bsend(world_rank);
     }
 
     MPI_Finalize();
