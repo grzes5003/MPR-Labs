@@ -44,6 +44,24 @@ void send(int word_rank) {
 }
 
 
+void bsend(int word_rank) {
+    char *buf = malloc(BUFSIZE);
+    MPI_Buffer_attach( buf, BUFSIZE );
+
+    int number;
+    if (word_rank == 0) {
+        number = -1;
+        MPI_Bsend(&number, 1, MPI_INT, 1, 0, MPI_COMM_WORLD);
+    } else if (word_rank == 1) { // word_rank should be eq to 1
+        MPI_Recv(&number, 1, MPI_INT, 0, 0, MPI_COMM_WORLD,
+                 MPI_STATUS_IGNORE);
+        printf("Process 1 received number %d from process 0\n", number);
+    }
+
+    MPI_Buffer_detach(&buf, (int *) BUFSIZE);
+}
+
+
 void ssend(int word_rank) {
     int number;
     if (word_rank == 0) {
@@ -58,10 +76,9 @@ void ssend(int word_rank) {
 
 
 int main(int argc, char *argv[]) {
-//    const int8_t variant = 1;
-    long variant;
 
     // get variant
+    long variant;
     char path[BUFSIZE];
     char *envvar = "VARIANT";
     if(!getenv(envvar)){
@@ -77,7 +94,6 @@ int main(int argc, char *argv[]) {
 
     int len;
     char hostname[MPI_MAX_PROCESSOR_NAME];
-
     int world_rank, world_size;
     MPI_Init(&argc, &argv);
     MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
@@ -92,7 +108,7 @@ int main(int argc, char *argv[]) {
     printf("Hello world from process %d of %d, name: %s\n", world_rank, world_size, hostname);
 
     printf("Starting variant %ld\n", variant);
-    if ((int) variant == 1) {
+    if (variant == 1) {
         send(world_rank);
     } else if (variant == 2) {
         ssend(world_rank);
