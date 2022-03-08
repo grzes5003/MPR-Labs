@@ -30,6 +30,15 @@ int msleep(long msec) {
     return res;
 }
 
+double elapse_time(void (*f)(int), int arg) {
+    double starttime, endtime;
+    starttime = MPI_Wtime();
+    (*f)(arg);
+    endtime   = MPI_Wtime();
+    printf("That took %f seconds\n",endtime-starttime);
+    return endtime-starttime;
+}
+
 
 void send(int word_rank) {
     int number;
@@ -57,7 +66,7 @@ void bsend(int word_rank) {
                  MPI_STATUS_IGNORE);
         printf("Process 1 received number %d from process 0\n", number);
     }
-
+    // TODO segfault here
     MPI_Buffer_detach(&buf, (int *) BUFSIZE);
 }
 
@@ -109,7 +118,7 @@ int main(int argc, char *argv[]) {
 
     printf("Starting variant %ld\n", variant);
     if (variant == 1) {
-        send(world_rank);
+        elapse_time(send, world_rank);
     } else if (variant == 2) {
         ssend(world_rank);
     } else if (variant == 3) {
