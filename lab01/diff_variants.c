@@ -7,6 +7,9 @@
 #include <time.h>
 #include <errno.h>
 #include <stdint.h>
+#include <stdlib.h>
+
+#define BUFSIZE 128
 
 int msleep(long msec) {
     struct timespec ts;
@@ -28,39 +31,55 @@ int msleep(long msec) {
 }
 
 
-void send(int rank) {
-    int idx;
-    if (rank == 0) {
-        idx = -1;
-        MPI_Send(&idx, 1, MPI_INT, 1, 0, MPI_COMM_WORLD);
-    } else { // rank should be eq to 1
-        MPI_Recv(&idx, 1, MPI_INT, 0, 0, MPI_COMM_WORLD,
+void send(int word_rank) {
+    int number;
+    if (word_rank == 0) {
+        number = -1;
+        MPI_Send(&number, 1, MPI_INT, 1, 0, MPI_COMM_WORLD);
+    } else if (word_rank == 1) { // word_rank should be eq to 1
+        MPI_Recv(&number, 1, MPI_INT, 0, 0, MPI_COMM_WORLD,
                  MPI_STATUS_IGNORE);
-        printf("Process 1 received idx %d from process 0\n", idx);
+        printf("Process 1 received number %d from process 0\n", number);
     }
 }
 
 
-void ssend(int rank) {
-    int idx;
-    if (rank == 0) {
-        idx = -1;
-        MPI_Ssend(&idx, 1, MPI_INT, 1, 0, MPI_COMM_WORLD);
-    } else { // rank should be eq to 1
+void ssend(int word_rank) {
+    int number;
+    if (word_rank == 0) {
+        number = -1;
+        MPI_Ssend(&number, 1, MPI_INT, 1, 0, MPI_COMM_WORLD);
+    } else if (word_rank == 1) { // word_rank should be eq to 1
         msleep(500);
-        MPI_Recv(&idx, 1, MPI_INT, 0, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-        printf("Process 1 received idx %d from process 0\n", idx);
+        MPI_Recv(&number, 1, MPI_INT, 0, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+        printf("Process 1 received number %d from process 0\n", number);
     }
 }
 
 
 int main(int argc, char *argv[]) {
-    const int8_t V = 1;
+//    const int8_t variant = 1;
+    long variant;
+
+    // get variant
+    char path[BUFSIZE];
+    char *envvar = "VARIANT";
+    if(!getenv(envvar)){
+        variant = 1;
+    } else if (snprintf(path, BUFSIZE, "%s", getenv(envvar)) >= BUFSIZE) {
+        fprintf(stderr, "BUFSIZE of %d was too small. Aborting\n", BUFSIZE);
+        exit(1);
+    } else if (0L == (variant = strtol(path, NULL, 10))) {
+        fprintf(stderr, "Error when parsing\n");
+        exit(1);
+    }
+
+
     int len;
     char hostname[MPI_MAX_PROCESSOR_NAME];
 
     int world_rank, world_size;
-    MPI_Init(NULL, NULL);
+    MPI_Init(&argc, &argv);
     MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
     MPI_Comm_size(MPI_COMM_WORLD, &world_size);
 
@@ -72,10 +91,10 @@ int main(int argc, char *argv[]) {
     MPI_Get_processor_name(hostname, &len);
     printf("Hello world from process %d of %d, name: %s\n", world_rank, world_size, hostname);
 
-    printf("Starting variant %d\n", V);
-    if (V == 1) {
+    printf("Starting variant %ld\n", variant);
+    if ((int) variant == 1) {
         send(world_rank);
-    } else if (V == 2) {
+    } else if (variant == 2) {
         ssend(world_rank);
     }
 
