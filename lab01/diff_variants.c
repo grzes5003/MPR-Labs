@@ -67,7 +67,7 @@ void bsend(int word_rank) {
         printf("Process 1 received number %d from process 0\n", number);
     }
     // TODO segfault here
-    MPI_Buffer_detach(&buf, (int *) BUFSIZE);
+    MPI_Buffer_detach(&buf, BUFSIZE);
 }
 
 
@@ -99,6 +99,7 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "Error when parsing\n");
         exit(1);
     }
+    if (variant == 1) printf("Starting variant %ld\n", variant);
 
 
     int len;
@@ -114,11 +115,10 @@ int main(int argc, char *argv[]) {
         MPI_Abort(MPI_COMM_WORLD, 1);
     }
     MPI_Get_processor_name(hostname, &len);
-    printf("Hello world from process %d of %d, name: %s\n", world_rank, world_size, hostname);
-
-    printf("Starting variant %ld\n", variant);
+    printf("Process %d of %d, name: %s\n", world_rank, world_size, hostname);
 
     // init phase finished
+    if (variant == 1) printf("/////////////////////\n");
     MPI_Barrier(MPI_COMM_WORLD);
 
     if (variant == 1) {
