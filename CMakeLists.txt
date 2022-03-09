@@ -13,4 +13,4 @@ target_link_libraries(MPR_proj ${MPI_C_LIBRARIES})
 # LAB01
 project(LAB01 C)
 
-add_executable(LAB01 lab01/diff_variants.c)
+add_executable(LAB01 lab01/diff_variants.c util/helpers.h util/helpers.c)
