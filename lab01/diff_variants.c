@@ -40,12 +40,12 @@ double elapse_time(void (*f)(int), int arg) {
 }
 
 
-void send(int word_rank) {
+void send(int world_rank) {
     int number;
-    if (word_rank == 0) {
+    if (world_rank == 0) {
         number = -1;
         MPI_Send(&number, 1, MPI_INT, 1, 0, MPI_COMM_WORLD);
-    } else if (word_rank == 1) { // word_rank should be eq to 1
+    } else if (world_rank == 1) { // world_rank should be eq to 1
         MPI_Recv(&number, 1, MPI_INT, 0, 0, MPI_COMM_WORLD,
                  MPI_STATUS_IGNORE);
         printf("Process 1 received number %d from process 0\n", number);
@@ -53,30 +53,30 @@ void send(int word_rank) {
 }
 
 
-void bsend(int word_rank) {
+void bsend(int world_rank) {
     char *buf = malloc(BUFSIZE);
     MPI_Buffer_attach( buf, BUFSIZE );
 
     int number;
-    if (word_rank == 0) {
+    if (world_rank == 0) {
         number = -1;
         MPI_Bsend(&number, 1, MPI_INT, 1, 0, MPI_COMM_WORLD);
-    } else if (word_rank == 1) { // word_rank should be eq to 1
+    } else if (world_rank == 1) { // world_rank should be eq to 1
         MPI_Recv(&number, 1, MPI_INT, 0, 0, MPI_COMM_WORLD,
                  MPI_STATUS_IGNORE);
         printf("Process 1 received number %d from process 0\n", number);
     }
     // TODO segfault here
-    MPI_Buffer_detach(&buf, BUFSIZE);
+    MPI_Buffer_detach(&buf,  &(int) {BUFSIZE});
 }
 
 
-void ssend(int word_rank) {
+void ssend(int world_rank) {
     int number;
-    if (word_rank == 0) {
+    if (world_rank == 0) {
         number = -1;
         MPI_Ssend(&number, 1, MPI_INT, 1, 0, MPI_COMM_WORLD);
-    } else if (word_rank == 1) { // word_rank should be eq to 1
+    } else if (world_rank == 1) { // world_rank should be eq to 1
         msleep(500);
         MPI_Recv(&number, 1, MPI_INT, 0, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
         printf("Process 1 received number %d from process 0\n", number);
@@ -99,7 +99,6 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "Error when parsing\n");
         exit(1);
     }
-    if (variant == 1) printf("Starting variant %ld\n", variant);
 
 
     int len;
@@ -108,6 +107,7 @@ int main(int argc, char *argv[]) {
     MPI_Init(&argc, &argv);
     MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
     MPI_Comm_size(MPI_COMM_WORLD, &world_size);
+    if (variant == 1) printf("Starting variant %ld\n", variant);
 
     // We are assuming at least 2 processes for this task
     if (world_size < 2) {
@@ -118,7 +118,7 @@ int main(int argc, char *argv[]) {
     printf("Process %d of %d, name: %s\n", world_rank, world_size, hostname);
 
     // init phase finished
-    if (variant == 1) printf("/////////////////////\n");
+    if (world_rank == 1) printf("/////////////////////\n");
     MPI_Barrier(MPI_COMM_WORLD);
 
     if (variant == 1) {
