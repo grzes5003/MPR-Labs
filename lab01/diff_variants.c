@@ -117,12 +117,16 @@ int main(int argc, char *argv[]) {
     printf("Hello world from process %d of %d, name: %s\n", world_rank, world_size, hostname);
 
     printf("Starting variant %ld\n", variant);
+
+    // init phase finished
+    MPI_Barrier(MPI_COMM_WORLD);
+
     if (variant == 1) {
         elapse_time(send, world_rank);
     } else if (variant == 2) {
-        ssend(world_rank);
+        elapse_time(ssend, world_rank);
     } else if (variant == 3) {
-        bsend(world_rank);
+        elapse_time(bsend, world_rank);
     }
 
     MPI_Finalize();
