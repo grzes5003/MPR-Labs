@@ -12,12 +12,12 @@
 
 
 
-double elapse_time(void (*f)(int, int), int world_rank, struct t_env_vars *env_vars) {
+double elapse_time(void (*f)(int, int), int world_rank, struct t_env_vars env_vars) {
     double starttime, endtime;
     starttime = MPI_Wtime();
-    uint16_t i;
-    for(i = 0; i < env_vars->n; i++) {
-        (*f)(world_rank, env_vars->msg_size);
+    int i;
+    for(i = 0; i < env_vars.n; i++) {
+        (*f)(world_rank, env_vars.msg_size);
     }
     endtime   = MPI_Wtime();
     printf("That took %f seconds\n",endtime-starttime);
@@ -97,11 +97,11 @@ int main(int argc, char *argv[]) {
 
 
     if (env_vars.variant == 1) {
-        elapse_time(send, world_rank, &env_vars);
+        elapse_time(send, world_rank, env_vars);
     } else if (env_vars.variant == 2) {
-        elapse_time(ssend, world_rank, &env_vars);
+        elapse_time(ssend, world_rank, env_vars);
     } else if (env_vars.variant == 3) {
-        elapse_time(bsend, world_rank, &env_vars);
+        elapse_time(bsend, world_rank, env_vars);
     }
 
     MPI_Finalize();
