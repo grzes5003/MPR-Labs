@@ -76,11 +76,12 @@ int main(int argc, char *argv[]) {
     // get variant
     struct t_env_vars *env_vars;
     env_vars = malloc(sizeof(struct t_env_vars));
-    if(1 == read_env(env_vars)) {
+    int ret;
+    if(1 == (ret = read_env(env_vars))) {
         fprintf(stderr, "Cannot parse env variables\n");
         exit(1);
     } else {
-        printf("n=%ld;v=%ld;s=%ld\n", env_vars->n, env_vars->variant, env_vars->msg_size);
+        printf("ret=%d;n=%ld;v=%ld;s=%ld\n", ret, env_vars->n, env_vars->variant, env_vars->msg_size);
     }
 
     int len;
