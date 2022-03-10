@@ -69,5 +69,5 @@ int read_env(struct t_env_vars *str) {
     }
 
     printf("=== %ld %ld %ld", str->variant, str->msg_size, str->n);
-    return 0;
+    return 11;
 }
