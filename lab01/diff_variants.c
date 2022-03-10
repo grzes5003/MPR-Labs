@@ -68,7 +68,6 @@ void ssend(int world_rank, long msg_size) {
         number = -1;
         MPI_Ssend(&number, 1, MPI_INT, 1, 0, MPI_COMM_WORLD);
     } else if (world_rank == 1) { // world_rank should be eq to 1
-        msleep(500);
         MPI_Recv(&number, 1, MPI_INT, 0, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
 //        printf("Process 1 received number %d from process 0\n", number);
     }
