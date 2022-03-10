@@ -4,6 +4,7 @@
 
 #ifndef LAB01_HELPERS_H
 #define LAB01_HELPERS_H
+#include <stdint.h>
 
 #define BUFSIZE 128
 #define DEFAULT_N_TIMES 1
