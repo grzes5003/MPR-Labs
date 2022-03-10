@@ -8,6 +8,10 @@
 #include <string.h>
 #include "helpers.h"
 
+#define BUFSIZE 128
+#define DEFAULT_N_TIMES 1
+#define DEFAULT_MSG_SIZE 10
+
 int msleep(long msec) {
     struct timespec ts;
     int res;
