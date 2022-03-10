@@ -92,7 +92,8 @@ int main(int argc, char *argv[]) {
     if (world_rank == 0) printf("/////////////////////\n");
     MPI_Barrier(MPI_COMM_WORLD);
 
-    for(uint16_t i = 0; i < env_vars.n; i++) {
+    uint16_t i;
+    for(i = 0; i < env_vars.n; i++) {
         if (env_vars.variant == 1) {
             elapse_time(send, world_rank, env_vars.msg_size);
         } else if (env_vars.variant == 2) {
