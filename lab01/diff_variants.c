@@ -76,7 +76,10 @@ int main(int argc, char *argv[]) {
     // get variant
     struct t_env_vars *env_vars;
     env_vars = malloc(sizeof(struct t_env_vars));
-    read_env(env_vars);
+    if(1 == read_env(env_vars)) {
+        fprintf(stderr, "Cannot parse env variables\n");
+        exit(1);
+    }
 
     int len;
     char hostname[MPI_MAX_PROCESSOR_NAME];
