@@ -7,7 +7,7 @@
 
 #define BUFSIZE 128
 #define DEFAULT_N_TIMES 1
-#define DEFAULT_MSG_SIZE 10
+#define DEFAULT_MSG_SIZE 1000
 
 int msleep(long msec);
 

@@ -26,7 +26,7 @@ double elapse_time(void (*f)(int, long), int world_rank, struct t_env_vars env_v
         (*f)(world_rank, env_vars.msg_size);
     }
     endtime   = MPI_Wtime();
-    printf("\nThat took %f seconds\n",endtime-starttime);
+    printf("\nall=%f;one=%f\n",endtime-starttime, (endtime-starttime)/(double)env_vars.n);
     return endtime-starttime;
 }
 
