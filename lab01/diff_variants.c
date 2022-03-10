@@ -27,7 +27,7 @@ double elapse_time(void (*f)(int, long), int world_rank, struct t_env_vars env_v
 }
 
 
-void send(int world_rank, int msg_size) {
+void send(int world_rank, long msg_size) {
     int number;
     if (world_rank == 0) {
         number = -1;
@@ -40,7 +40,7 @@ void send(int world_rank, int msg_size) {
 }
 
 
-void bsend(int world_rank, int msg_size) {
+void bsend(int world_rank, long msg_size) {
     char *buf = malloc(BUFSIZE);
     MPI_Buffer_attach( buf, BUFSIZE );
 
@@ -58,7 +58,7 @@ void bsend(int world_rank, int msg_size) {
 }
 
 
-void ssend(int world_rank, int msg_size) {
+void ssend(int world_rank, long msg_size) {
     int number;
     if (world_rank == 0) {
         number = -1;
