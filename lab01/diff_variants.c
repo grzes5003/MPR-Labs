@@ -75,6 +75,7 @@ int main(int argc, char *argv[]) {
 
     // get variant
     struct t_env_vars env_vars;
+    env_vars = malloc(sizeof(struct t_env_vars));
     read_env(&env_vars);
 
     int len;
