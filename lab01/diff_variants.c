@@ -14,6 +14,10 @@
 
 double elapse_time(void (*f)(int, long), int world_rank, struct t_env_vars env_vars) {
     double starttime, endtime;
+
+    if (env_vars.n == 0) env_vars.n = DEFAULT_N_TIMES;
+    if (env_vars.msg_size == 0) env_vars.n = DEFAULT_MSG_SIZE;
+
     printf("Execution N=%ld times\n", env_vars.n);
     starttime = MPI_Wtime();
     int i;
@@ -103,9 +107,6 @@ int main(int argc, char *argv[]) {
     // init phase finished
     if (world_rank == 0) printf("n=%ld;v=%ld/////////////////////\n", env_vars->n, env_vars->variant);
     MPI_Barrier(MPI_COMM_WORLD);
-
-    MPI_Finalize();
-    return 1;
 
     if (env_vars->variant == 1) {
         elapse_time(send, world_rank, *env_vars);
