@@ -12,17 +12,17 @@
 
 
 
-double elapse_time(void (*f)(int), int arg) {
+double elapse_time(void (*f)(int, int), int world_rank, int msg_size) {
     double starttime, endtime;
     starttime = MPI_Wtime();
-    (*f)(arg);
+    (*f)(world_rank, msg_size);
     endtime   = MPI_Wtime();
     printf("That took %f seconds\n",endtime-starttime);
     return endtime-starttime;
 }
 
 
-void send(int world_rank) {
+void send(int world_rank, int msg_size) {
     int number;
     if (world_rank == 0) {
         number = -1;
@@ -35,7 +35,7 @@ void send(int world_rank) {
 }
 
 
-void bsend(int world_rank) {
+void bsend(int world_rank, int msg_size) {
     char *buf = malloc(BUFSIZE);
     MPI_Buffer_attach( buf, BUFSIZE );
 
@@ -53,7 +53,7 @@ void bsend(int world_rank) {
 }
 
 
-void ssend(int world_rank) {
+void ssend(int world_rank, int msg_size) {
     int number;
     if (world_rank == 0) {
         number = -1;
@@ -89,15 +89,17 @@ int main(int argc, char *argv[]) {
     printf("Process %d of %d, name: %s\n", world_rank, world_size, hostname);
 
     // init phase finished
-    if (world_rank == 1) printf("/////////////////////\n");
+    if (world_rank == 0) printf("/////////////////////\n");
     MPI_Barrier(MPI_COMM_WORLD);
 
-    if (env_vars.variant == 1) {
-        elapse_time(send, world_rank);
-    } else if (env_vars.variant == 2) {
-        elapse_time(ssend, world_rank);
-    } else if (env_vars.variant == 3) {
-        elapse_time(bsend, world_rank);
+    for(uint16_t i = 0; i < env_vars.n; i++) {
+        if (env_vars.variant == 1) {
+            elapse_time(send, world_rank, env_vars.msg_size);
+        } else if (env_vars.variant == 2) {
+            elapse_time(ssend, world_rank, env_vars.msg_size);
+        } else if (env_vars.variant == 3) {
+            elapse_time(bsend, world_rank, env_vars.msg_size);
+        }
     }
 
     MPI_Finalize();

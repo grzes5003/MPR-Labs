@@ -6,13 +6,15 @@
 #define LAB01_HELPERS_H
 
 #define BUFSIZE 128
+#define DEFAULT_N_TIMES 1
+#define DEFAULT_MSG_SIZE 10
 
 int msleep(long msec);
 
 struct t_env_vars {
     long variant;
     int msg_size;
-    int n;
+    uint16_t n;
 };
 
 int read_env(struct t_env_vars *str);
