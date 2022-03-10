@@ -39,7 +39,7 @@ void send(int world_rank, long msg_size) {
     } else if (world_rank == 1) { // world_rank should be eq to 1
         MPI_Recv(&number, 1, MPI_INT, 0, 0, MPI_COMM_WORLD,
                  MPI_STATUS_IGNORE);
-        printf("Process 1 received number %d from process 0\n", number);
+//        printf("Process 1 received number %d from process 0\n", number);
     }
 }
 
