@@ -79,6 +79,8 @@ int main(int argc, char *argv[]) {
     if(1 == read_env(env_vars)) {
         fprintf(stderr, "Cannot parse env variables\n");
         exit(1);
+    } else {
+        printf("n=%ld;v=%ld\n", env_vars->n, env_vars->variant);
     }
 
     int len;
