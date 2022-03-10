@@ -94,9 +94,11 @@ int main(int argc, char *argv[]) {
     printf("Process %d of %d, name: %s\n", world_rank, world_size, hostname);
 
     // init phase finished
-    if (world_rank == 0) printf("/////////////////////\n");
+    if (world_rank == 0) printf("n=%ld/////////////////////\n", env_vars.n);
     MPI_Barrier(MPI_COMM_WORLD);
 
+    MPI_Finalize();
+    return 1;
 
     if (env_vars.variant == 1) {
         elapse_time(send, world_rank, env_vars);
