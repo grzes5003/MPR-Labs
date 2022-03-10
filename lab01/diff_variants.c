@@ -12,9 +12,9 @@
 
 
 
-double elapse_time(void (*f)(int, int), int world_rank, struct t_env_vars env_vars) {
+double elapse_time(void (*f)(int, long), int world_rank, struct t_env_vars env_vars) {
     double starttime, endtime;
-    printf("Execution N=%d times\n", env_vars.n);
+    printf("Execution N=%ld times\n", env_vars.n);
     starttime = MPI_Wtime();
     int i;
     for(i = 0; i < env_vars.n; i++) {
@@ -94,7 +94,7 @@ int main(int argc, char *argv[]) {
     printf("Process %d of %d, name: %s\n", world_rank, world_size, hostname);
 
     // init phase finished
-    if (world_rank == 0) printf("n=%ld/////////////////////\n", env_vars.n);
+    if (world_rank == 0) printf("n=%ld;v=%ld/////////////////////\n", env_vars.n, env_vars.variant);
     MPI_Barrier(MPI_COMM_WORLD);
 
     MPI_Finalize();
