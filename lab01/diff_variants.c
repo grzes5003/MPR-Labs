@@ -14,13 +14,15 @@
 
 double elapse_time(void (*f)(int, int), int world_rank, struct t_env_vars env_vars) {
     double starttime, endtime;
+    printf("Execution N=%d times\n", env_vars.n);
     starttime = MPI_Wtime();
     int i;
     for(i = 0; i < env_vars.n; i++) {
+        printf(",");
         (*f)(world_rank, env_vars.msg_size);
     }
     endtime   = MPI_Wtime();
-    printf("That took %f seconds\n",endtime-starttime);
+    printf("\nThat took %f seconds\n",endtime-starttime);
     return endtime-starttime;
 }
 
