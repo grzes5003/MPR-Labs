@@ -74,9 +74,9 @@ void ssend(int world_rank, long msg_size) {
 int main(int argc, char *argv[]) {
 
     // get variant
-    struct t_env_vars env_vars;
+    struct t_env_vars *env_vars;
     env_vars = malloc(sizeof(struct t_env_vars));
-    read_env(&env_vars);
+    read_env(env_vars);
 
     int len;
     char hostname[MPI_MAX_PROCESSOR_NAME];
@@ -84,7 +84,7 @@ int main(int argc, char *argv[]) {
     MPI_Init(&argc, &argv);
     MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
     MPI_Comm_size(MPI_COMM_WORLD, &world_size);
-    if (env_vars.variant == 1) printf("Starting variant %ld\n", env_vars.variant);
+    if (env_vars->variant == 1) printf("Starting variant %ld\n", env_vars->variant);
 
     // We are assuming at least 2 processes for this task
     if (world_size < 2) {
@@ -95,18 +95,18 @@ int main(int argc, char *argv[]) {
     printf("Process %d of %d, name: %s\n", world_rank, world_size, hostname);
 
     // init phase finished
-    if (world_rank == 0) printf("n=%ld;v=%ld/////////////////////\n", env_vars.n, env_vars.variant);
+    if (world_rank == 0) printf("n=%ld;v=%ld/////////////////////\n", env_vars->n, env_vars->variant);
     MPI_Barrier(MPI_COMM_WORLD);
 
     MPI_Finalize();
     return 1;
 
-    if (env_vars.variant == 1) {
-        elapse_time(send, world_rank, env_vars);
-    } else if (env_vars.variant == 2) {
-        elapse_time(ssend, world_rank, env_vars);
-    } else if (env_vars.variant == 3) {
-        elapse_time(bsend, world_rank, env_vars);
+    if (env_vars->variant == 1) {
+        elapse_time(send, world_rank, *env_vars);
+    } else if (env_vars->variant == 2) {
+        elapse_time(ssend, world_rank, *env_vars);
+    } else if (env_vars->variant == 3) {
+        elapse_time(bsend, world_rank, *env_vars);
     }
 
     MPI_Finalize();
