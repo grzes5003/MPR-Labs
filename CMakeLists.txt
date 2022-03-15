@@ -22,6 +22,11 @@ project(LAB01 C)
 
 add_executable(LAB01 lab01/diff_variants.c lab01/lab01.c)
 
+
+project(LAB02 C)
+
+add_executable(LAB02 lab02/montecarlo_square.c)
+
 if(MPI_COMPILE_FLAGS)
     set_target_properties(LAB01 PROPERTIES
             COMPILE_FLAGS "${MPI_COMPILE_FLAGS}")
