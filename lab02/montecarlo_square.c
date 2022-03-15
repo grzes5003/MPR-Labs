@@ -31,7 +31,7 @@ float estimate_pi(int n) {
 
 int main(int argc, char *argv[]) {
     srand((unsigned int)time(NULL));
-    printf("%.6f", estimate_pi(1000));
+    printf("%.6f", estimate_pi(100000));
     return 0;
 }
 
