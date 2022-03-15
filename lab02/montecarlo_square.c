@@ -18,7 +18,7 @@ float estimate_pi(int n) {
     for (i = 0; i < n; i++) {
         float x = randomFloat();
         float y = randomFloat();
-        if (sqrt(x * x + y * y) <= 1) {
+        if (sqrtf(x * x + y * y) <= 1) {
             in += 1;
         } else {
             out += 1;
