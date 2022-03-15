@@ -25,7 +25,7 @@ float estimate_pi(int n) {
         }
     }
 
-    return 4.f * out / in;
+    return 4.f * in / out;
 }
 
 
