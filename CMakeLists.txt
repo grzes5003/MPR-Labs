@@ -27,6 +27,8 @@ project(LAB02 C)
 
 add_executable(LAB02 lab02/montecarlo_square.c)
 
+target_link_libraries(LAB02 m ${MPI_C_LIBRARIES})
+
 if(MPI_COMPILE_FLAGS)
     set_target_properties(LAB01 PROPERTIES
             COMPILE_FLAGS "${MPI_COMPILE_FLAGS}")

@@ -1,37 +1,55 @@
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "cert-msc50-cpp"
+#pragma ide diagnostic ignored "cert-msc51-cpp"
 //
 // Created by xgg on 15/03/2022.
 //
 #include <stdio.h>
-#include <math.h>
+#include <mpi.h>
 #include <stdlib.h>
 #include <time.h>
 
 
-float randomFloat() {
-    return (float)rand()/(float)(RAND_MAX/1);
-}
-
-
 float estimate_pi(int n) {
-    int i;
-    float in = 0.f, out = 0.f;
-    for (i = 0; i < n; i++) {
-        float x = randomFloat();
-        float y = randomFloat();
-        if (sqrtf(x * x + y * y) <= 1) {
+    float in = 0.f;
+    float out = 0.f;
+
+    for (int i = 0; i < n; i++) {
+        float x = (float) rand() / (float) (RAND_MAX);
+        float y = (float) rand() / (float) (RAND_MAX);
+        if (x * x + y * y <= 1) {
             in += 1;
         } else {
             out += 1;
         }
     }
 
-    return 4.f * in / out;
+    return 4.f * in / (float) n;
 }
 
 
 int main(int argc, char *argv[]) {
-    srand((unsigned int)time(NULL));
-    printf("%.6f", estimate_pi(100000));
+    float local_data;
+    float result;
+    srand((unsigned int) time(NULL));
+
+    int world_rank;
+    int world_size;
+    MPI_Init(NULL, NULL);
+    MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
+    MPI_Comm_size(MPI_COMM_WORLD, &world_size);
+    int n = 1000 / world_size;
+    MPI_Barrier(MPI_COMM_WORLD);
+
+    local_data = estimate_pi(n);
+    MPI_Reduce(&local_data, &result, 1, MPI_FLOAT, MPI_SUM, 0, MPI_COMM_WORLD);
+
+    if (world_rank == 0) {
+        printf("[Process %d]: has the result: %.6f\n", world_rank, result);
+    }
+
+    MPI_Finalize();
     return 0;
 }
 
+#pragma clang diagnostic pop
