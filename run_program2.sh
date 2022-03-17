@@ -10,4 +10,4 @@ make "$1"
 
 echo "Starting " "$1" " with:" "${@:3}"
 
-mpiexec -machinefile ./allnodes -np "$2" ./prog.out "${@:3}"
+mpiexec -machinefile ./allnodes -np "$2" "$1" "${@:3}"
