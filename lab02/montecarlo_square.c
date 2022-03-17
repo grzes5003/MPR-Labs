@@ -24,7 +24,7 @@ float estimate_pi(int n) {
 
 
 int main(int argc, char *argv[]) {
-    const float LIMIT = 100000.f;
+    const float LIMIT = 10000000.f;
 
     float local_data;
     float result;
