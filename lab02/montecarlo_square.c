@@ -13,10 +13,10 @@
 #include <errno.h>
 
 
-float estimate_pi(int n) {
+float estimate_pi(unsigned long long n) {
     float in = 0.f;
 
-    for (int i = 0; i < n; i++) {
+    for (unsigned long long i = 0; i < n; i++) {
         float x = (float) rand() / (float) (RAND_MAX);
         float y = (float) rand() / (float) (RAND_MAX);
         if (x * x + y * y <= 1) in += 1;
@@ -27,17 +27,17 @@ float estimate_pi(int n) {
 
 
 int main(int argc, char *argv[]) {
-    long double LIMIT = 10000000;
+    unsigned long long LIMIT = 10000000;
     int opt;
     char *end;
 
     while (-1 != (opt = getopt(argc, argv, "n:"))) {
         switch (opt) {
             case 'n':
-                LIMIT = (long double) strtol(optarg, &end, 10);
-                if (LIMIT > INT_MAX || (errno == ERANGE && LIMIT == LONG_MAX))
+                LIMIT = strtoull(optarg, &end, 10);
+                if (LIMIT > ULLONG_MAX || (errno == ERANGE && LIMIT == ULLONG_MAX))
                     return 10;
-                if (LIMIT < INT_MIN || (errno == ERANGE && LIMIT == LONG_MIN))
+                if (errno == ERANGE && LIMIT == 0)
                     return 11;
                 if (*end != '\0')
                     return 12;
@@ -59,7 +59,7 @@ int main(int argc, char *argv[]) {
     MPI_Init(NULL, NULL);
     MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
     MPI_Comm_size(MPI_COMM_WORLD, &world_size);
-    int n = (int) (LIMIT / (float) world_size);
+    unsigned long long n = (LIMIT / (unsigned long long) world_size);
     MPI_Barrier(MPI_COMM_WORLD);
 
     start_time = MPI_Wtime();
@@ -68,7 +68,7 @@ int main(int argc, char *argv[]) {
     end_time = MPI_Wtime();
 
     if (world_rank == 0) {
-        printf("[Process %d]: has in %6f the result: %Lf\n", world_rank, end_time - start_time, result / LIMIT);
+        printf("[Process %d]: has in %6f the result: %llu\n", world_rank, end_time - start_time, (unsigned long long) result / LIMIT);
     }
 
     MPI_Finalize();
