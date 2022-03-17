@@ -19,11 +19,13 @@ float estimate_pi(int n) {
         if (x * x + y * y <= 1) in += 1;
     }
 
-    return 4.f * in / (float) n;
+    return 4.f * in;
 }
 
 
 int main(int argc, char *argv[]) {
+    const int LIMIT = 100000;
+
     float local_data;
     float result;
     srand((unsigned int) time(NULL));
@@ -33,14 +35,14 @@ int main(int argc, char *argv[]) {
     MPI_Init(NULL, NULL);
     MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
     MPI_Comm_size(MPI_COMM_WORLD, &world_size);
-    int n = 1000 / world_size;
+    int n = LIMIT / world_size;
     MPI_Barrier(MPI_COMM_WORLD);
 
     local_data = estimate_pi(n);
     MPI_Reduce(&local_data, &result, 1, MPI_FLOAT, MPI_SUM, 0, MPI_COMM_WORLD);
 
     if (world_rank == 0) {
-        printf("[Process %d]: has the result: %.6f\n", world_rank, result);
+        printf("[Process %d]: has the result: %.6f\n", world_rank / LIMIT, result);
     }
 
     MPI_Finalize();
