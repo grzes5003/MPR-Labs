@@ -16,8 +16,8 @@ fi
 
 echo "Compiling " "$1"
 
-module add openmpi
-module add cmake
+module add plgrid/tools/openmpi
+module add plgrid/tools/cmake
 
 cmake .
 make "$1"
