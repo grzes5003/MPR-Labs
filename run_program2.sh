@@ -11,3 +11,5 @@ make "$1"
 echo "Starting " "$1" " with:" "${@:3}"
 
 mpiexec -machinefile ./allnodes -np "$2" ./"$1" "${@:3}"
+
+echo "last exit code: " "$?"
