@@ -9,8 +9,9 @@
 if [ -z "$SCRIPT" ]
 then
     TODAY=$(date +"%d_%H_%M")
-    /usr/bin/script log_"$TODAY".txt /bin/bash -c "$0 $*"
-    exit 0
+    exec 3>&1 4>&2
+    trap 'exec 2>&4 1>&3' 0 1 2 3
+    exec 1>log_"$TODAY".out 2>&1
 fi
 
 echo "Compiling " "$1"
