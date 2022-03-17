@@ -5,13 +5,11 @@
 #SBATCH --partition=plgrid
 #SBATCH --account=plgmpr22
 
-
-if [ -z "$SCRIPT" ]
-then
-    TODAY=$(date +"%d_%H_%M")
-    exec 3>&1 4>&2
-    trap 'exec 2>&4 1>&3' 0 1 2 3
-    exec 1>log_"$TODAY".out 2>&1
+if [ -z "$SCRIPT" ]; then
+  TODAY=$(date +"%d_%H_%M")
+  exec 3>&1 4>&2
+  trap 'exec 2>&4 1>&3' 0 1 2 3
+  exec 1>log_"$TODAY".out 2>&1
 fi
 
 echo "Compiling " "$1"
@@ -24,13 +22,15 @@ make "$1"
 
 echo "Starting " "$1"
 
-function_test () {
+function_test() {
   # function_test <size> <...args>
   TRY=30
-  echo "#testing:n=" "$1" ":s=" "$2"
-  for (( c=0; c<TRY; c++ ))
-  do
-     mpiexec -np "$c" ./"$2" "-n $1"
+  CORES=12
+  for ((t = 0; t < TRY; t++)); do
+    echo "#testing:t=" "$t" " n=" "$1" ":s=" "$2"
+    for ((c = 1; c <= CORES; c++)); do
+      mpiexec -np "$c" ./"$2" "-n $1"
+    done
   done
 }
 
