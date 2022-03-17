@@ -69,7 +69,7 @@ int main(int argc, char *argv[]) {
     end_time = MPI_Wtime();
 
     if (world_rank == 0) {
-        printf("[Process %d]: has in %6f the result: %Le\n", world_rank, end_time - start_time, result / LIMIT);
+        printf("%d:%6f:%Le\n", world_size, end_time - start_time, result / LIMIT);
     }
 
     MPI_Finalize();
