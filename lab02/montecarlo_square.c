@@ -8,6 +8,9 @@
 #include <mpi.h>
 #include <stdlib.h>
 #include <time.h>
+#include <getopt.h>
+#include <limits.h>
+#include <errno.h>
 
 
 float estimate_pi(int n) {
@@ -24,7 +27,26 @@ float estimate_pi(int n) {
 
 
 int main(int argc, char *argv[]) {
-    const float LIMIT = 10000000.f;
+    long double LIMIT = 10000000;
+    int opt;
+    char *end;
+
+    while (-1 != (opt = getopt(argc, argv, "n:"))) {
+        switch (opt) {
+            case 'n':
+                LIMIT = (long double) strtol(optarg, &end, 10);
+                if (LIMIT > INT_MAX || (errno == ERANGE && LIMIT == LONG_MAX))
+                    return 10;
+                if (LIMIT < INT_MIN || (errno == ERANGE && LIMIT == LONG_MIN))
+                    return 11;
+                if (*end != '\0')
+                    return 12;
+                break;
+            default:
+                fprintf(stderr, "unexpected argument: %d\n", optopt);
+                return 1;
+        }
+    }
 
     float local_data;
     float result;
@@ -46,7 +68,7 @@ int main(int argc, char *argv[]) {
     end_time = MPI_Wtime();
 
     if (world_rank == 0) {
-        printf("[Process %d]: has in %6f the result: %.6f\n", world_rank, end_time - start_time, result / LIMIT);
+        printf("[Process %d]: has in %6f the result: %Lf\n", world_rank, end_time - start_time, result / LIMIT);
     }
 
     MPI_Finalize();
