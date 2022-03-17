@@ -28,6 +28,8 @@ int main(int argc, char *argv[]) {
 
     float local_data;
     float result;
+    double start_time;
+    double end_time;
     srand((unsigned int) time(NULL));
 
     int world_rank;
@@ -38,11 +40,13 @@ int main(int argc, char *argv[]) {
     int n = (int) (LIMIT / (float) world_size);
     MPI_Barrier(MPI_COMM_WORLD);
 
+    start_time = MPI_Wtime();
     local_data = estimate_pi(n);
     MPI_Reduce(&local_data, &result, 1, MPI_FLOAT, MPI_SUM, 0, MPI_COMM_WORLD);
+    end_time = MPI_Wtime();
 
     if (world_rank == 0) {
-        printf("[Process %d]: has the result: %.6f\n", world_rank, result / LIMIT);
+        printf("[Process %d]: has in %6f the result: %.6f\n", world_rank, end_time - start_time, result / LIMIT);
     }
 
     MPI_Finalize();
