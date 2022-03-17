@@ -12,16 +12,11 @@
 
 float estimate_pi(int n) {
     float in = 0.f;
-    float out = 0.f;
 
     for (int i = 0; i < n; i++) {
         float x = (float) rand() / (float) (RAND_MAX);
         float y = (float) rand() / (float) (RAND_MAX);
-        if (x * x + y * y <= 1) {
-            in += 1;
-        } else {
-            out += 1;
-        }
+        if (x * x + y * y <= 1) in += 1;
     }
 
     return 4.f * in / (float) n;
