@@ -24,7 +24,7 @@ float estimate_pi(int n) {
 
 
 int main(int argc, char *argv[]) {
-    const int LIMIT = 100000;
+    const float LIMIT = 100000.f;
 
     float local_data;
     float result;
@@ -35,14 +35,14 @@ int main(int argc, char *argv[]) {
     MPI_Init(NULL, NULL);
     MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
     MPI_Comm_size(MPI_COMM_WORLD, &world_size);
-    int n = LIMIT / world_size;
+    int n = (int) (LIMIT / (float) world_size);
     MPI_Barrier(MPI_COMM_WORLD);
 
     local_data = estimate_pi(n);
     MPI_Reduce(&local_data, &result, 1, MPI_FLOAT, MPI_SUM, 0, MPI_COMM_WORLD);
 
     if (world_rank == 0) {
-        printf("[Process %d]: has the result: %.6f\n", world_rank / LIMIT, result);
+        printf("[Process %d]: has the result: %.6f\n", world_rank, result / LIMIT);
     }
 
     MPI_Finalize();
