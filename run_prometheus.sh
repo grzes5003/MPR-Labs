@@ -9,7 +9,7 @@ if [ -z "$SCRIPT" ]; then
   TODAY=$(date +"%d_%H_%M")
   exec 3>&1 4>&2
   trap 'exec 2>&4 1>&3' 0 1 2 3
-  exec 1>log_"$TODAY".out 2>&1
+  exec 1>log_"$TODAY".log 2>&1
 fi
 
 echo "Compiling " "$1"
@@ -27,7 +27,7 @@ function_test() {
   TRY=30
   CORES=12
   for ((t = 0; t < TRY; t++)); do
-    echo "#testing:t=" "$t" " n=" "$1" ":s=" "$2"
+    echo "#testing:t=" "$t" ":n=" "$1" ":s=" "$2"
     for ((c = 1; c <= CORES; c++)); do
       mpiexec -np "$c" ./"$2" "-n $1"
     done
@@ -35,8 +35,8 @@ function_test() {
 }
 
 N_SMALL=10000000
-N_MID=500000000000
-N_BIG=1000000000000
+N_MID=50000000000
+N_BIG=100000000000
 
 function_test "$N_SMALL" "$@"
 function_test "$N_MID" "$@"
