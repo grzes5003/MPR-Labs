@@ -10,14 +10,14 @@
 
 #define N 1000
 
-double elapse_time(void (*f)(int, char *), int world_rank, unsigned int msg_size) {
+double elapse_time(void (*f)(int, char *, unsigned int), int world_rank, unsigned int msg_size) {
     char *msg = malloc(msg_size * sizeof(char));
     double start_time;
     double end_time;
 
     start_time = MPI_Wtime();
     for (int i = 0; i < N; i++) {
-        (*f)(world_rank, msg);
+        (*f)(world_rank, msg, msg_size);
     }
     end_time = MPI_Wtime();
     if (world_rank == 0)
@@ -26,21 +26,21 @@ double elapse_time(void (*f)(int, char *), int world_rank, unsigned int msg_size
 }
 
 
-void send(int world_rank, char *msg) {
+void send(int world_rank, char *msg, unsigned int msg_size) {
     if (world_rank == 0) {
-        MPI_Send(msg, 1, MPI_CHAR, 1, 0, MPI_COMM_WORLD);
+        MPI_Send(msg, (int) msg_size, MPI_CHAR, 1, 0, MPI_COMM_WORLD);
     } else if (world_rank == 1) { // world_rank should be eq to 1
-        MPI_Recv(msg, 1, MPI_CHAR, 0, 0, MPI_COMM_WORLD,
+        MPI_Recv(msg, (int) msg_size, MPI_CHAR, 0, 0, MPI_COMM_WORLD,
                  MPI_STATUS_IGNORE);
     }
 }
 
 
-void ssend(int world_rank, char *msg) {
+void ssend(int world_rank, char *msg, unsigned int msg_size) {
     if (world_rank == 0) {
-        MPI_Ssend(msg, 1, MPI_CHAR, 1, 0, MPI_COMM_WORLD);
+        MPI_Ssend(msg, (int) msg_size, MPI_CHAR, 1, 0, MPI_COMM_WORLD);
     } else if (world_rank == 1) { // world_rank should be eq to 1
-        MPI_Recv(msg, 1, MPI_CHAR, 0, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+        MPI_Recv(msg, (int) msg_size, MPI_CHAR, 0, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
     }
 }
 
