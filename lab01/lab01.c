@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <errno.h>
 
-#define N 1000
+#define N 10000
 
 double elapse_time(void (*f)(int, char *, unsigned int), int world_rank, unsigned int msg_size) {
     char *msg = calloc(msg_size, sizeof(char));
