@@ -20,7 +20,8 @@ double elapse_time(void (*f)(int, char *), int world_rank, unsigned int msg_size
         (*f)(world_rank, msg);
     }
     end_time = MPI_Wtime();
-    printf("%d:%f:%f\n", msg_size, end_time - start_time, (end_time - start_time) / (double) N);
+    if (world_rank == 0)
+        printf("%d:%f:%f\n", msg_size, end_time - start_time, (end_time - start_time) / (double) N);
     return end_time - start_time;
 }
 
