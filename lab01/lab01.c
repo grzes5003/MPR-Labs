@@ -50,7 +50,7 @@ int main(int argc, char *argv[]) {
     int opt;
     char *end;
 
-    while (-1 != (opt = getopt(argc, argv, "sv:"))) {
+    while (-1 != (opt = getopt(argc, argv, "s:v:"))) {
         switch (opt) {
             case 'v':
                 printf("parsing  %s\n", optarg);
