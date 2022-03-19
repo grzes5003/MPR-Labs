@@ -22,7 +22,9 @@ project(LAB01 C)
 
 add_executable(LAB01 lab01/lab01.c)
 
+target_link_libraries(LAB01 m ${MPI_C_LIBRARIES})
 
+# LAB02
 project(LAB02 C)
 
 add_executable(LAB02 lab02/montecarlo_square.c)
