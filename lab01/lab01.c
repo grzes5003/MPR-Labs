@@ -50,7 +50,7 @@ int main(int argc, char *argv[]) {
     int opt;
     char *end;
 
-    while (-1 != (opt = getopt(argc, argv, "vs:"))) {
+    while (-1 != (opt = getopt(argc, argv, "sv:"))) {
         switch (opt) {
             case 'v':
                 printf("parsing  %s\n", optarg);
@@ -62,15 +62,15 @@ int main(int argc, char *argv[]) {
 //                if (*end2 != '\0')
 //                    return 12;
                 break;
-            case 's':
-                msg_size = (unsigned int) strtol(optarg, &end, 10);
-                if (msg_size > INT_MAX || (errno == ERANGE && msg_size == INT_MAX))
-                    return 10;
-                if (errno == ERANGE && msg_size == 0)
-                    return 11;
-                if (*end != '\0')
-                    return 12;
-                break;
+//            case 's':
+//                msg_size = (unsigned int) strtol(optarg, &end, 10);
+//                if (msg_size > INT_MAX || (errno == ERANGE && msg_size == INT_MAX))
+//                    return 10;
+//                if (errno == ERANGE && msg_size == 0)
+//                    return 11;
+//                if (*end != '\0')
+//                    return 12;
+//                break;
             default:
                 fprintf(stderr, "unexpected argument: %d\n", optopt);
                 return 1;
