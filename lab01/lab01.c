@@ -84,6 +84,7 @@ int main(int argc, char *argv[]) {
     MPI_Comm_size(MPI_COMM_WORLD, &world_size);
     MPI_Barrier(MPI_COMM_WORLD);
 
+    printf("starting %d", variant);
     if (variant == 0) {
         elapse_time(send, world_rank, msg_size);
     } else if (variant == 1) {
