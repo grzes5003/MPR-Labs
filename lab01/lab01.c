@@ -55,12 +55,12 @@ int main(int argc, char *argv[]) {
             case 'v':
                 printf("parsing  %s\n", optarg);
                 variant = (int) strtol(optarg, &end2, 10);
-                if (variant > INT_MAX || (errno == ERANGE && variant == INT_MAX))
-                    return 10;
-                if (variant < INT_MIN || (errno == ERANGE && variant == INT_MIN))
-                    return 11;
-                if (*end2 != '\0')
-                    return 12;
+//                if (variant > INT_MAX || (errno == ERANGE && variant == INT_MAX))
+//                    return 10;
+//                if (variant < INT_MIN || (errno == ERANGE && variant == INT_MIN))
+//                    return 11;
+//                if (*end2 != '\0')
+//                    return 12;
                 break;
             case 's':
                 msg_size = (unsigned int) strtol(optarg, &end, 10);
