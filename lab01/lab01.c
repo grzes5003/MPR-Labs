@@ -45,16 +45,16 @@ void ssend(int world_rank, char *msg) {
 
 
 int main(int argc, char *argv[]) {
-    int variant = 0;
+    unsigned int variant = 0;
     unsigned int msg_size = 1;
     int opt;
-    char *end; char *end2;
+    char *end;
 
     while (-1 != (opt = getopt(argc, argv, "vs:"))) {
         switch (opt) {
             case 'v':
                 printf("parsing  %s\n", optarg);
-                variant = (int) strtol(optarg, &end2, 10);
+                variant = (unsigned int) strtol(optarg, &end, 10);
 //                if (variant > INT_MAX || (errno == ERANGE && variant == INT_MAX))
 //                    return 10;
 //                if (variant < INT_MIN || (errno == ERANGE && variant == INT_MIN))
