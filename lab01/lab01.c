@@ -26,7 +26,6 @@ double elapse_time(void (*f)(int, char *), int world_rank, unsigned int msg_size
 
 
 void send(int world_rank, char *msg) {
-    printf("%d: %s\n", world_rank, msg);
     if (world_rank == 0) {
         MPI_Send(msg, 1, MPI_CHAR, 1, 0, MPI_COMM_WORLD);
     } else if (world_rank == 1) { // world_rank should be eq to 1
@@ -51,7 +50,6 @@ int main(int argc, char *argv[]) {
     int opt;
     char *end;
 
-    printf("starting\n");
     while (-1 != (opt = getopt(argc, argv, "vs:"))) {
         switch (opt) {
             case 's':
@@ -85,7 +83,6 @@ int main(int argc, char *argv[]) {
     MPI_Comm_size(MPI_COMM_WORLD, &world_size);
     MPI_Barrier(MPI_COMM_WORLD);
 
-    printf("starting %d\n", variant);
     if (variant == 0) {
         elapse_time(send, world_rank, msg_size);
     } else if (variant == 1) {
