@@ -50,7 +50,7 @@ int main(int argc, char *argv[]) {
     int opt;
     char *end;
 
-    while (-1 != (opt = getopt(argc, argv, "n:"))) {
+    while (-1 != (opt = getopt(argc, argv, "sv:"))) {
         switch (opt) {
             case 's':
                 msg_size = (unsigned int) strtol(optarg, &end, 10);
