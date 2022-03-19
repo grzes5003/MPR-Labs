@@ -53,14 +53,13 @@ int main(int argc, char *argv[]) {
     while (-1 != (opt = getopt(argc, argv, "s:v:"))) {
         switch (opt) {
             case 'v':
-                printf("parsing  %s\n", optarg);
                 variant = (unsigned int) strtol(optarg, &end, 10);
-//                if (variant > INT_MAX || (errno == ERANGE && variant == INT_MAX))
-//                    return 10;
-//                if (variant < INT_MIN || (errno == ERANGE && variant == INT_MIN))
-//                    return 11;
-//                if (*end2 != '\0')
-//                    return 12;
+                if (variant > INT_MAX || (errno == ERANGE && variant == INT_MAX))
+                    return 10;
+                if (variant < INT_MIN || (errno == ERANGE && variant == INT_MIN))
+                    return 11;
+                if (*end != '\0')
+                    return 12;
                 break;
             case 's':
                 msg_size = (unsigned int) strtol(optarg, &end, 10);
@@ -84,7 +83,6 @@ int main(int argc, char *argv[]) {
     MPI_Comm_size(MPI_COMM_WORLD, &world_size);
     MPI_Barrier(MPI_COMM_WORLD);
 
-    printf("variant=%d", variant);
     if (variant == 0) {
         elapse_time(send, world_rank, msg_size);
     } else if (variant == 1) {
