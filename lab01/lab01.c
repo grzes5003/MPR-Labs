@@ -51,6 +51,7 @@ int main(int argc, char *argv[]) {
     int opt;
     char *end;
 
+    printf("starting");
     while (-1 != (opt = getopt(argc, argv, "vs:"))) {
         switch (opt) {
             case 's':
@@ -66,8 +67,8 @@ int main(int argc, char *argv[]) {
                 variant = (int) strtol(optarg, &end, 10);
                 if (variant > INT_MAX || (errno == ERANGE && variant == INT_MAX))
                     return 10;
-//                if (variant < INT_MIN || (errno == ERANGE && variant == INT_MIN))
-//                    return 11;
+                if (variant < INT_MIN || (errno == ERANGE && variant == INT_MIN))
+                    return 11;
                 if (*end != '\0')
                     return 12;
                 break;
