@@ -20,7 +20,7 @@ target_link_libraries(MPR_proj ${MPI_C_LIBRARIES})
 # LAB01
 project(LAB01 C)
 
-add_executable(LAB01 lab01/diff_variants.c lab01/lab01.c)
+add_executable(LAB01 lab01/lab01.c)
 
 
 project(LAB02 C)
