@@ -52,15 +52,6 @@ int main(int argc, char *argv[]) {
 
     while (-1 != (opt = getopt(argc, argv, "vs:"))) {
         switch (opt) {
-            case 's':
-                msg_size = (unsigned int) strtol(optarg, &end, 10);
-                if (msg_size > INT_MAX || (errno == ERANGE && msg_size == INT_MAX))
-                    return 10;
-                if (errno == ERANGE && msg_size == 0)
-                    return 11;
-                if (*end != '\0')
-                    return 12;
-                break;
             case 'v':
                 printf("parsing  %s\n", optarg);
                 variant = (int) strtol(optarg, &end2, 10);
@@ -69,6 +60,15 @@ int main(int argc, char *argv[]) {
                 if (variant < INT_MIN || (errno == ERANGE && variant == INT_MIN))
                     return 11;
                 if (*end2 != '\0')
+                    return 12;
+                break;
+            case 's':
+                msg_size = (unsigned int) strtol(optarg, &end, 10);
+                if (msg_size > INT_MAX || (errno == ERANGE && msg_size == INT_MAX))
+                    return 10;
+                if (errno == ERANGE && msg_size == 0)
+                    return 11;
+                if (*end != '\0')
                     return 12;
                 break;
             default:
