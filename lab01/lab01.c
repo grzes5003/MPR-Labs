@@ -11,7 +11,7 @@
 #define N 1000
 
 double elapse_time(void (*f)(int, char *), int world_rank, unsigned int msg_size) {
-    char *msg = malloc(msg_size);
+    char *msg = malloc(msg_size * sizeof(char));
     double start_time;
     double end_time;
 
@@ -26,7 +26,7 @@ double elapse_time(void (*f)(int, char *), int world_rank, unsigned int msg_size
 
 
 void send(int world_rank, char *msg) {
-    printf("%d: %s", world_rank, msg);
+    printf("%d: %s", world_rank, *msg);
     if (world_rank == 0) {
         MPI_Send(msg, 1, MPI_CHAR, 1, 0, MPI_COMM_WORLD);
     } else if (world_rank == 1) { // world_rank should be eq to 1
