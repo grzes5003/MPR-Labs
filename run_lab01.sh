@@ -22,7 +22,7 @@ function_test() {
   for ((variant = 0; variant < 2; variant++)); do
     echo "#testing:v=" "$variant"
     for ((c = 1; c <= MSG_SIZE_MAX; c++)); do
-      mpiexec -machinefile ./allnodes -np "$CORES" ./"$1" "-v $variant -s $c"
+      mpiexec -machinefile ./allnodes -np "$CORES" ./"$1" "-v" "$variant" "-s" "$c"
     done
   done
 }

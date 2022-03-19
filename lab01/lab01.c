@@ -57,8 +57,8 @@ int main(int argc, char *argv[]) {
                 variant = (unsigned int) strtol(optarg, &end, 10);
                 if (variant > INT_MAX || (errno == ERANGE && variant == INT_MAX))
                     return 10;
-//                if (errno == ERANGE && variant == 0)
-//                    return 11;
+                if (errno == ERANGE && variant == 0)
+                    return 11;
                 if (*end != '\0')
                     return 12;
                 break;
@@ -66,8 +66,8 @@ int main(int argc, char *argv[]) {
                 msg_size = (unsigned int) strtol(optarg, &end, 10);
                 if (msg_size > INT_MAX || (errno == ERANGE && msg_size == INT_MAX))
                     return 10;
-//                if (errno == ERANGE && msg_size == 0)
-//                    return 11;
+                if (errno == ERANGE && msg_size == 0)
+                    return 11;
                 if (*end != '\0')
                     return 12;
                 break;
