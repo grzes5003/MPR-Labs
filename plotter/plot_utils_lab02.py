@@ -3,6 +3,7 @@ from dataclasses import dataclass
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
+from matplotlib.lines import Line2D
 
 
 @dataclass(repr=True)
@@ -53,7 +54,15 @@ def obj2df(results: [Result]) -> pd.DataFrame:
 
 def plot_lab02(df: pd.DataFrame):
     sns.set_theme(style="darkgrid")
-    sns.pointplot(x="cores", y="dur", data=df, capsize=.2)
+    ax = sns.pointplot(x="cores", y="dur", data=df, hue='n', legend=True, ci='sd')
+    ax.set(yscale="log")
+    ax.legend(title='Number of points [n]')
+    ax.set(ylabel='Duration [s]')
+    ax.set_title('Duration based on used cores')
+    ax.set(xlabel='Number of cores')
+    # ax.figure.legend(handles=[Line2D([], [], marker='_', color="b", label='Small: n=10000000'),
+    #                           Line2D([], [], marker='_', color="r", label='Medium: n=2500000000'),
+    #                           Line2D([], [], marker='_', color="g", label='Big: n=15000000000')])
     plt.show()
 
 
@@ -64,28 +73,40 @@ def plot_speedup(df: pd.DataFrame):
 
     df['speedup'] = t1.loc[df['n']].reset_index()['dur'] / df['dur']
 
-    rocket = sns.color_palette("rocket")
+    # rocket = sns.color_palette("rocket")
     sns.set_theme(style="darkgrid")
-    ax = sns.lineplot(x=range(0, 13), y=range(1, 14), linestyle='--', lw=1, palette=rocket)
+    ax = sns.lineplot(x=range(0, 13), y=range(1, 14), linestyle='--', lw=1)
     sns.pointplot(x="cores", y='speedup', data=df, hue='n', ax=ax, ci="sd", lw=0.1)
-    ax.set_title('Title')
+
+    ax.set(ylabel='Speedup')
+    ax.set_title('Speedup based on used cores')
+    ax.set(xlabel='Number of cores')
     ax.legend(title='Number of points [n]')
+
     # ax.legend(['Theoretical speedup', 'Small: n=10000000', 'Medium: n='])
     plt.show()
 
 
 def plot_efficiency(df: pd.DataFrame):
-    df = df.groupby('cores').mean()
+    t1 = df[df['cores'] == 1].groupby('n').mean()
+    df['speedup'] = t1.loc[df['n']].reset_index()['dur'] / df['dur']
+    df['eff'] = df['speedup'] / df['cores']
+
     sns.set_theme(style="darkgrid")
-    sns.pointplot(x=df.index.values, y=(df.loc[1, 'dur'] / df['dur']) / df.index.values)
-    plt.legend(['Small: n=10000000', 'Medium: n='])
+    ax = sns.pointplot(x='cores', y='eff', data=df, hue='n', ci="sd", capsize=.2, linewidth=0.5)
+
+    ax.set_title('Efficiency based on used cores')
+    ax.legend(title='Number of points [n]')
+    ax.set(ylabel='Efficiency')
+    # plt.legend(['Small: n=10000000', 'Medium: n='])
     plt.show()
 
 
 if __name__ == "__main__":
     path = '../results/lab01to2/log_18_00_53.log'
     path2 = '../results/lab01to2/log_21_10_41.log'
-    res = [*read_logs(path), *read_logs(path2)]
+    path3 = '../results/lab01to2/log_21_15_24.log'
+    res = [*read_logs(path), *read_logs(path2), *read_logs(path3)]
     df = obj2df(res)
     # plot_lab02(df)
     plot_speedup(df)

@@ -1,0 +1,40 @@
+Compiling  LAB02
+ plgrid/tools/binutils/2.34 loaded.
+ plgrid/tools/gcc/9.3.0 loaded.
+ plgrid/tools/intel/2021.3.0 loaded.
+ plgrid/apps/cuda/11.2 loaded.
+ plgrid/libs/gdrcopy/2.2-cuda-11.2 loaded.
+ plgrid/libs/ucx/1.10.0-cuda-11.2 loaded.
+ plgrid/tools/openmpi/4.1.2-intel-2021.3.0 loaded.
+ plgrid/tools/cmake/3.22.1 loaded.
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /net/people/plggkulinski/MPR/MPR-Labs
+Consolidate compiler generated dependencies of target LAB02
+[100%] Built target LAB02
+Starting  LAB02
+#testing:t= 0 :n= 15000000000 :s= LAB02
+12:57.677655:5.368709e-02
+11:61.112887:4.921317e-02
+10:64.888976:4.473924e-02
+9:72.092808:4.026532e-02
+8:87.194784:3.579139e-02
+7:92.648766:3.131747e-02
+6:107.507631:2.684355e-02
+5:126.059207:2.236962e-02
+4:167.289251:1.789570e-02
+3:200.492393:1.342177e-02
+2:283.942736:8.947849e-03
+1:553.999944:4.473924e-03
+#testing:t= 1 :n= 15000000000 :s= LAB02
+12:54.606160:5.368709e-02
+11:64.556869:4.921317e-02
+10:63.635512:4.473924e-02
+9:70.073074:4.026532e-02
+8:78.829818:3.579139e-02
+7:90.152188:3.131747e-02
+6:105.078201:2.684355e-02
+5:126.148352:2.236962e-02
+4:155.474349:1.789570e-02
+3:207.971487:1.342177e-02
+2:285.386373:8.947849e-03
