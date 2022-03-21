@@ -60,6 +60,7 @@ def plot_lab02(df: pd.DataFrame):
     ax.set(ylabel='Duration [s]')
     ax.set_title('Duration based on used cores')
     ax.set(xlabel='Number of cores')
+    # ax.legend(labels=['1*10^7', '250*10^7', '1500*10^7'])
     # ax.figure.legend(handles=[Line2D([], [], marker='_', color="b", label='Small: n=10000000'),
     #                           Line2D([], [], marker='_', color="r", label='Medium: n=2500000000'),
     #                           Line2D([], [], marker='_', color="g", label='Big: n=15000000000')])
@@ -102,6 +103,20 @@ def plot_efficiency(df: pd.DataFrame):
     plt.show()
 
 
+def plot_sequence(df: pd.DataFrame):
+    t1 = df[df['cores'] == 1].groupby('n').mean()
+    df['speedup'] = t1.loc[df['n']].reset_index()['dur'] / df['dur']
+    df['sf'] = (1/df['speedup'] - 1/df['cores']) / (1 - 1/df['cores'])
+
+    sns.set_theme(style="darkgrid")
+    ax = sns.pointplot(x='cores', y='sf', data=df, hue='n', ci="sd", capsize=.2, linewidth=0.5)
+    ax.set_title('Sequential part based on used cores')
+    ax.legend(title='Number of points [n]')
+    ax.set(ylabel='Sequential factor')
+
+    plt.show()
+
+
 if __name__ == "__main__":
     path = '../results/lab01to2/log_18_00_53.log'
     path2 = '../results/lab01to2/log_21_10_41.log'
@@ -109,5 +124,6 @@ if __name__ == "__main__":
     res = [*read_logs(path), *read_logs(path2), *read_logs(path3)]
     df = obj2df(res)
     # plot_lab02(df)
-    plot_speedup(df)
+    # plot_speedup(df)
     # plot_efficiency(df)
+    plot_sequence(df)
