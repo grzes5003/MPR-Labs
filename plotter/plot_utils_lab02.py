@@ -39,7 +39,6 @@ def read_logs(path: str) -> [Result]:
     size = len(lines)
     idx_list = [idx + 1 for idx, val in enumerate(lines) if val[0] == _start_char]
     chunks = [lines[i - 1: j - 1] for i, j in zip([0] + idx_list, idx_list + ([size] if idx_list[-1] != size else []))]
-    print(chunks)
 
     return [Result.from_str(item[0], [Pi.from_str(pi) for pi in item[1:]]) for item in chunks if len(item) != 0]
 
@@ -59,12 +58,19 @@ def plot_lab02(df: pd.DataFrame):
 
 
 def plot_speedup(df: pd.DataFrame):
-    df = df.groupby('cores').mean()
-    sns.color_palette("rocket")
+    # df_out = df.groupby('cores').mean()
+    # std = df.groupby('cores').std()
+    t1 = df[df['cores'] == 1].groupby('n').mean()
+
+    df['speedup'] = t1.loc[df['n']].reset_index()['dur'] / df['dur']
+
+    rocket = sns.color_palette("rocket")
     sns.set_theme(style="darkgrid")
-    sns.lineplot(x=range(0, 13), y=range(1, 14), linestyle='--')
-    sns.pointplot(x=df.index.values, y=df.loc[1, 'dur'] / df['dur'])
-    plt.legend(['Theoretical speedup', 'Small: n=10000000', 'Medium: n='])
+    ax = sns.lineplot(x=range(0, 13), y=range(1, 14), linestyle='--', lw=1, palette=rocket)
+    sns.pointplot(x="cores", y='speedup', data=df, hue='n', ax=ax, ci="sd", lw=0.1)
+    ax.set_title('Title')
+    ax.legend(title='Number of points [n]')
+    # ax.legend(['Theoretical speedup', 'Small: n=10000000', 'Medium: n='])
     plt.show()
 
 
@@ -78,7 +84,8 @@ def plot_efficiency(df: pd.DataFrame):
 
 if __name__ == "__main__":
     path = '../results/lab01to2/log_18_00_53.log'
-    res = read_logs(path)
+    path2 = '../results/lab01to2/log_21_10_41.log'
+    res = [*read_logs(path), *read_logs(path2)]
     df = obj2df(res)
     # plot_lab02(df)
     plot_speedup(df)

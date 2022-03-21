@@ -25,7 +25,7 @@ echo "Starting " "$1"
 
 function_test() {
   # function_test <size> <...args>
-  TRY=30
+  TRY=15
   CORES=12
   for ((t = 0; t < TRY; t++)); do
     echo "#testing:t=" "$t" ":n=" "$1" ":s=" "$2"
@@ -37,8 +37,8 @@ function_test() {
 
 N_SMALL=10000000
 N_MID=2500000000
-N_BIG=50000000000
+N_BIG=15000000000
 
 # function_test "$N_SMALL" "$@"
-function_test "$N_MID" "$@"
+#function_test "$N_MID" "$@"
 function_test "$N_BIG" "$@"
