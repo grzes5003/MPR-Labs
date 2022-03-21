@@ -15,6 +15,7 @@ double elapse_time(void (*f)(int, char *, unsigned int), int world_rank, unsigne
     double start_time;
     double end_time;
 
+    MPI_Barrier(MPI_COMM_WORLD);
     start_time = MPI_Wtime();
     for (int i = 0; i < N; i++) {
         (*f)(world_rank, msg, msg_size);
@@ -22,6 +23,8 @@ double elapse_time(void (*f)(int, char *, unsigned int), int world_rank, unsigne
     end_time = MPI_Wtime();
     if (world_rank == 0)
         printf("%d:%f:%f\n", msg_size, end_time - start_time, (end_time - start_time) / (double) N);
+    free(msg);
+
     return end_time - start_time;
 }
 
@@ -82,7 +85,6 @@ int main(int argc, char *argv[]) {
     MPI_Init(NULL, NULL);
     MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
     MPI_Comm_size(MPI_COMM_WORLD, &world_size);
-    MPI_Barrier(MPI_COMM_WORLD);
 
     if (variant == 0) {
         elapse_time(send, world_rank, msg_size);

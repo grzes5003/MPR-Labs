@@ -3,7 +3,7 @@
 #SBATCH --ntasks 12
 #SBATCH --time=01:00:00
 #SBATCH --sockets-per-node=2
-#SBATCH --partition=plgrid
+#SBATCH --partition=plgrid-short
 #SBATCH --account=plgmpr22
 
 if [ -z "$SCRIPT" ]; then
@@ -29,7 +29,7 @@ function_test() {
   CORES=12
   for ((t = 0; t < TRY; t++)); do
     echo "#testing:t=" "$t" ":n=" "$1" ":s=" "$2"
-    for ((c = 1; c <= CORES; c++)); do
+    for ((c = CORES; c > 0; c--)); do
       mpiexec -np "$c" ./"$2" "-n $1"
     done
   done
@@ -39,6 +39,6 @@ N_SMALL=10000000
 N_MID=50000000000
 N_BIG=100000000000
 
-function_test "$N_SMALL" "$@"
+# function_test "$N_SMALL" "$@"
 function_test "$N_MID" "$@"
 function_test "$N_BIG" "$@"

@@ -52,7 +52,7 @@ def obj2df(results: [Result]) -> pd.DataFrame:
     return pd.DataFrame(record, columns=['cores', 'dur', 'try', 'n'])
 
 
-def plot(df: pd.DataFrame):
+def plot_lab02(df: pd.DataFrame):
     sns.set_theme(style="darkgrid")
     sns.pointplot(x="cores", y="dur", data=df, capsize=.2)
     plt.show()
@@ -62,4 +62,4 @@ if __name__ == "__main__":
     path = '../results/lab01to2/log_18_00_53.log'
     res = read_logs(path)
     df = obj2df(res)
-    plot(df)
+    plot_lab02(df)
