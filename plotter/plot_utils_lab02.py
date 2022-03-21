@@ -58,8 +58,28 @@ def plot_lab02(df: pd.DataFrame):
     plt.show()
 
 
+def plot_speedup(df: pd.DataFrame):
+    df = df.groupby('cores').mean()
+    sns.color_palette("rocket")
+    sns.set_theme(style="darkgrid")
+    sns.lineplot(x=range(0, 13), y=range(1, 14), linestyle='--')
+    sns.pointplot(x=df.index.values, y=df.loc[1, 'dur'] / df['dur'])
+    plt.legend(['Theoretical speedup', 'Small: n=10000000', 'Medium: n='])
+    plt.show()
+
+
+def plot_efficiency(df: pd.DataFrame):
+    df = df.groupby('cores').mean()
+    sns.set_theme(style="darkgrid")
+    sns.pointplot(x=df.index.values, y=(df.loc[1, 'dur'] / df['dur']) / df.index.values)
+    plt.legend(['Small: n=10000000', 'Medium: n='])
+    plt.show()
+
+
 if __name__ == "__main__":
     path = '../results/lab01to2/log_18_00_53.log'
     res = read_logs(path)
     df = obj2df(res)
-    plot_lab02(df)
+    # plot_lab02(df)
+    plot_speedup(df)
+    # plot_efficiency(df)

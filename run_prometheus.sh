@@ -36,8 +36,8 @@ function_test() {
 }
 
 N_SMALL=10000000
-N_MID=50000000000
-N_BIG=100000000000
+N_MID=2500000000
+N_BIG=50000000000
 
 # function_test "$N_SMALL" "$@"
 function_test "$N_MID" "$@"
