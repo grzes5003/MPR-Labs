@@ -1,6 +1,7 @@
 import itertools
 from dataclasses import dataclass
 import matplotlib.pyplot as plt
+import numpy as np
 import seaborn as sns
 import pandas as pd
 from matplotlib.lines import Line2D
@@ -54,7 +55,8 @@ def obj2df(results: [Result]) -> pd.DataFrame:
 
 def plot_lab02(df: pd.DataFrame):
     sns.set_theme(style="darkgrid")
-    ax = sns.pointplot(x="cores", y="dur", data=df, hue='n', legend=True, ci='sd')
+    ax = sns.lineplot(x=range(1, 13), y=np.repeat(1, 12)/range(1, 13), linestyle='--', lw=1)
+    sns.pointplot(x="cores", y="dur", data=df, hue='n', ax=ax, legend=True, ci='sd')
     ax.set(yscale="log")
     ax.legend(title='Number of points [n]')
     ax.set(ylabel='Duration [s]')
@@ -94,7 +96,8 @@ def plot_efficiency(df: pd.DataFrame):
     df['eff'] = df['speedup'] / df['cores']
 
     sns.set_theme(style="darkgrid")
-    ax = sns.pointplot(x='cores', y='eff', data=df, hue='n', ci="sd", capsize=.2, linewidth=0.5)
+    ax = sns.lineplot(x=range(0, 13), y=np.repeat(1, 13), linestyle='--', lw=1)
+    sns.pointplot(x='cores', y='eff', data=df, hue='n', ci="sd", capsize=.2, linewidth=0.5, ax=ax)
 
     ax.set_title('Efficiency based on used cores')
     ax.legend(title='Number of points [n]')
@@ -123,7 +126,7 @@ if __name__ == "__main__":
     path3 = '../results/lab01to2/log_21_15_24.log'
     res = [*read_logs(path), *read_logs(path2), *read_logs(path3)]
     df = obj2df(res)
-    # plot_lab02(df)
+    plot_lab02(df)
     # plot_speedup(df)
     # plot_efficiency(df)
-    plot_sequence(df)
+    # plot_sequence(df)
