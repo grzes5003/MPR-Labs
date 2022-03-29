@@ -36,10 +36,11 @@ int main(int argc, char *argv[]) {
 
     start = omp_get_wtime();
 
-#pragma omp parallel for private(nthreads, tid)
+#pragma omp parallel private(nthreads, tid)
     {
         tid = omp_get_thread_num();
         nthreads = omp_get_thread_num();
+#pragma omp parallel for
         for (int i = 0; i < arr_size; ++i) {
             i_tab[i] = i;
         }
