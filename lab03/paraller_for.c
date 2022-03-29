@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
     while (-1 != (opt = getopt(argc, argv, "n:"))) {
         switch (opt) {
             case 'n':
-                threads = strtol(optarg, &end);
+                threads = strtol(optarg, &end, 10);
                 omp_set_num_threads(threads);
                 break;
             default:
