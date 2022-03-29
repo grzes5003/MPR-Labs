@@ -37,11 +37,12 @@ int main(int argc, char *argv[]) {
     start = omp_get_wtime();
 
 #pragma omp parallel for private(nthreads, tid)
+{
+    tid = omp_get_thread_num();
     for (int i = 0; i < arr_size; ++i) {
-        tid = omp_get_thread_num();
         i_tab[i] = i;
     }
-
+}
     delta = omp_get_wtime() - start;
 
     printf("n=%ld:delta=%f\n", threads, delta);
