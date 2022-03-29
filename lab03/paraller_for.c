@@ -37,12 +37,12 @@ int main(int argc, char *argv[]) {
     start = omp_get_wtime();
 
 #pragma omp parallel for private(nthreads, tid)
-{
-    tid = omp_get_thread_num();
-    for (int i = 0; i < arr_size; ++i) {
-        i_tab[i] = i;
+    {
+        tid = omp_get_thread_num();
+        for (int i = 0; i < arr_size; ++i) {
+            i_tab[i] = i;
+        }
     }
-}
     delta = omp_get_wtime() - start;
 
     printf("n=%ld:delta=%f\n", threads, delta);
@@ -56,8 +56,7 @@ int main(int argc, char *argv[]) {
 //        printf("Hello World from thread = %d\n", tid);
 //
 //        /* Only master thread does this */
-//        if (tid == 0)
-//        {
+//        if (tid == 0) {
 //            nthreads = omp_get_num_threads();
 //            printf("Number of threads = %d\n", nthreads);
 //        }
