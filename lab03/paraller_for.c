@@ -22,27 +22,26 @@ int main(int argc, char *argv[]) {
         switch (opt) {
             case 'n':
                 threads = strtol(optarg, &end, 10);
-                omp_set_num_threads(threads);
                 break;
             default:
                 fprintf(stderr, "unexpected argument: %d\n", optopt);
                 return 1;
         }
     }
+    omp_set_num_threads(threads);
 
     const int arr_size = 1000;
     int nthreads, tid;
     int *i_tab = malloc(sizeof(int) * arr_size);
 
     start = omp_get_wtime();
+    tid = omp_get_thread_num();
 
 #pragma omp parallel for private(nthreads, tid)
-//    {
-    tid = omp_get_thread_num();
     for (int i = 0; i < arr_size; ++i) {
         i_tab[i] = i;
     }
-//    }
+
     delta = omp_get_wtime() - start;
 
     printf("n=%ld:delta=%f\n", threads, delta);
