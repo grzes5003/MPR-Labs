@@ -39,10 +39,6 @@ int main(int argc, char *argv[]) {
 #pragma omp parallel for private(nthreads, tid)
     for (int i = 0; i < arr_size; ++i) {
         tid = omp_get_thread_num();
-        if (tid == 0) {
-            nthreads = omp_get_num_threads();
-            printf("Number of threads = %d\n", nthreads);
-        }
         i_tab[i] = i;
     }
 
