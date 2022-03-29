@@ -40,7 +40,7 @@ int main(int argc, char *argv[]) {
     {
         tid = omp_get_thread_num();
         nthreads = omp_get_thread_num();
-#pragma omp parallel for
+#pragma omp for
         for (int i = 0; i < arr_size; ++i) {
             i_tab[i] = i;
         }
