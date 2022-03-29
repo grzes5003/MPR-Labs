@@ -30,7 +30,7 @@ int main(int argc, char *argv[]) {
     }
     omp_set_num_threads(threads);
 
-    const int arr_size = 1000;
+    const int arr_size = 100000;
     int nthreads, tid;
     int *i_tab = malloc(sizeof(int) * arr_size);
 
