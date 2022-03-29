@@ -38,8 +38,15 @@ int main(int argc, char *argv[]) {
 
 #pragma omp parallel private(nthreads, tid)
     {
+        /* Obtain thread number */
         tid = omp_get_thread_num();
-        nthreads = omp_get_thread_num();
+        printf("Hello World from thread = %d\n", tid);
+
+        /* Only master thread does this */
+        if (tid == 0) {
+            nthreads = omp_get_num_threads();
+            printf("Number of threads = %d\n", nthreads);
+        }
 #pragma omp for
         for (int i = 0; i < arr_size; ++i) {
             i_tab[i] = i;
