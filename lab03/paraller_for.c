@@ -36,6 +36,7 @@ int main(int argc, char *argv[]) {
 
     start = omp_get_wtime();
     tid = omp_get_thread_num();
+    nthreads = omp_get_thread_num();
 
 #pragma omp parallel for private(nthreads, tid)
     for (int i = 0; i < arr_size; ++i) {
@@ -44,7 +45,7 @@ int main(int argc, char *argv[]) {
 
     delta = omp_get_wtime() - start;
 
-    printf("n=%ld:delta=%f\n", threads, delta);
+    printf("n=%d:delta=%f\n", nthreads, delta);
 
 ///* Fork a team of threads giving them their own copies of variables */
 //#pragma omp parallel private(nthreads, tid)
