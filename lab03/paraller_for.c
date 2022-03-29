@@ -35,12 +35,14 @@ int main(int argc, char *argv[]) {
     int *i_tab = malloc(sizeof(int) * arr_size);
 
     start = omp_get_wtime();
-    tid = omp_get_thread_num();
-    nthreads = omp_get_thread_num();
 
 #pragma omp parallel for private(nthreads, tid)
-    for (int i = 0; i < arr_size; ++i) {
-        i_tab[i] = i;
+    {
+        tid = omp_get_thread_num();
+        nthreads = omp_get_thread_num();
+        for (int i = 0; i < arr_size; ++i) {
+            i_tab[i] = i;
+        }
     }
 
     delta = omp_get_wtime() - start;
