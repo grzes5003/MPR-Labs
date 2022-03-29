@@ -36,7 +36,7 @@ int main(int argc, char *argv[]) {
 
     start = omp_get_wtime();
 
-#pragma omp parallel private(nthreads, tid)
+#pragma omp parallel private(tid)
     {
         /* Obtain thread number */
         tid = omp_get_thread_num();
