@@ -14,6 +14,8 @@
 int main(int argc, char *argv[]) {
 
     double start, delta;
+    int opt;
+    char *end;
 
     long threads = 1;
     while (-1 != (opt = getopt(argc, argv, "n:"))) {
