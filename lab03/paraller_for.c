@@ -17,7 +17,8 @@ int main(int argc, char *argv[]) {
     char *end;
     lehmer64_seed(0);
 
-    int threads = 1; int arr_size = 100000;
+    int threads = 1;
+    int arr_size = 100000;
     while (-1 != (opt = getopt(argc, argv, "t:n"))) {
         switch (opt) {
             case 'n':
@@ -47,7 +48,7 @@ int main(int argc, char *argv[]) {
 
     int nthreads = -1; int tid;
     const int32_t range = 1000;
-    int *i_tab = malloc(sizeof(int) * arr_size);
+    int32_t *i_tab = malloc(sizeof(int32_t) * arr_size);
 
     start = omp_get_wtime();
 
@@ -59,7 +60,7 @@ int main(int argc, char *argv[]) {
         }
 #pragma omp for
         for (int i = 0; i < arr_size; ++i) {
-            i_tab[i] = (int32_t) lehmer64() % range;
+            i_tab[i] = (int32_t) (lehmer64() % range);
         }
 }
 
