@@ -43,7 +43,7 @@ int main(int argc, char *argv[]) {
     }
     omp_set_num_threads(threads);
 
-    int nthreads; int tid;
+    int nthreads = -1; int tid;
     int *i_tab = malloc(sizeof(int) * arr_size);
 
     start = omp_get_wtime();
@@ -61,6 +61,7 @@ int main(int argc, char *argv[]) {
 }
 
     delta = omp_get_wtime() - start;
+    free(i_tab);
 
     printf("n=%d:delta=%f\n", nthreads, delta);
 
