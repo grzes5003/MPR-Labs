@@ -15,7 +15,9 @@ int main(int argc, char *argv[]) {
     double start; double delta;
     int opt;
     char *end;
+
     lehmer64_seed(0);
+    srand(0);
 
     int threads = 1;
     int arr_size = 100000;
@@ -60,7 +62,8 @@ int main(int argc, char *argv[]) {
         }
 #pragma omp for
         for (int i = 0; i < arr_size; ++i) {
-            i_tab[i] = (int32_t) (lehmer64() % range);
+//            i_tab[i] = (int32_t) (lehmer64() % range);
+            i_tab[i] = rand();
         }
 }
 
