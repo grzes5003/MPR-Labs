@@ -15,7 +15,7 @@ make "$1"
 echo "Starting " "$1"
 
 CORES=1
-N=1000000
+N=10000000
 
 # static
 for ((n_size = 1000; n_size <= N; n_size *= 10)); do

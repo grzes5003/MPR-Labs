@@ -1,0 +1,50 @@
+Compiling  LAB03
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/students/k/u/kulinski/repos/MPR-Labs
+Consolidate compiler generated dependencies of target LAB03
+[ 50%] Building C object CMakeFiles/LAB03.dir/lab03/paraller_for.c.o
+[100%] Linking C executable LAB03
+[100%] Built target LAB03
+Starting  LAB03
+===============SIZE1000
+t=1:delta=0.000024:d=1:c=0:n=1000
+t=2:delta=0.000073:d=1:c=0:n=1000
+t=3:delta=0.000093:d=1:c=0:n=1000
+t=4:delta=0.000152:d=1:c=0:n=1000
+===============DYNAMIC
+t=1:delta=0.000037:d=2:c=1:n=1000
+t=2:delta=0.000119:d=2:c=1:n=1000
+t=3:delta=0.000155:d=2:c=1:n=1000
+t=4:delta=0.000183:d=2:c=1:n=1000
+===============SIZE10000
+t=1:delta=0.000062:d=1:c=0:n=10000
+t=2:delta=0.000093:d=1:c=0:n=10000
+t=3:delta=0.000107:d=1:c=0:n=10000
+t=4:delta=0.000133:d=1:c=0:n=10000
+===============DYNAMIC
+t=1:delta=0.000206:d=2:c=1:n=10000
+t=2:delta=0.000555:d=2:c=1:n=10000
+t=3:delta=0.000470:d=2:c=1:n=10000
+t=4:delta=0.000518:d=2:c=1:n=10000
+===============SIZE100000
+t=1:delta=0.000509:d=1:c=0:n=100000
+t=2:delta=0.000346:d=1:c=0:n=100000
+t=3:delta=0.000273:d=1:c=0:n=100000
+t=4:delta=0.000244:d=1:c=0:n=100000
+===============DYNAMIC
+t=1:delta=0.001800:d=2:c=1:n=100000
+t=2:delta=0.004382:d=2:c=1:n=100000
+t=3:delta=0.004764:d=2:c=1:n=100000
+t=4:delta=0.004159:d=2:c=1:n=100000
+===============SIZE1000000
+t=1:delta=0.004331:d=1:c=0:n=1000000
+t=2:delta=0.002126:d=1:c=0:n=1000000
+t=3:delta=0.001783:d=1:c=0:n=1000000
+t=4:delta=0.001578:d=1:c=0:n=1000000
+===============DYNAMIC
+t=1:delta=0.017216:d=2:c=1:n=1000000
+t=2:delta=0.042836:d=2:c=1:n=1000000
+t=3:delta=0.041520:d=2:c=1:n=1000000
+t=4:delta=0.041289:d=2:c=1:n=1000000
+0
