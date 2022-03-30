@@ -18,9 +18,17 @@ echo "Starting " "$1"
 CORES=1
 N=100000
 
+# static
 for ((threads = 1; threads <= 4; threads++)); do
   for (( chunk = 0; chunk < 4; chunk++ )); do
     mpiexec -machinefile ./allnodes -n "$CORES" ./"$1" -t "$threads" -c "$chunk" # -n "$N"
+  done
+done
+
+# dynamic
+for ((threads = 1; threads <= 4; threads++)); do
+  for (( chunk = 0; chunk < 4; chunk++ )); do
+    mpiexec -machinefile ./allnodes -n "$CORES" ./"$1" -t "$threads" -c "$chunk" -d # -n "$N"
   done
 done
 

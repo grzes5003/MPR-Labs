@@ -82,7 +82,6 @@ int main(int argc, char *argv[]) {
     omp_sched_t kind;
     int chunk;
     omp_get_schedule(&kind, &chunk);
-    printf("%d %d\n", kind, chunk);
 
 #pragma omp parallel default(none) private(tid) shared(nthreads, i_tab, arr_size) //  num_threads(threads)
     {
@@ -98,13 +97,13 @@ int main(int argc, char *argv[]) {
 
     delta = omp_get_wtime() - start;
 
-    printf("n=%d:delta=%f\n", nthreads, delta);
+    printf("n=%d:delta=%f:d=%d:c=%d\n", nthreads, delta, kind, chunk);
 
 //    for (int i = 0; i < (arr_size > 100 ? 100 : arr_size); ++i) {
 //        printf("%d,", i_tab[i]);
 //    }
 
-    printf("\n");
+//    printf("\n");
     free(i_tab);
 
     return 0;
