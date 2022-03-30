@@ -71,8 +71,6 @@ int main(int argc, char *argv[]) {
     const int32_t range = 1000;
     int32_t *i_tab = malloc(sizeof(int32_t) * arr_size);
 
-    start = omp_get_wtime();
-
     if (b_variant) {
         omp_set_schedule(omp_sched_dynamic, i_variant);
     } else {
@@ -82,6 +80,8 @@ int main(int argc, char *argv[]) {
     omp_sched_t kind;
     int chunk;
     omp_get_schedule(&kind, &chunk);
+
+    start = omp_get_wtime();
 
 #pragma omp parallel default(none) firstprivate(g_lehmer64_state)\
 private(tid) shared(nthreads, i_tab, arr_size) //  num_threads(threads)
