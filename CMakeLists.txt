@@ -51,7 +51,7 @@ if (OPENMP_FOUND)
     set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_EXE_LINKER_FLAGS}")
 endif()
 
-add_executable(LAB03 lab03/paraller_for.c)
+add_executable(LAB03 lab03/paraller_for.c lab03/lehmer64.h)
 
 target_link_libraries(LAB03 PRIVATE "${OpenMP_C_FLAGS}")
 target_compile_options(LAB03 PRIVATE "${OpenMP_C_FLAGS}")

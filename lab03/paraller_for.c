@@ -61,9 +61,13 @@ int main(int argc, char *argv[]) {
 }
 
     delta = omp_get_wtime() - start;
-    free(i_tab);
 
     printf("n=%d:delta=%f\n", nthreads, delta);
+    for (int i = 0; i < (arr_size > 100 ? 100 : arr_size); ++i) {
+        printf("%d", i_tab[i]);
+    }
+    printf("\n");
+    free(i_tab);
 
     return 0;
 }
