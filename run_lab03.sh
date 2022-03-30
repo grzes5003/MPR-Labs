@@ -21,4 +21,4 @@ for ((variant = 1; variant < 4; variant++)); do
   mpiexec -machinefile ./allnodes -n "$CORES" ./"$1" "-n" "$variant"
 done
 
-cat log_"$TODAY".log
+cat log_"$TODAY".log >&3
