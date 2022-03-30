@@ -7,6 +7,7 @@
 #include <getopt.h>
 #include <errno.h>
 #include <limits.h>
+#include "lehmer64.h"
 
 
 int main(int argc, char *argv[]) {
@@ -14,6 +15,7 @@ int main(int argc, char *argv[]) {
     double start; double delta;
     int opt;
     char *end;
+    lehmer64_seed(0);
 
     int threads = 1; int arr_size = 100000;
     while (-1 != (opt = getopt(argc, argv, "t:n"))) {
@@ -44,6 +46,7 @@ int main(int argc, char *argv[]) {
     omp_set_num_threads(threads);
 
     int nthreads = -1; int tid;
+    const int32_t range = 1000;
     int *i_tab = malloc(sizeof(int) * arr_size);
 
     start = omp_get_wtime();
@@ -56,7 +59,7 @@ int main(int argc, char *argv[]) {
         }
 #pragma omp for
         for (int i = 0; i < arr_size; ++i) {
-            i_tab[i] = i;
+            i_tab[i] = (int32_t) lehmer64() % range;
         }
 }
 
@@ -64,7 +67,7 @@ int main(int argc, char *argv[]) {
 
     printf("n=%d:delta=%f\n", nthreads, delta);
     for (int i = 0; i < (arr_size > 100 ? 100 : arr_size); ++i) {
-        printf("%d", i_tab[i]);
+        printf("%d,", i_tab[i]);
     }
     printf("\n");
     free(i_tab);
