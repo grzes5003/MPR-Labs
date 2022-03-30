@@ -19,7 +19,9 @@ CORES=1
 N=100000
 
 for ((threads = 1; threads <= 4; threads++)); do
-  mpiexec -machinefile ./allnodes -n "$CORES" ./"$1" -t "$threads" -c 1 # -n "$N"
+  for (( chunk = 0; chunk < 4; chunk++ )); do
+    mpiexec -machinefile ./allnodes -n "$CORES" ./"$1" -t "$threads" -c "$chunk" # -n "$N"
+  done
 done
 
 echo $?
