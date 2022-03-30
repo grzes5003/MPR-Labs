@@ -5,6 +5,8 @@
 #include <omp.h>
 #include <stdlib.h>
 #include <getopt.h>
+#include <errno.h>
+#include <limits.h>
 
 
 int main(int argc, char *argv[]) {
@@ -13,11 +15,26 @@ int main(int argc, char *argv[]) {
     int opt;
     char *end;
 
-    int threads = 1;
-    while (-1 != (opt = getopt(argc, argv, "n:"))) {
+    int threads = 1; int arr_size = 100000;
+    while (-1 != (opt = getopt(argc, argv, "n:t"))) {
         switch (opt) {
             case 'n':
+                arr_size = (int) strtol(optarg, &end, 10);
+                if (arr_size > INT_MAX || (errno == ERANGE && arr_size == INT_MAX))
+                    return 10;
+                if (errno == ERANGE && arr_size == INT_MIN)
+                    return 11;
+                if (*end != '\0')
+                    return 12;
+                break;
+            case 't':
                 threads = (int) strtol(optarg, &end, 10);
+                if (threads > INT_MAX || (errno == ERANGE && threads == INT_MAX))
+                    return 10;
+                if (errno == ERANGE && threads == INT_MIN)
+                    return 11;
+                if (*end != '\0')
+                    return 12;
                 break;
             default:
                 fprintf(stderr, "unexpected argument: %d\n", optopt);
@@ -26,7 +43,6 @@ int main(int argc, char *argv[]) {
     }
     omp_set_num_threads(threads);
 
-    const int arr_size = 100000;
     int nthreads; int tid;
     int *i_tab = malloc(sizeof(int) * arr_size);
 

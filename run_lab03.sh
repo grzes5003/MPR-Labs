@@ -17,8 +17,10 @@ echo "Starting " "$1"
 
 CORES=1
 
-for ((variant = 1; variant < 4; variant++)); do
-  mpiexec -machinefile ./allnodes -n "$CORES" ./"$1" "-n" "$variant"
+for ((threads = 1; threads < 4; threads++)); do
+  mpiexec -machinefile ./allnodes -n "$CORES" ./"$1" "-t" "$threads"
 done
+
+echo $?
 
 cat log_"$TODAY".log >&3
