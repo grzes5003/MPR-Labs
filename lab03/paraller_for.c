@@ -97,7 +97,7 @@ int main(int argc, char *argv[]) {
 
     delta = omp_get_wtime() - start;
 
-    printf("n=%d:delta=%f:d=%d:c=%d\n", nthreads, delta, kind, chunk);
+    printf("t=%d:delta=%f:d=%d:c=%d:n=%d\n", nthreads, delta, kind, chunk, arr_size);
 
 //    for (int i = 0; i < (arr_size > 100 ? 100 : arr_size); ++i) {
 //        printf("%d,", i_tab[i]);

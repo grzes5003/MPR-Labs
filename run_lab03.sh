@@ -7,7 +7,6 @@ if [ -z "$SCRIPT" ]; then
   exec 1>log_"$TODAY".log 2>&1
 fi
 
-
 echo "Compiling " "$1"
 
 cmake .
@@ -19,19 +18,24 @@ CORES=1
 N=100000
 
 # static
-for ((threads = 1; threads <= 4; threads++)); do
-  for (( chunk = 0; chunk < 4; chunk++ )); do
-    mpiexec -machinefile ./allnodes -n "$CORES" ./"$1" -t "$threads" -c "$chunk" # -n "$N"
+for ((n_size = 1000; n_size < N; n_size *= 10)); do
+  echo "===============SIZE""$n_size"
+  for ((threads = 1; threads <= 4; threads++)); do
+    echo "==============="
+    for ((chunk = 0; chunk < 4; chunk++)); do
+      mpiexec -machinefile ./allnodes -n "$CORES" ./"$1" -t "$threads" -c "$chunk" -n "$n_size"
+    done
   done
-  echo "==============="
-done
 
-# dynamic
-for ((threads = 1; threads <= 4; threads++)); do
-  for (( chunk = 0; chunk < 4; chunk++ )); do
-    mpiexec -machinefile ./allnodes -n "$CORES" ./"$1" -t "$threads" -c "$chunk" -d # -n "$N"
+  echo "===============DYNAMIC"
+
+  # dynamic
+  for ((threads = 1; threads <= 4; threads++)); do
+    for ((chunk = 0; chunk < 4; chunk++)); do
+      mpiexec -machinefile ./allnodes -n "$CORES" ./"$1" -t "$threads" -c "$chunk" -d -n "$n_size"
+    done
+    echo "==============="
   done
-  echo "==============="
 done
 
 echo $?
