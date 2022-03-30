@@ -1,0 +1,58 @@
+Compiling  LAB03
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/students/k/u/kulinski/repos/MPR-Labs
+Consolidate compiler generated dependencies of target LAB03
+[100%] Built target LAB03
+Starting  LAB03
+===============SIZE1000
+t=1:delta=0.000026:d=1:c=0:n=1000
+t=2:delta=0.000082:d=1:c=0:n=1000
+t=3:delta=0.000099:d=1:c=0:n=1000
+t=4:delta=0.000127:d=1:c=0:n=1000
+===============DYNAMIC
+t=1:delta=0.000034:d=2:c=1:n=1000
+t=2:delta=0.000123:d=2:c=1:n=1000
+t=3:delta=0.000150:d=2:c=1:n=1000
+t=4:delta=0.003829:d=2:c=1:n=1000
+===============SIZE10000
+t=1:delta=0.000091:d=1:c=0:n=10000
+t=2:delta=0.000099:d=1:c=0:n=10000
+t=3:delta=0.000141:d=1:c=0:n=10000
+t=4:delta=0.000133:d=1:c=0:n=10000
+===============DYNAMIC
+t=1:delta=0.000205:d=2:c=1:n=10000
+t=2:delta=0.000565:d=2:c=1:n=10000
+t=3:delta=0.000453:d=2:c=1:n=10000
+t=4:delta=0.000487:d=2:c=1:n=10000
+===============SIZE100000
+t=1:delta=0.000545:d=1:c=0:n=100000
+t=2:delta=0.000321:d=1:c=0:n=100000
+t=3:delta=0.000257:d=1:c=0:n=100000
+t=4:delta=0.000262:d=1:c=0:n=100000
+===============DYNAMIC
+t=1:delta=0.001795:d=2:c=1:n=100000
+t=2:delta=0.004593:d=2:c=1:n=100000
+t=3:delta=0.004152:d=2:c=1:n=100000
+t=4:delta=0.004364:d=2:c=1:n=100000
+===============SIZE1000000
+t=1:delta=0.004303:d=1:c=0:n=1000000
+t=2:delta=0.002685:d=1:c=0:n=1000000
+t=3:delta=0.001923:d=1:c=0:n=1000000
+t=4:delta=0.001364:d=1:c=0:n=1000000
+===============DYNAMIC
+t=1:delta=0.017193:d=2:c=1:n=1000000
+t=2:delta=0.041215:d=2:c=1:n=1000000
+t=3:delta=0.040113:d=2:c=1:n=1000000
+t=4:delta=0.041499:d=2:c=1:n=1000000
+===============SIZE10000000
+t=1:delta=0.035781:d=1:c=0:n=10000000
+t=2:delta=0.017731:d=1:c=0:n=10000000
+t=3:delta=0.012683:d=1:c=0:n=10000000
+t=4:delta=0.009178:d=1:c=0:n=10000000
+===============DYNAMIC
+t=1:delta=0.167934:d=2:c=1:n=10000000
+t=2:delta=0.424283:d=2:c=1:n=10000000
+t=3:delta=0.420281:d=2:c=1:n=10000000
+t=4:delta=0.406500:d=2:c=1:n=10000000
+0

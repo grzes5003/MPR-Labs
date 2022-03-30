@@ -83,7 +83,8 @@ int main(int argc, char *argv[]) {
     int chunk;
     omp_get_schedule(&kind, &chunk);
 
-#pragma omp parallel default(none) private(tid) shared(nthreads, i_tab, arr_size) //  num_threads(threads)
+#pragma omp parallel default(none) firstprivate(g_lehmer64_state)\
+private(tid) shared(nthreads, i_tab, arr_size) //  num_threads(threads)
     {
         tid = omp_get_thread_num();
         if (tid == 0) {
@@ -91,20 +92,13 @@ int main(int argc, char *argv[]) {
         }
 #pragma omp for schedule(runtime)
         for (int i = 0; i < arr_size; ++i) {
-//            i_tab[i] = (int32_t) (lehmer64() % range);
-            i_tab[i] = i;
+            i_tab[i] = (int32_t) (lehmer64() % range);
         }
     }
 
     delta = omp_get_wtime() - start;
 
     printf("t=%d:delta=%f:d=%d:c=%d:n=%d\n", nthreads, delta, kind, chunk, arr_size);
-
-//    for (int i = 0; i < (arr_size > 100 ? 100 : arr_size); ++i) {
-//        printf("%d,", i_tab[i]);
-//    }
-
-//    printf("\n");
     free(i_tab);
 
     return 0;
