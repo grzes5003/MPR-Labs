@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
     char *end;
 
     int threads = 1; int arr_size = 100000;
-    while (-1 != (opt = getopt(argc, argv, "n:t"))) {
+    while (-1 != (opt = getopt(argc, argv, "t:n"))) {
         switch (opt) {
             case 'n':
                 arr_size = (int) strtol(optarg, &end, 10);
@@ -48,7 +48,7 @@ int main(int argc, char *argv[]) {
 
     start = omp_get_wtime();
 
-#pragma omp parallel default(none) private(tid) shared(nthreads, i_tab) //  num_threads(threads)
+#pragma omp parallel default(none) private(tid) shared(nthreads, i_tab, arr_size) //  num_threads(threads)
 {
         tid = omp_get_thread_num();
         if (tid == 0) {
