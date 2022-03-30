@@ -22,7 +22,7 @@ int main(int argc, char *argv[]) {
                 arr_size = (int) strtol(optarg, &end, 10);
                 if (arr_size > INT_MAX || (errno == ERANGE && arr_size == INT_MAX))
                     return 10;
-                if (errno == ERANGE && arr_size == INT_MIN)
+                if (errno == ERANGE && arr_size == 0)
                     return 11;
                 if (*end != '\0')
                     return 12;
@@ -31,7 +31,7 @@ int main(int argc, char *argv[]) {
                 threads = (int) strtol(optarg, &end, 10);
                 if (threads > INT_MAX || (errno == ERANGE && threads == INT_MAX))
                     return 10;
-                if (errno == ERANGE && threads == INT_MIN)
+                if (errno == ERANGE && threads == 0)
                     return 11;
                 if (*end != '\0')
                     return 12;
