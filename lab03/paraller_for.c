@@ -17,7 +17,6 @@ int main(int argc, char *argv[]) {
     char *end;
 
     lehmer64_seed(0);
-    srand(0);
 
     int threads = 1;
     int arr_size = 100000;
@@ -62,17 +61,18 @@ int main(int argc, char *argv[]) {
         }
 #pragma omp for
         for (int i = 0; i < arr_size; ++i) {
-//            i_tab[i] = (int32_t) (lehmer64() % range);
-            i_tab[i] = rand() % range;
+            i_tab[i] = (int32_t) (lehmer64() % range);
         }
 }
 
     delta = omp_get_wtime() - start;
 
     printf("n=%d:delta=%f\n", nthreads, delta);
-    for (int i = 0; i < (arr_size > 100 ? 100 : arr_size); ++i) {
-        printf("%d,", i_tab[i]);
-    }
+
+//    for (int i = 0; i < (arr_size > 100 ? 100 : arr_size); ++i) {
+//        printf("%d,", i_tab[i]);
+//    }
+
     printf("\n");
     free(i_tab);
 
