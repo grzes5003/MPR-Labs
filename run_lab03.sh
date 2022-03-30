@@ -15,8 +15,8 @@ make "$1"
 
 echo "Starting " "$1"
 
-CORES=2
+CORES=1
 
 for ((variant = 1; variant < 4; variant++)); do
-  mpiexec -machinefile ./allnodes -np "$CORES" ./"$1" "-n" "$variant"
+  mpiexec -machinefile ./allnodes -n "$CORES" ./"$1" "-n" "$variant"
 done
