@@ -91,7 +91,8 @@ int main(int argc, char *argv[]) {
         }
 #pragma omp for schedule(runtime)
         for (int i = 0; i < arr_size; ++i) {
-            i_tab[i] = (int32_t) (lehmer64() % range);
+//            i_tab[i] = (int32_t) (lehmer64() % range);
+            i_tab[i] = i;
         }
     }
 
