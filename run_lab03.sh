@@ -19,10 +19,10 @@ N=10000000
 
 # static
 for ((n_size = 1000; n_size <= N; n_size *= 10)); do
-  echo "===============SIZE""$n_size"
-  for ((threads = 1; threads <= 8; threads++)); do
+#  echo "===============SIZE""$n_size"
+  for ((threads = 1; threads <= 4; threads++)); do
 #    echo "==============="
-    for ((chunk = 0; chunk < 1; chunk++)); do
+    for ((chunk = 0; chunk < 4; chunk++)); do
       mpiexec -machinefile ./allnodes -n "$CORES" ./"$1" -t "$threads" -c "$chunk" -n "$n_size"
     done
   done
@@ -30,8 +30,8 @@ for ((n_size = 1000; n_size <= N; n_size *= 10)); do
   echo "===============DYNAMIC"
 
   # dynamic
-  for ((threads = 1; threads <= 8; threads++)); do
-    for ((chunk = 0; chunk < 1; chunk++)); do
+  for ((threads = 1; threads <= 4; threads++)); do
+    for ((chunk = 0; chunk < 4; chunk++)); do
       mpiexec -machinefile ./allnodes -n "$CORES" ./"$1" -t "$threads" -c "$chunk" -d -n "$n_size"
     done
 #    echo "==============="

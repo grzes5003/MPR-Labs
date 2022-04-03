@@ -13,11 +13,8 @@
 int main(int argc, char *argv[]) {
 
     double start;
-    double delta;
     int opt;
     char *end;
-
-    lehmer64_seed(0);
 
     int threads = 1;
     int arr_size = 100000;
@@ -68,7 +65,7 @@ int main(int argc, char *argv[]) {
 
     int nthreads = -1;
     int tid;
-    const int32_t range = 1000;
+    int32_t range = 1000;
     int32_t *i_tab = malloc(sizeof(int32_t) * arr_size);
 
     if (b_variant) {
@@ -81,24 +78,30 @@ int main(int argc, char *argv[]) {
     int chunk;
     omp_get_schedule(&kind, &chunk);
 
-    start = omp_get_wtime();
+    double delta = 0; const int reruns = 100;
+    for (int iter = 0; iter < reruns; ++iter) {
+
+        start = omp_get_wtime();
 
 #pragma omp parallel default(none) firstprivate(g_lehmer64_state)\
-private(tid) shared(nthreads, i_tab, arr_size) //  num_threads(threads)
-    {
-        tid = omp_get_thread_num();
-        if (tid == 0) {
-            nthreads = omp_get_num_threads();
-        }
+private(tid) shared(nthreads, i_tab, arr_size, range) //  num_threads(threads)
+        {
+            tid = omp_get_thread_num();
+            lehmer64_seed(tid);
+            if (tid == 0) {
+                nthreads = omp_get_num_threads();
+            }
 #pragma omp for schedule(runtime)
-        for (int i = 0; i < arr_size; ++i) {
-            i_tab[i] = (int32_t) (lehmer64() % range);
+            for (int i = 0; i < arr_size; ++i) {
+                i_tab[i] = (int32_t) (lehmer64() % range);
+//            i_tab[i] = i;
+            }
         }
+        delta += omp_get_wtime() - start;
     }
 
-    delta = omp_get_wtime() - start;
 
-    printf("t=%d:delta=%f:d=%d:c=%d:n=%d\n", nthreads, delta, kind, chunk, arr_size);
+    printf("t=%d:delta=%f:d=%d:c=%d:n=%d:one=%f\n", nthreads, delta, kind, chunk, arr_size, delta / reruns);
     free(i_tab);
 
     return 0;
