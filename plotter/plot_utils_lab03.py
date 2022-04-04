@@ -48,7 +48,7 @@ def plot_lab03(df: pd.DataFrame):
             # ax = sns.lineplot(x=range(1, 13), y=np.repeat(1, 12)/range(1, 13), linestyle='--', lw=1)
             ax = sns.pointplot(x="threads", y="time", data=df[(df['dynamic'] == mode) & (df['chunks'] == chunks)],
                                hue='num', legend=True, ci='sd')
-            ax.set(yscale="log")
+            # ax.set(yscale="log")
             ax.legend(title='Number of points [n]')
             ax.set(ylabel='Duration [s]')
             ax.set_title(f'Duration based on used threads mode={"dynamic" if mode == 2 else "static"}, {chunks=}')
@@ -65,7 +65,7 @@ def plot02(df: pd.DataFrame):
         sns.set_theme(style="darkgrid")
         # ax = sns.lineplot(x=range(1, 13), y=np.repeat(1, 12)/range(1, 13), linestyle='--', lw=1)
         ax = sns.pointplot(x="threads", y="time", data=df[df['dynamic'] == mode], hue='chunks', legend=True, ci='sd')
-        # ax.set(yscale="log")
+        ax.set(yscale="log")
         # ax.legend(title='Number of points [n]')
         ax.set(ylabel='Duration [s]')
         ax.set_title(f'Duration based on used threads mode={"dynamic" if mode == 2 else "static"}')
@@ -75,7 +75,7 @@ def plot02(df: pd.DataFrame):
 
 
 if __name__ == "__main__":
-    path = '../results/lab03/log_04_17_52.log'
+    path = '../results/lab03/log_04_23_59.log'
     res = [*read_logs(path)]
     df = obj2df(res)
     plot_lab03(df)

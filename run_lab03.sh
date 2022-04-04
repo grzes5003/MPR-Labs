@@ -1,4 +1,11 @@
 #!/bin/bash -l
+#SBATCH --nodes 1
+#SBATCH --ntasks 1
+#SBATCH --time=00:05:00
+#SBATCH --sockets-per-node=2
+#SBATCH --partition=plgrid-short
+#SBATCH --account=plgmpr22
+
 
 TODAY=$(date +"%d_%H_%M")
 if [ -z "$SCRIPT" ]; then
@@ -7,12 +14,14 @@ if [ -z "$SCRIPT" ]; then
   exec 1>log_"$TODAY".log 2>&1
 fi
 
-echo "Compiling " "$1"
+prog="LAB03"
+
+echo "Compiling " "$prog"
 
 cmake .
 make "$1"
 
-echo "Starting " "$1"
+echo "Starting " "$prog"
 
 N=10000000
 
@@ -22,7 +31,7 @@ for ((n_size = 1000; n_size <= N; n_size *= 10)); do
   for ((threads = 1; threads <= 8; threads++)); do
 #    echo "==============="
     for ((chunk = 1; chunk < 5; chunk++)); do
-      ./"$1" -t "$threads" -c "$chunk" -n "$n_size"
+      ./"$prog" -t "$threads" -c "$chunk" -n "$n_size"
     done
   done
 
@@ -31,7 +40,7 @@ for ((n_size = 1000; n_size <= N; n_size *= 10)); do
   # dynamic
   for ((threads = 1; threads <= 8; threads++)); do
     for ((chunk = 1; chunk < 5; chunk++)); do
-      ./"$1" -t "$threads" -c "$chunk" -d -n "$n_size"
+      ./"$prog" -t "$threads" -c "$chunk" -d -n "$n_size"
     done
 #    echo "==============="
   done
