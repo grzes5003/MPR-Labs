@@ -77,7 +77,8 @@ int main(int argc, char *argv[]) {
     double delta;
 
     start = omp_get_wtime();
-#pragma omp parallel for
+#pragma omp parallel for default(none) \
+shared(arr_size, i_tab)
     for (int i = 0; i < arr_size; ++i) {
 //        i_tab[i] = (int32_t) (erand48(tid) * 100);
         i_tab[i] = i;
