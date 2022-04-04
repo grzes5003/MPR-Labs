@@ -75,7 +75,7 @@ def plot02(df: pd.DataFrame):
 
 
 if __name__ == "__main__":
-    path = '../results/lab03/log_04_23_59.log'
+    path = '../results/lab03/lab_05_00_08.log'
     res = [*read_logs(path)]
     df = obj2df(res)
     plot_lab03(df)
