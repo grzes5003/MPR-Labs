@@ -60,10 +60,10 @@ def plot_lab03(df: pd.DataFrame):
             # ax = sns.lineplot(x=range(1, 13), y=np.repeat(1, 12)/range(1, 13), linestyle='--', lw=1)
             ax = sns.pointplot(x="threads", y="time", data=df[(df['dynamic'] == mode) & (df['chunks'] == chunks)],
                                hue='num', legend=True, ci='sd')
-            # ax.set(yscale="log")
+            ax.set(yscale="log")
             ax.legend(title='Number of points [n]')
             ax.set(ylabel='Duration [s]')
-            ax.set_title(f'Duration based on used threads {mode=}, {chunks=}')
+            ax.set_title(f'Duration based on used threads mode={"dynamic" if mode == 2 else "static"}, {chunks=}')
             ax.set(xlabel='Number of threads')
             # ax.legend(labels=['1*10^7', '250*10^7', '1500*10^7'])
             # ax.figure.legend(handles=[Line2D([], [], marker='_', color="b", label='Small: n=10000000'),
@@ -124,7 +124,7 @@ def plot_sequence(df: pd.DataFrame):
 
 
 if __name__ == "__main__":
-    path = '../results/lab03/log_04_17_49.log'
+    path = '../results/lab03/log_04_17_52.log'
     res = [*read_logs(path)]
     df = obj2df(res)
     plot_lab03(df)
