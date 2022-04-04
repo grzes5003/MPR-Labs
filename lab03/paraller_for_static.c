@@ -69,7 +69,6 @@ int main(int argc, char *argv[]) {
 
     int nthreads = -1;
     unsigned short int tid[3] = {0, 0, 0};
-    int32_t range = 1000;
     int32_t *i_tab = malloc(sizeof(int32_t) * arr_size);
 
     omp_sched_t kind;
@@ -78,22 +77,21 @@ int main(int argc, char *argv[]) {
 
     double delta = 0;
     const int reruns = 10;
-    for (int iter = 0; iter < reruns; ++iter) {
 
-        start = omp_get_wtime();
 
-#pragma omp parallel default(none) private(tid) shared(nthreads, i_tab, arr_size, range)
-        {
-            tid[0] = (unsigned short int) omp_get_thread_num();
-            if (tid[0] == 0)
-                nthreads = omp_get_num_threads();
+    start = omp_get_wtime();
+
+#pragma omp parallel default(none) firstprivate(tid) shared(nthreads, i_tab, arr_size)
+    {
+        tid[0] = (unsigned short int) omp_get_thread_num();
+        if (tid[0] == 0)
+            nthreads = omp_get_num_threads();
 #pragma omp for
-            for (int i = 0; i < arr_size; ++i) {
-                i_tab[i] = (int32_t) (erand48(tid) * 100);
-            }
+        for (int i = 0; i < arr_size; ++i) {
+            i_tab[i] = (int32_t) (erand48(tid) * 100);
         }
-        delta += omp_get_wtime() - start;
     }
+    delta += omp_get_wtime() - start;
 
 
     printf("t=%d:delta=%f:d=%d:c=%d:n=%d:one=%f\n", nthreads, delta, kind, chunk, arr_size, delta / reruns);
