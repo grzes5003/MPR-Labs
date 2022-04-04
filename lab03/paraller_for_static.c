@@ -74,23 +74,18 @@ int main(int argc, char *argv[]) {
     omp_sched_t kind;
     int chunk;
     omp_get_schedule(&kind, &chunk);
-
-    double delta = 0;
-    const int reruns = 10;
-
+    double delta;
 
     start = omp_get_wtime();
-    int i = 0;
-
-
-#pragma omp for
-    for (i = 0; i < arr_size; ++i) {
-        i_tab[i] = (int32_t) (erand48(tid) * 100);
+#pragma omp parallel for
+    for (int i = 0; i < arr_size; ++i) {
+//        i_tab[i] = (int32_t) (erand48(tid) * 100);
+        i_tab[i] = i;
     }
-    delta += omp_get_wtime() - start;
+    delta = omp_get_wtime() - start;
 
 
-    printf("t=%d:delta=%f:d=%d:c=%d:n=%d:one=%f\n", nthreads, delta, kind, chunk, arr_size, delta / reruns);
+    printf("t=%d:delta=%f:d=%d:c=%d:n=%d:one=%f\n", nthreads, delta, kind, chunk, arr_size, delta);
     free(i_tab);
 
     return 0;
