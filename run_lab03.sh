@@ -14,7 +14,6 @@ make "$1"
 
 echo "Starting " "$1"
 
-CORES=1
 N=10000000
 
 # static
@@ -23,7 +22,7 @@ for ((n_size = 1000; n_size <= N; n_size *= 10)); do
   for ((threads = 1; threads <= 8; threads++)); do
 #    echo "==============="
     for ((chunk = 1; chunk < 5; chunk++)); do
-      mpiexec -machinefile ./allnodes -n "$CORES" ./"$1" -t "$threads" -c "$chunk" -n "$n_size"
+      ./"$1" -t "$threads" -c "$chunk" -n "$n_size"
     done
   done
 
@@ -32,7 +31,7 @@ for ((n_size = 1000; n_size <= N; n_size *= 10)); do
   # dynamic
   for ((threads = 1; threads <= 8; threads++)); do
     for ((chunk = 1; chunk < 5; chunk++)); do
-      mpiexec -machinefile ./allnodes -n "$CORES" ./"$1" -t "$threads" -c "$chunk" -d -n "$n_size"
+      ./"$1" -t "$threads" -c "$chunk" -d -n "$n_size"
     done
 #    echo "==============="
   done
