@@ -82,15 +82,10 @@ int main(int argc, char *argv[]) {
     start = omp_get_wtime();
     int i = 0;
 
-#pragma omp parallel default(none) firstprivate(tid) shared(nthreads, i_tab, arr_size, i)
-    {
-        tid[0] = (unsigned short int) omp_get_thread_num();
-        if (tid[0] == 0)
-            nthreads = omp_get_num_threads();
+
 #pragma omp for
-        for (i = 0; i < arr_size; ++i) {
-            i_tab[i] = (int32_t) (erand48(tid) * 100);
-        }
+    for (i = 0; i < arr_size; ++i) {
+        i_tab[i] = (int32_t) (erand48(tid) * 100);
     }
     delta += omp_get_wtime() - start;
 
