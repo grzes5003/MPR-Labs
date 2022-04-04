@@ -124,7 +124,7 @@ def plot_sequence(df: pd.DataFrame):
 
 
 if __name__ == "__main__":
-    path = '../results/lab03/log_03_22.log'
+    path = '../results/lab03/log_04_17_49.log'
     res = [*read_logs(path)]
     df = obj2df(res)
     plot_lab03(df)
