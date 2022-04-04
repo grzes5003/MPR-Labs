@@ -84,7 +84,7 @@ int main(int argc, char *argv[]) {
 
         start = omp_get_wtime();
 
-#pragma omp parallel default(none) private(tid) shared(nthreads, i_tab, arr_size, range) //  num_threads(threads)
+#pragma omp parallel default(none) private(tid) shared(nthreads, i_tab, arr_size, range)
         {
             tid = omp_get_thread_num();
             if (tid == 0)
