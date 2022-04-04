@@ -68,7 +68,7 @@ int main(int argc, char *argv[]) {
     omp_set_num_threads(threads);
 
     int nthreads = -1;
-    unsigned int tid;
+    unsigned short int tid[3] = {0, 0, 0};
     int32_t range = 1000;
     int32_t *i_tab = malloc(sizeof(int32_t) * arr_size);
 
@@ -84,12 +84,12 @@ int main(int argc, char *argv[]) {
 
 #pragma omp parallel default(none) private(tid) shared(nthreads, i_tab, arr_size, range)
         {
-            tid = omp_get_thread_num();
-            if (tid == 0)
+            tid[0] = (unsigned short int) omp_get_thread_num();
+            if (tid[0] == 0)
                 nthreads = omp_get_num_threads();
 #pragma omp for
             for (int i = 0; i < arr_size; ++i) {
-                i_tab[i] = (rand_r(&tid) % range);
+                i_tab[i] = (int32_t) (erand48(tid) * 100);
             }
         }
         delta += omp_get_wtime() - start;
