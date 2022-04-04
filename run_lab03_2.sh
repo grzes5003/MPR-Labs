@@ -19,7 +19,7 @@ prog="LAB03_2"
 echo "Compiling " "$prog"
 
 cmake .
-make "$1"
+make "$prog"
 
 echo "Starting " "$prog"
 
@@ -28,9 +28,7 @@ N=10000000
 # static
 for ((n_size = 1000; n_size <= N; n_size *= 10)); do
   for ((threads = 1; threads <= 8; threads++)); do
-    for ((chunk = 1; chunk < 5; chunk++)); do
-      ./"$prog" -t "$threads" -c "$chunk" -n "$n_size"
-    done
+      ./"$prog" -t "$threads" -n "$n_size"
   done
 done
 

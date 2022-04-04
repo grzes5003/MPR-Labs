@@ -19,7 +19,7 @@ prog="LAB03"
 echo "Compiling " "$prog"
 
 cmake .
-make "$1"
+make "$prog"
 
 echo "Starting " "$prog"
 
