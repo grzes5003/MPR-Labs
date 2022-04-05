@@ -9,7 +9,8 @@
 #include "algs.h"
 
 int main(int argc, char *argv[]) {
-    double start; double end;
+    double start;
+    double end;
 
     const int32_t ARR_DEFAULT_SIZE = 10000;
     const int8_t DEFAULT_THREADS = 4;
@@ -44,7 +45,9 @@ int main(int argc, char *argv[]) {
         if (tid == 0)
             nthreads = omp_get_num_threads();
         rand_arr(array, _param.arr_size, tid);
-        sort_v2(array, _param.arr_size, buckets);
+
+        if (_param.alg == 1) sort_v2(array, _param.arr_size, buckets);
+        else sort_v1(array, _param.arr_size);
     }
     end = omp_get_wtime();
 
