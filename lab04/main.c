@@ -12,7 +12,7 @@ int main(int argc, char *argv[]) {
     double start;
     double end;
 
-    const int32_t ARR_DEFAULT_SIZE = 10000;
+    const int32_t ARR_DEFAULT_SIZE = 1000000;
     const int8_t DEFAULT_THREADS = 4;
     const int8_t DEFAULT_ALG = 1;
 
@@ -38,15 +38,19 @@ int main(int argc, char *argv[]) {
     // allocate array
     item_t *array = malloc(sizeof(int32_t) * _param.arr_size);
 
+    // create lock
+    omp_lock_t sumlock;
+    omp_init_lock(&sumlock);
+
     start = omp_get_wtime();
-#pragma omp parallel default(none) private(tid) shared(nthreads, array, _param, buckets)
+#pragma omp parallel default(none) private(tid) shared(nthreads, array, _param, buckets, sumlock)
     {
         tid = omp_get_thread_num();
         if (tid == 0)
             nthreads = omp_get_num_threads();
         rand_arr(array, _param.arr_size, tid);
 
-        if (_param.alg == 1) sort_v2(array, _param.arr_size, buckets);
+        if (_param.alg == 1) sort_v2(array, _param.arr_size, buckets, &sumlock);
         else sort_v1(array, _param.arr_size);
     }
     end = omp_get_wtime();
@@ -58,6 +62,7 @@ int main(int argc, char *argv[]) {
         return 1;
     }
     printf("Ok");
+    omp_destroy_lock(&sumlock);
     free(array);
 
     return 0;

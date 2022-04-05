@@ -13,8 +13,9 @@ int sort_v1(item_t *array, int32_t arr_size) {
 }
 
 
-int sort_v2(item_t *array, int32_t arr_size, struct bucket *buckets) {
+int sort_v2(item_t *array, int32_t arr_size, struct bucket *buckets, omp_lock_t *lock) {
     int limit = arr_size;
+
 
     int n_buckets = 4;
     int width = limit / n_buckets;
@@ -24,10 +25,9 @@ int sort_v2(item_t *array, int32_t arr_size, struct bucket *buckets) {
         j = array[i] / width;
         if (j > n_buckets - 1)
             j = n_buckets - 1;
-#pragma omp critical
-        {
+        omp_set_lock(lock);
             buckets[j].arr[buckets[j].n_elem++] = array[i];
-        }
+        omp_unset_lock(lock);
     }
 
 #if defined DEBUG
