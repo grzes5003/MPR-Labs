@@ -103,7 +103,8 @@ int main(int argc, char *argv[]) {
 
     tid = 0;
     start = omp_get_wtime();
-//#pragma omp parallel default(none) private(tid) shared(nthreads, i_tab, arr_size, range)
+#pragma omp parallel private(tid) shared(nthreads, i_tab, arr_size, range)
+    {
     for (int i = 0; i < arr_size; ++i) {
 //        i_tab[i] = (rand_r(&tid) % range);
         i_tab[i] = i;
@@ -114,7 +115,7 @@ int main(int argc, char *argv[]) {
     // divide into buckets:
     // v1 read whole array, with offset
     // == v2 read chunks
-
+#pragma omp for nowait
     for (int i = 0; i < arr_size; i++) {
         j = i_tab[i] / w;
         if (j > n_buckets - 1)
@@ -124,11 +125,12 @@ int main(int argc, char *argv[]) {
 
     //buckets[0].index=0; //bucket 0 starts from 0 in B, bucket 1 starts from the start of bucket 0 + the number of elements in bucket 0 ...
     //buckets[0].start=0;
+#pragma omp for nowait
     for (int i = 1; i < n_buckets; i++) {
         buckets[i].index = buckets[i - 1].index + buckets[i - 1].n_elem;
         buckets[i].start = buckets[i - 1].start + buckets[i - 1].n_elem;
     }
-
+#pragma omp for nowait
     for (int i = 0; i < arr_size; i++) {
         j = i_tab[i] / w;
         if (j > n_buckets - 1)
@@ -136,7 +138,7 @@ int main(int argc, char *argv[]) {
         b_index = buckets[j].index++;
         B[b_index] = A[i];
     }
-//}
+}
     end_time = omp_get_wtime();
 
     printf("delta=%f\n", end_time - start);
