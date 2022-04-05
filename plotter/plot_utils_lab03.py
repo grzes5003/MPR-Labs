@@ -48,7 +48,7 @@ def plot_lab03(df: pd.DataFrame):
             # ax = sns.lineplot(x=range(1, 13), y=np.repeat(1, 12)/range(1, 13), linestyle='--', lw=1)
             ax = sns.pointplot(x="threads", y="time", data=df[(df['dynamic'] == mode) & (df['chunks'] == chunks)],
                                hue='num', legend=True, ci='sd')
-            # ax.set(yscale="log")
+            ax.set(yscale="log")
             ax.legend(title='Number of points [n]')
             ax.set(ylabel='Duration [s]')
             ax.set_title(f'Duration based on used threads mode={"dynamic" if mode == 2 else "static"}, {chunks=}')
@@ -60,7 +60,7 @@ def plot_lab03(df: pd.DataFrame):
             plt.show()
 
 
-def plot02(df: pd.DataFrame):
+def plot_chunks(df: pd.DataFrame):
     for mode in df['dynamic'].unique():
         sns.set_theme(style="darkgrid")
         # ax = sns.lineplot(x=range(1, 13), y=np.repeat(1, 12)/range(1, 13), linestyle='--', lw=1)
@@ -74,9 +74,34 @@ def plot02(df: pd.DataFrame):
         plt.show()
 
 
+def plot_speedup(df: pd.DataFrame):
+    for mode in df['dynamic'].unique():
+        for chunks in df['chunks'].unique():
+            # df_out = df.groupby('cores').mean()
+            # std = df.groupby('cores').std()
+            t1 = df[(df['dynamic'] == mode) & (df['chunks'] == chunks) & (df['threads'] == 1)].groupby('num').mean()
+
+            df['speedup'] = t1.loc[df['num']].reset_index()['time'] / df['time']
+
+            # rocket = sns.color_palette("rocket")
+            sns.set_theme(style="darkgrid")
+            ax = sns.lineplot(x=range(0, 13), y=range(1, 14), linestyle='--', lw=1)
+            sns.pointplot(x="threads", y='speedup', data=df[(df['dynamic'] == mode) & (df['chunks'] == chunks)],
+                          hue='num', ax=ax, ci="sd", lw=0.1)
+
+            ax.set(ylabel='Speedup')
+            ax.set_title(f'Speedup based on used threads, mode={"dynamic" if mode == 2 else "static"}, {chunks=}')
+            ax.set(xlabel='Number of threads')
+            ax.legend(title='Number of points [n]')
+
+            # ax.legend(['Theoretical speedup', 'Small: n=10000000', 'Medium: n='])
+            plt.show()
+
+
 if __name__ == "__main__":
-    path = '../results/lab03/lab_05_00_08.log'
+    path = '../results/lab03/log_prometheus2.log'
     res = [*read_logs(path)]
     df = obj2df(res)
+    # plot_speedup(df)
     plot_lab03(df)
-    plot02(df)
+    # plot_chunks(df)
