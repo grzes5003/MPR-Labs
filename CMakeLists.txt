@@ -20,7 +20,7 @@ target_link_libraries(MPR_proj ${MPI_C_LIBRARIES})
 # LAB01
 project(LAB01 C)
 
-add_executable(LAB01 lab01/lab01.c lab04/algs.h lab04/sort_v1.c lab04/params.c)
+add_executable(LAB01 lab01/lab01.c lab04/algs.h lab04/sorts.c lab04/params.c)
 
 target_link_libraries(LAB01 m ${MPI_C_LIBRARIES})
 

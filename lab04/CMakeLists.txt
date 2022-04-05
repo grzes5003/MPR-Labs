@@ -10,7 +10,7 @@ if (OPENMP_FOUND)
     set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_EXE_LINKER_FLAGS}")
 endif()
 
-add_executable(LAB04 sort_v1.c params.c params.h algs.h main.c rand_arr.c)
+add_executable(LAB04 sorts.c params.c params.h algs.h main.c rand_arr.c)
 
 target_link_libraries(LAB04 PRIVATE "${OpenMP_C_FLAGS}")
 target_compile_options(LAB04 PRIVATE "${OpenMP_C_FLAGS}")
