@@ -34,7 +34,7 @@ int main(int argc, char *argv[]) {
     char *end;
 
     int threads = 1;
-    int arr_size = 20;
+    int arr_size = 100000;
     int b_variant = 0;
     int i_variant = -1;
     // -n size of array
@@ -94,16 +94,16 @@ int main(int argc, char *argv[]) {
     buckets = (struct bucket *) calloc(n_buckets, sizeof(struct bucket));
 
 
-    w = (int)range/n_buckets;
-    A = (int *) malloc(sizeof(int)*arr_size);
-    B = (int *) malloc(sizeof(int)*arr_size);
+    w = (int) range / n_buckets;
+    A = (int *) malloc(sizeof(int) * arr_size);
+    B = (int *) malloc(sizeof(int) * arr_size);
 
     int local_index; // [0 : n_buckets)
     int real_bucket_index; // [0 : n_buckets * num_threads)
 
     tid = 0;
     start = omp_get_wtime();
-
+//#pragma omp parallel default(none) private(tid) shared(nthreads, i_tab, arr_size, range)
     for (int i = 0; i < arr_size; ++i) {
 //        i_tab[i] = (rand_r(&tid) % range);
         i_tab[i] = i;
@@ -136,7 +136,7 @@ int main(int argc, char *argv[]) {
         b_index = buckets[j].index++;
         B[b_index] = A[i];
     }
-
+//}
     end_time = omp_get_wtime();
 
     printf("delta=%f\n", end_time - start);
