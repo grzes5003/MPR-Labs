@@ -62,3 +62,7 @@ add_executable(LAB03_2 lab03/paraller_for_static.c)
 
 target_link_libraries(LAB03_2 PRIVATE "${OpenMP_C_FLAGS}")
 target_compile_options(LAB03_2 PRIVATE "${OpenMP_C_FLAGS}")
+
+project(LAB04_seq C)
+
+add_executable(LAB04_seq lab03/sort_alg_seq.c)
