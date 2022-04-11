@@ -1,7 +1,7 @@
 #!/bin/bash -l
 #SBATCH --nodes 1
-#SBATCH --ntasks 4
-#SBATCH --time=00:05:00
+#SBATCH --ntasks 8
+#SBATCH --time=00:10:00
 #SBATCH --sockets-per-node=2
 #SBATCH --partition=plgrid-short
 #SBATCH --account=plgmpr22
@@ -26,8 +26,10 @@ N=10000000
 
 # static
 for ((n_size = 1000; n_size <= N; n_size *= 10)); do
-  for ((threads = 1; threads <= 4; threads++)); do
-    ./"$prog" -t "$threads" -n "$n_size"
+  for ((threads = 1; threads <= 8; threads++)); do
+    for (( buckets = 1; buckets < n_size/100; buckets*=10 )); do
+      ./"$prog" -t "$threads" -n "$n_size"
+    done
   done
 done
 
