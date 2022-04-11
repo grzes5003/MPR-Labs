@@ -46,10 +46,15 @@ int main(int argc, char *argv[]) {
     start = omp_get_wtime();
 #pragma omp parallel default(none) private(tid, result) shared(nthreads, array, _param, buckets)
     {
+        double start_rand;
         tid = omp_get_thread_num();
         if (tid == 0)
             nthreads = omp_get_num_threads();
+#pragma omp master
+        start_rand = omp_get_wtime();
         rand_arr(array, _param.arr_size, tid);
+#pragma omp master
+        printf("t_rand=%f:", omp_get_wtime() - start_rand);
 
         if (_param.alg == 1) {
             if (0 != (result = sort_v1(array, _param.arr_size, _param.n_buckets,
@@ -62,9 +67,9 @@ int main(int argc, char *argv[]) {
     }
     end = omp_get_wtime();
 
-    printf("t=%d:alg=%d:arr=%d:b=%d:time=%f\n",
-           nthreads, _param.alg,
-           _param.arr_size, _param.n_buckets, end - start);
+    printf("t=%d:alg=%d:arr=%d:b=%d:t_all=%f\n",
+           nthreads, _param.alg, _param.arr_size,
+           _param.n_buckets, end - start);
 
     if (0 != (result = validate(array, _param.arr_size))) {
         fprintf(stderr, "Array not sorted properly (CODE %d)", result);
