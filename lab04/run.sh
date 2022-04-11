@@ -16,6 +16,8 @@ fi
 prog="LAB04"
 
 echo "Compiling " "$prog"
+module add plgrid/tools/cmake
+module add plgrid/tools/openmpi
 
 cmake .
 make "$prog"
