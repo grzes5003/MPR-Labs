@@ -14,6 +14,14 @@ int get_params(param* _params, int argc, char *argv[]) {
     char *end;
 
     long tmp;
+    /**
+     * -a -> algorithm (1 or 2)
+     * -t -> threads (>0)
+     * -n -> array size (>0)
+     * -b -> bucket size (>0)
+     *
+     * example ./LAB04 -t 2 -b 2
+     */
     while (-1 != (opt = getopt(argc, argv, "a:t:n:b:"))) {
         switch (opt) {
             case 'a':
