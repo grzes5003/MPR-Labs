@@ -14,7 +14,7 @@ int get_params(param* _params, int argc, char *argv[]) {
     char *end;
 
     long tmp;
-    while (-1 != (opt = getopt(argc, argv, "a:t:n:"))) {
+    while (-1 != (opt = getopt(argc, argv, "a:t:n:b:"))) {
         switch (opt) {
             case 'a':
                 tmp = strtol(optarg, &end, 10);
@@ -45,6 +45,16 @@ int get_params(param* _params, int argc, char *argv[]) {
                 if (*end != '\0')
                     return 12;
                 _params->arr_size = (int32_t) tmp;
+                break;
+            case 'b':
+                tmp = (int) strtol(optarg, &end, 10);
+                if (tmp > SHRT_MAX || (errno == ERANGE && tmp == SHRT_MAX))
+                    return 10;
+                if (errno == ERANGE && tmp == 0)
+                    return 11;
+                if (*end != '\0')
+                    return 12;
+                _params->n_buckets = (int16_t) tmp;
                 break;
             default:
                 fprintf(stderr, "unexpected argument: %d\n", optopt);

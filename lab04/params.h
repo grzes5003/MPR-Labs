@@ -10,6 +10,7 @@
 typedef struct param {
     int8_t alg;
     int8_t threads;
+    int16_t n_buckets;
     int32_t arr_size;
 } param;
 
