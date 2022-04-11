@@ -1,0 +1,110 @@
+Compiling  LAB04
+ plgrid/tools/cmake/3.22.1 loaded.
+ plgrid/apps/cuda/11.2 loaded.
+ plgrid/libs/gdrcopy/2.2-cuda-11.2 loaded.
+ plgrid/libs/ucx/1.10.0-cuda-11.2 loaded.
+ plgrid/tools/binutils/2.34 loaded.
+ plgrid/tools/gcc/9.3.0 loaded.
+ plgrid/tools/nvhpc/22.3 loaded.
+ plgrid/tools/openmpi/4.1.2-nvhpc-22.3 loaded.
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /net/people/plggkulinski/MPR/MPR-Labs/lab04
+Consolidate compiler generated dependencies of target LAB04
+[ 20%] Building C object CMakeFiles/LAB04.dir/sorts.c.o
+[ 40%] Building C object CMakeFiles/LAB04.dir/params.c.o
+[ 60%] Building C object CMakeFiles/LAB04.dir/main.c.o
+[ 80%] Building C object CMakeFiles/LAB04.dir/rand_arr.c.o
+[100%] Linking C executable LAB04
+[100%] Built target LAB04
+Starting  LAB04
+t=1:alg=2:arr=1000:b=4:time=0.000351
+t=2:alg=2:arr=1000:b=4:time=0.001848
+t=3:alg=2:arr=1000:b=4:time=0.001318
+t=4:alg=2:arr=1000:b=4:time=0.001203
+t=5:alg=2:arr=1000:b=4:time=0.002359
+t=6:alg=2:arr=1000:b=4:time=0.009661
+t=7:alg=2:arr=1000:b=4:time=0.009753
+t=8:alg=2:arr=1000:b=4:time=0.009381
+t=1:alg=2:arr=10000:b=4:time=0.001246
+t=2:alg=2:arr=10000:b=4:time=0.002342
+t=3:alg=2:arr=10000:b=4:time=0.002634
+t=4:alg=2:arr=10000:b=4:time=0.002768
+t=5:alg=2:arr=10000:b=4:time=0.003026
+t=6:alg=2:arr=10000:b=4:time=0.010486
+t=7:alg=2:arr=10000:b=4:time=0.011308
+t=8:alg=2:arr=10000:b=4:time=0.007363
+t=1:alg=2:arr=100000:b=4:time=0.012188
+t=2:alg=2:arr=100000:b=4:time=0.012647
+t=3:alg=2:arr=100000:b=4:time=0.015046
+t=4:alg=2:arr=100000:b=4:time=0.014886
+t=5:alg=2:arr=100000:b=4:time=0.015804
+t=6:alg=2:arr=100000:b=4:time=0.023798
+t=7:alg=2:arr=100000:b=4:time=0.016343
+t=8:alg=2:arr=100000:b=4:time=0.026672
+t=1:alg=2:arr=1000000:b=4:time=0.135487
+t=2:alg=2:arr=1000000:b=4:time=0.128460
+t=3:alg=2:arr=1000000:b=4:time=0.156986
+t=4:alg=2:arr=1000000:b=4:time=0.147230
+t=5:alg=2:arr=1000000:b=4:time=0.149037
+t=6:alg=2:arr=1000000:b=4:time=0.197681
+t=7:alg=2:arr=1000000:b=4:time=0.230147
+t=8:alg=2:arr=1000000:b=4:time=0.268241
+t=1:alg=2:arr=10000000:b=4:time=1.534560
+t=2:alg=2:arr=10000000:b=4:time=1.327564
+t=3:alg=2:arr=10000000:b=4:time=1.582040
+t=4:alg=2:arr=10000000:b=4:time=1.465674
+t=5:alg=2:arr=10000000:b=4:time=1.505860
+t=6:alg=2:arr=10000000:b=4:time=1.513960
+t=7:alg=2:arr=10000000:b=4:time=1.493067
+t=8:alg=2:arr=10000000:b=4:time=1.743298
+t=1:alg=2:arr=100000000:b=4:time=17.201882
+t=2:alg=2:arr=100000000:b=4:time=14.132273
+t=3:alg=2:arr=100000000:b=4:time=16.865688
+t=4:alg=2:arr=100000000:b=4:time=15.343814
+t=5:alg=2:arr=100000000:b=4:time=15.889850
+t=6:alg=2:arr=100000000:b=4:time=16.845833
+t=7:alg=2:arr=100000000:b=4:time=16.166177
+t=8:alg=2:arr=100000000:b=4:time=19.597987
+t=1:alg=2:arr=1000:b=4:time=0.000363
+t=2:alg=2:arr=1000:b=4:time=0.001619
+t=3:alg=2:arr=1000:b=4:time=0.001375
+t=4:alg=2:arr=1000:b=4:time=0.001978
+t=5:alg=2:arr=1000:b=4:time=0.001512
+t=6:alg=2:arr=1000:b=4:time=0.001454
+t=7:alg=2:arr=1000:b=4:time=0.001771
+t=8:alg=2:arr=1000:b=4:time=0.005646
+t=1:alg=2:arr=10000:b=4:time=0.001143
+t=2:alg=2:arr=10000:b=4:time=0.002705
+t=3:alg=2:arr=10000:b=4:time=0.002867
+t=4:alg=2:arr=10000:b=4:time=0.002806
+t=5:alg=2:arr=10000:b=4:time=0.002750
+t=6:alg=2:arr=10000:b=4:time=0.011100
+t=7:alg=2:arr=10000:b=4:time=0.010377
+t=8:alg=2:arr=10000:b=4:time=0.006415
+t=1:alg=2:arr=100000:b=4:time=0.012482
+t=2:alg=2:arr=100000:b=4:time=0.013018
+t=3:alg=2:arr=100000:b=4:time=0.015732
+t=4:alg=2:arr=100000:b=4:time=0.015179
+t=5:alg=2:arr=100000:b=4:time=0.015506
+t=6:alg=2:arr=100000:b=4:time=0.032529
+t=7:alg=2:arr=100000:b=4:time=0.029704
+t=8:alg=2:arr=100000:b=4:time=0.028607
+t=1:alg=2:arr=1000000:b=4:time=0.136783
+t=2:alg=2:arr=1000000:b=4:time=0.128488
+t=3:alg=2:arr=1000000:b=4:time=0.152724
+t=4:alg=2:arr=1000000:b=4:time=0.132486
+t=5:alg=2:arr=1000000:b=4:time=0.148755
+t=6:alg=2:arr=1000000:b=4:time=0.228894
+t=7:alg=2:arr=1000000:b=4:time=0.182719
+t=8:alg=2:arr=1000000:b=4:time=0.142988
+t=1:alg=2:arr=10000000:b=4:time=1.638259
+t=2:alg=2:arr=10000000:b=4:time=1.355564
+t=3:alg=2:arr=10000000:b=4:time=1.573741
+t=4:alg=2:arr=10000000:b=4:time=1.480180
+t=5:alg=2:arr=10000000:b=4:time=1.543069
+t=6:alg=2:arr=10000000:b=4:time=1.536918
+t=7:alg=2:arr=10000000:b=4:time=1.612614
+t=8:alg=2:arr=10000000:b=4:time=2.344346
+t=1:alg=2:arr=100000000:b=4:time=17.197222
+t=2:alg=2:arr=100000000:b=4:time=13.719309

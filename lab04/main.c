@@ -44,15 +44,20 @@ int main(int argc, char *argv[]) {
     item_t *array = malloc(sizeof(int32_t) * _param.arr_size);
 
     start = omp_get_wtime();
-#pragma omp parallel default(none) private(tid) shared(nthreads, array, _param, buckets)
+#pragma omp parallel default(none) private(tid) shared(nthreads, array, _param, buckets, result, stderr)
     {
         tid = omp_get_thread_num();
         if (tid == 0)
             nthreads = omp_get_num_threads();
         rand_arr(array, _param.arr_size, tid);
 
-        if (_param.alg == 1) sort_v2(array, _param.arr_size, _param.n_buckets, buckets);
-        else sort_v1(array, _param.arr_size);
+        if (_param.alg == 1) {
+            if (0 !=(result = sort_v1(array, _param.arr_size, _param.n_buckets,
+                    buckets, tid, _param.threads))) {
+                fprintf(stderr, "Bad number of buckets to threads (CODE %d)\n", result);
+            }
+        }
+        else sort_v2(array, _param.arr_size, _param.n_buckets, buckets);
     }
     end = omp_get_wtime();
 
