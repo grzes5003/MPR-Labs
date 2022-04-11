@@ -10,6 +10,7 @@ int rand_arr(item_t* array, int32_t arr_size, u_int tid) {
 #pragma omp for
     for (int i = 0; i < arr_size; ++i) {
         array[i] = rand_r(&tid) % arr_size;
+//        array[i] = arr_size -  i;
     }
     return 0;
 }

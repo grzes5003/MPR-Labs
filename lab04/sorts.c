@@ -5,14 +5,15 @@
 #include <stdlib.h>
 #include <string.h>
 #include <omp.h>
+#include <stdio.h>
 #include "algs.h"
 
 int sort_v1(item_t *array, int32_t arr_size, int16_t n_buckets, struct bucket *buckets, unsigned int thread_idx,
             int8_t num_of_threads) {
 
     int width = arr_size / n_buckets;
-    if (n_buckets > num_of_threads)
-        return 51;
+    if (n_buckets < num_of_threads)
+        return 52;
     if (n_buckets % num_of_threads != 0 )
         return 51;
     int buckets_per_thread = n_buckets / num_of_threads;
@@ -32,9 +33,27 @@ int sort_v1(item_t *array, int32_t arr_size, int16_t n_buckets, struct bucket *b
         j = array[i % arr_size] / width;
         if (j > n_buckets - 1)
             j = n_buckets - 1;
-        if (j >= thread_idx && j <= thread_idx + buckets_per_thread)
+        if (j >= thread_idx * buckets_per_thread && j < (thread_idx + 1) * buckets_per_thread)
             buckets[j].arr[buckets[j].n_elem++] = array[i % arr_size];
     }
+
+#if defined DEBUG
+#pragma omp single
+    {
+        // printer
+        for (int i = 0; i < n_buckets; ++i) {
+            printf("bck=%d::  ", i);
+            for (int k = 0; k < buckets[i].n_elem; ++k) {
+                printf("%d,", buckets[i].arr[k]);
+            }
+            printf("\n");
+        }
+        for (int i = 0; i < arr_size; ++i) {
+            printf("%d,", array[i]);
+        }
+    }
+    fflush(stdout);
+#endif
 
 #pragma omp for schedule(static, 1)
     for (int i = 0; i < n_buckets; ++i) {

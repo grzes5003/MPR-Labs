@@ -44,7 +44,7 @@ int main(int argc, char *argv[]) {
     item_t *array = malloc(sizeof(int32_t) * _param.arr_size);
 
     start = omp_get_wtime();
-#pragma omp parallel default(none) private(tid) shared(nthreads, array, _param, buckets, result, stderr)
+#pragma omp parallel default(none) private(tid, result) shared(nthreads, array, _param, buckets)
     {
         tid = omp_get_thread_num();
         if (tid == 0)
@@ -52,9 +52,10 @@ int main(int argc, char *argv[]) {
         rand_arr(array, _param.arr_size, tid);
 
         if (_param.alg == 1) {
-            if (0 !=(result = sort_v1(array, _param.arr_size, _param.n_buckets,
+            if (0 != (result = sort_v1(array, _param.arr_size, _param.n_buckets,
                     buckets, tid, _param.threads))) {
-                fprintf(stderr, "Bad number of buckets to threads (CODE %d)\n", result);
+#pragma omp single
+                printf("Bad number of buckets to threads (CODE %d)\n", result);
             }
         }
         else sort_v2(array, _param.arr_size, _param.n_buckets, buckets);
