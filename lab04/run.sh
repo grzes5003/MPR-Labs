@@ -24,15 +24,15 @@ make "$prog"
 
 echo "Starting " "$prog"
 
-N=10000000
+N=100000000
 
 # static
+for (( iter = 1; iter < 10; iter++ )); do
 for ((n_size = 1000; n_size <= N; n_size *= 10)); do
   for ((threads = 1; threads <= 8; threads++)); do
-    for (( buckets = 1; buckets < n_size/100; buckets*=10 )); do
-      ./"$prog" -t "$threads" -n "$n_size" -b "$buckets"
-    done
+      ./"$prog" -t "$threads" -n "$n_size"
   done
+done
 done
 
 echo $?
