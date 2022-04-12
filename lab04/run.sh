@@ -27,10 +27,10 @@ echo "Starting " "$prog"
 N=100000000
 
 # static
-for (( iter = 1; iter < 10; iter++ )); do
+for (( iter = 1; iter < 2; iter++ )); do
 for ((n_size = 1000; n_size <= N; n_size *= 10)); do
   for ((threads = 1; threads <= 8; threads++)); do
-      ./"$prog" -t "$threads" -n "$n_size"
+      ./"$prog" -t "$threads" -n "$n_size" -a 2
   done
 done
 done

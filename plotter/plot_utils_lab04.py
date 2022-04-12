@@ -58,6 +58,10 @@ def plot_lab03(df: pd.DataFrame):
         plt.show()
 
 
+def plot_final():
+    ...
+
+
 if __name__ == "__main__":
     path = '../lab04/log_11_18_35.log'
     res = [*read_logs(path)]
