@@ -24,10 +24,10 @@ make "$prog"
 
 echo "Starting " "$prog"
 
-N=100000000
+N=120000000
 
-for ((iter = 1; iter < 3; iter++)); do
-  for ((n_size = 10; n_size <= N; n_size *= 10)); do
+for ((iter = 2; iter > 0; iter--)); do
+  for ((n_size = 12; n_size <= N; n_size *= 10)); do
     ./"$prog" -t 1 -b "$n_size" -a "$iter" -n "$N"
     for ((threads = 2; threads <= 12; threads += 2)); do
       ./"$prog" -t "$threads" -b "$n_size" -a "$iter" -n "$N"
