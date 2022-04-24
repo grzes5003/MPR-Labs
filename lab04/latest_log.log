@@ -1,0 +1,54 @@
+Compiling  LAB04
+ModuleCmd_Load.c(213):ERROR:105: Unable to locate a modulefile for 'plgrid/tools/cmake'
+ModuleCmd_Load.c(213):ERROR:105: Unable to locate a modulefile for 'plgrid/tools/openmpi'
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/students/k/u/kulinski/repos/MPR-Labs/lab04
+Consolidate compiler generated dependencies of target LAB04
+[ 20%] Building C object CMakeFiles/LAB04.dir/sorts.c.o
+[ 40%] Building C object CMakeFiles/LAB04.dir/params.c.o
+[ 60%] Building C object CMakeFiles/LAB04.dir/main.c.o
+[ 80%] Building C object CMakeFiles/LAB04.dir/rand_arr.c.o
+[100%] Linking C executable LAB04
+[100%] Built target LAB04
+Starting  LAB04
+t_rand=0.000009:t_bck=0.000034:t_sort=0.000184:t_cpy=0.000013:t_clean=0.000002:t=1:alg=2:arr=1000:b=4:t_all=0.001376
+t_rand=0.000005:t_bck=0.000019:t_sort=0.000159:t_cpy=0.000011:t_clean=0.000003:t=2:alg=2:arr=1000:b=4:t_all=0.000571
+t_rand=0.000004:t_bck=0.000013:t_sort=0.000132:t_cpy=0.000010:t_clean=0.000002:t=3:alg=2:arr=1000:b=4:t_all=0.000607
+t_rand=0.000003:t_bck=0.000012:t_sort=0.000135:t_cpy=0.000018:t_clean=0.000004:t=4:alg=2:arr=1000:b=4:t_all=0.000619
+t_rand=0.000002:t_bck=0.000025:t_sort=0.000200:t_cpy=0.000017:t_clean=0.000014:t=5:alg=2:arr=1000:b=4:t_all=0.000751
+t_rand=0.000002:t_bck=0.000023:t_sort=0.000134:t_cpy=0.000032:t_clean=0.000016:t=6:alg=2:arr=1000:b=4:t_all=0.000732
+t_rand=0.000001:t_bck=0.000024:t_sort=0.000271:t_cpy=0.000026:t_clean=0.000008:t=7:alg=2:arr=1000:b=4:t_all=0.000880
+t_rand=0.000001:t_bck=0.000031:t_sort=0.000170:t_cpy=0.000038:t_clean=0.000022:t=8:alg=2:arr=1000:b=4:t_all=0.001105
+t_rand=0.000095:t_bck=0.000317:t_sort=0.001364:t_cpy=0.000016:t_clean=0.000002:t=1:alg=2:arr=10000:b=4:t_all=0.002146
+t_rand=0.000051:t_bck=0.000162:t_sort=0.000799:t_cpy=0.000009:t_clean=0.000002:t=2:alg=2:arr=10000:b=4:t_all=0.001433
+t_rand=0.000033:t_bck=0.000423:t_sort=0.000866:t_cpy=0.000007:t_clean=0.000003:t=3:alg=2:arr=10000:b=4:t_all=0.001806
+t_rand=0.000024:t_bck=0.000583:t_sort=0.000612:t_cpy=0.000008:t_clean=0.000004:t=4:alg=2:arr=10000:b=4:t_all=0.001729
+t_rand=0.000019:t_bck=0.000464:t_sort=0.001059:t_cpy=0.000019:t_clean=0.000031:t=5:alg=2:arr=10000:b=4:t_all=0.002129
+t_rand=0.000013:t_bck=0.000380:t_sort=0.001025:t_cpy=0.000031:t_clean=0.000016:t=6:alg=2:arr=10000:b=4:t_all=0.001983
+t_rand=0.000012:t_bck=0.000592:t_sort=0.000717:t_cpy=0.000025:t_clean=0.000023:t=7:alg=2:arr=10000:b=4:t_all=0.001920
+t_rand=0.000010:t_bck=0.000255:t_sort=0.001056:t_cpy=0.000049:t_clean=0.000018:t=8:alg=2:arr=10000:b=4:t_all=0.001982
+t_rand=0.000989:t_bck=0.003459:t_sort=0.016365:t_cpy=0.000042:t_clean=0.000047:t=1:alg=2:arr=100000:b=4:t_all=0.021254
+t_rand=0.000487:t_bck=0.008219:t_sort=0.008450:t_cpy=0.000035:t_clean=0.000073:t=2:alg=2:arr=100000:b=4:t_all=0.017670
+t_rand=0.000325:t_bck=0.009141:t_sort=0.008383:t_cpy=0.000032:t_clean=0.000084:t=3:alg=2:arr=100000:b=4:t_all=0.018418
+t_rand=0.000247:t_bck=0.010742:t_sort=0.004562:t_cpy=0.000016:t_clean=0.000095:t=4:alg=2:arr=100000:b=4:t_all=0.016118
+t_rand=0.000194:t_bck=0.008504:t_sort=0.004643:t_cpy=0.000035:t_clean=0.000135:t=5:alg=2:arr=100000:b=4:t_all=0.014049
+t_rand=0.000163:t_bck=0.009099:t_sort=0.008225:t_cpy=0.000053:t_clean=0.000115:t=6:alg=2:arr=100000:b=4:t_all=0.018210
+t_rand=0.000137:t_bck=0.009632:t_sort=0.008515:t_cpy=0.000062:t_clean=0.000108:t=7:alg=2:arr=100000:b=4:t_all=0.019041
+t_rand=0.000133:t_bck=0.009720:t_sort=0.004560:t_cpy=0.000047:t_clean=0.000135:t=8:alg=2:arr=100000:b=4:t_all=0.015165
+t_rand=0.009454:t_bck=0.035082:t_sort=0.200525:t_cpy=0.000406:t_clean=0.000172:t=1:alg=2:arr=1000000:b=4:t_all=0.246046
+t_rand=0.004467:t_bck=0.093074:t_sort=0.101192:t_cpy=0.000257:t_clean=0.000350:t=2:alg=2:arr=1000000:b=4:t_all=0.199767
+t_rand=0.003098:t_bck=0.094257:t_sort=0.101520:t_cpy=0.000259:t_clean=0.000373:t=3:alg=2:arr=1000000:b=4:t_all=0.199937
+t_rand=0.002498:t_bck=0.110885:t_sort=0.051855:t_cpy=0.000116:t_clean=0.000400:t=4:alg=2:arr=1000000:b=4:t_all=0.166208
+t_rand=0.001696:t_bck=0.097354:t_sort=0.051640:t_cpy=0.000173:t_clean=0.000360:t=5:alg=2:arr=1000000:b=4:t_all=0.151733
+t_rand=0.001675:t_bck=0.095642:t_sort=0.055590:t_cpy=0.000161:t_clean=0.000454:t=6:alg=2:arr=1000000:b=4:t_all=0.156265
+t_rand=0.001431:t_bck=0.105531:t_sort=0.060807:t_cpy=0.000147:t_clean=0.000470:t=7:alg=2:arr=1000000:b=4:t_all=0.169334
+t_rand=0.001257:t_bck=0.103117:t_sort=0.051620:t_cpy=0.000162:t_clean=0.000449:t=8:alg=2:arr=1000000:b=4:t_all=0.157190
+t_rand=0.088384:t_bck=0.312801:t_sort=2.388666:t_cpy=0.009308:t_clean=0.000618:t=1:alg=2:arr=10000000:b=4:t_all=2.800537
+t_rand=0.042718:t_bck=0.932881:t_sort=1.187905:t_cpy=0.005105:t_clean=0.000470:t=2:alg=2:arr=10000000:b=4:t_all=2.169803
+t_rand=0.028224:t_bck=0.941273:t_sort=1.199938:t_cpy=0.005572:t_clean=0.000926:t=3:alg=2:arr=10000000:b=4:t_all=2.176810
+t_rand=0.021627:t_bck=1.058365:t_sort=0.599902:t_cpy=0.003599:t_clean=0.000527:t=4:alg=2:arr=10000000:b=4:t_all=1.684835
+t_rand=0.017130:t_bck=1.003237:t_sort=0.600916:t_cpy=0.003689:t_clean=0.000365:t=5:alg=2:arr=10000000:b=4:t_all=1.626534
+t_rand=0.014896:t_bck=1.023636:t_sort=0.599694:t_cpy=0.003620:t_clean=0.000834:t=6:alg=2:arr=10000000:b=4:t_all=1.646626
+t_rand=0.012689:t_bck=1.062801:t_sort=0.598685:t_cpy=0.003662:t_clean=0.000690:t=7:alg=2:arr=10000000:b=4:t_all=1.689779
+t_rand=0.010922:t_bck=0.997301:t_sort=0.599717:t_cpy=0.003673:t_clean=0.000399:t=8:alg=2:arr=10000000:b=4:t_all=1.616848
