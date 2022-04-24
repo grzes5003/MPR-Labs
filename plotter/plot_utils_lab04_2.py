@@ -132,10 +132,21 @@ def plot_second(df):
             plt.show()
 
 
+def plot_one_thrd(df: pd.DataFrame):
+    sns.set_theme(style="darkgrid")
+    ax = sns.pointplot(x="b", y="t_all", data=df[(df['threads'] == 1)],
+                       hue='alg', legend=True, ci='sd')
+    ax.set(ylabel='Duration [s]')
+    ax.set_title(f'Duration based on used buckets')
+    ax.set(xlabel='Number of buckets')
+    plt.show()
+
+
 if __name__ == "__main__":
     path = '../lab04/res/run_alg2.log'
     res = [*read_logs(path)]
     df = obj2df(res)
-    plot_second(df)
+    # plot_second(df)
+    plot_one_thrd(df)
     # plot_speedup(df)
     # plot_chunks(df)
