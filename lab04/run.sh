@@ -1,7 +1,7 @@
 #!/bin/bash -l
 #SBATCH --nodes 1
 #SBATCH --ntasks 12
-#SBATCH --time=00:10:00
+#SBATCH --time=00:25:00
 #SBATCH --sockets-per-node=2
 #SBATCH --partition=plgrid-short
 #SBATCH --account=plgmpr22
