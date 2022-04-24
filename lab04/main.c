@@ -75,7 +75,7 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "Array not sorted properly (CODE %d)", result);
         return 1;
     }
-    printf("Ok");
+    printf("Ok\n");
     free(array);
 
     return 0;

@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include "algs.h"
 
-int sort_v1(item_t *array, int32_t arr_size, int16_t n_buckets, struct bucket *buckets, unsigned int thread_idx,
+int sort_v1(item_t *array, int32_t arr_size, int32_t n_buckets, struct bucket *buckets, unsigned int thread_idx,
             int8_t num_of_threads) {
 
     double start;
@@ -107,7 +107,7 @@ int sort_v1(item_t *array, int32_t arr_size, int16_t n_buckets, struct bucket *b
 }
 
 
-int sort_v2(item_t *array, int32_t arr_size, int16_t n_buckets, struct bucket *buckets) {
+int sort_v2(item_t *array, int32_t arr_size, int32_t n_buckets, struct bucket *buckets) {
 
     double start;
     int width = arr_size / n_buckets;

@@ -1,6 +1,6 @@
 #!/bin/bash -l
 #SBATCH --nodes 1
-#SBATCH --ntasks 8
+#SBATCH --ntasks 12
 #SBATCH --time=00:10:00
 #SBATCH --sockets-per-node=2
 #SBATCH --partition=plgrid-short
@@ -26,13 +26,13 @@ echo "Starting " "$prog"
 
 N=100000000
 
-# static
-for (( iter = 1; iter < 2; iter++ )); do
-for ((n_size = 1000; n_size <= N; n_size *= 10)); do
-  for ((threads = 1; threads <= 8; threads++)); do
-      ./"$prog" -t "$threads" -n "$n_size" -a 2
+for ((iter = 1; iter < 3; iter++)); do
+  for ((n_size = 10; n_size <= N; n_size *= 10)); do
+    ./"$prog" -t 1 -b "$n_size" -a "$iter" -n "$N"
+    for ((threads = 2; threads <= 12; threads += 2)); do
+      ./"$prog" -t "$threads" -b "$n_size" -a "$iter" -n "$N"
+    done
   done
-done
 done
 
 echo $?

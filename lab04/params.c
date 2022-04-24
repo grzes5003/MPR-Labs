@@ -36,13 +36,13 @@ int get_params(param* _params, int argc, char *argv[]) {
                 break;
             case 't':
                 tmp = (int) strtol(optarg, &end, 10);
-                if (tmp > SCHAR_MAX || (errno == ERANGE && tmp == SCHAR_MAX))
+                if (tmp > INT_MAX || (errno == ERANGE && tmp == INT_MAX))
                     return 10;
                 if (errno == ERANGE && tmp == 0)
                     return 11;
                 if (*end != '\0')
                     return 12;
-                _params->threads = (int8_t) tmp;
+                _params->threads = (int32_t) tmp;
                 break;
             case 'n':
                 tmp = (int) strtol(optarg, &end, 10);
@@ -56,13 +56,13 @@ int get_params(param* _params, int argc, char *argv[]) {
                 break;
             case 'b':
                 tmp = (int) strtol(optarg, &end, 10);
-                if (tmp > SHRT_MAX || (errno == ERANGE && tmp == SHRT_MAX))
+                if (tmp > INT_MAX || (errno == ERANGE && tmp == INT_MAX))
                     return 10;
                 if (errno == ERANGE && tmp == 0)
                     return 11;
                 if (*end != '\0')
                     return 12;
-                _params->n_buckets = (int16_t) tmp;
+                _params->n_buckets = (int32_t) tmp;
                 break;
             default:
                 fprintf(stderr, "unexpected argument: %d\n", optopt);
