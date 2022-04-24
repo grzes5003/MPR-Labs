@@ -133,7 +133,7 @@ def plot_second(df):
 
 
 if __name__ == "__main__":
-    path = '../lab04/res/run_24_18.log'
+    path = '../lab04/res/run_alg2.log'
     res = [*read_logs(path)]
     df = obj2df(res)
     plot_second(df)
