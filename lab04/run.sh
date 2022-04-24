@@ -1,7 +1,7 @@
 #!/bin/bash -l
 #SBATCH --nodes 1
 #SBATCH --ntasks 12
-#SBATCH --time=00:40:00
+#SBATCH --time=00:25:00
 #SBATCH --sockets-per-node=2
 #SBATCH --partition=plgrid-short
 #SBATCH --account=plgmpr22
@@ -26,7 +26,7 @@ echo "Starting " "$prog"
 
 N=120000000
 
-for ((iter = 2; iter > 0; iter--)); do
+for ((iter = 1; iter > 0; iter--)); do
   for ((n_size = 12; n_size <= N; n_size *= 10)); do
     ./"$prog" -t 1 -b "$n_size" -a "$iter" -n "$N"
     for ((threads = 2; threads <= 12; threads += 2)); do

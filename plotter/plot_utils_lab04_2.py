@@ -95,34 +95,45 @@ def plot_lab04(df: pd.DataFrame):
 
 
 def plot_second(df):
-    val = 10000000
-    for n_buckets in df['b'].unique():
-        sns.set_theme(style="darkgrid")
-        # ax = sns.lineplot(x=range(1, 13), y=np.repeat(1, 12)/range(1, 13), linestyle='--', lw=1)
-        ax = sns.pointplot(x="threads", y="t_all", data=df[(df['array'] == val)], legend=True, ci='sd')
-        sns.pointplot(x="threads", y="t_bck", data=df[(df['array'] == val)], legend=True, ci='sd', ax=ax, color='r')
-        sns.pointplot(x="threads", y="t_sort", data=df[(df['array'] == val)], legend=True, ci='sd', ax=ax, color='g')
-        sns.pointplot(x="threads", y="t_cpy", data=df[(df['array'] == val)], legend=True, ci='sd', ax=ax, color='y')
-        sns.pointplot(x="threads", y="t_clean", data=df[(df['array'] == val)], legend=True, ci='sd', ax=ax, color='black')
-        ax.set(ylabel='Duration [s]')
-        ax.set_title(f'Duration based on used threads {n_buckets=}')
-        ax.set(xlabel='Number of threads')
+    val = 120000000
+    for alg in df['alg'].unique():
+        for n_buckets in df['b'].unique():
+            sns.set_theme(style="darkgrid")
+            # ax = sns.lineplot(x=range(1, 13), y=np.repeat(1, 12)/range(1, 13), linestyle='--', lw=1)
+            ax = sns.pointplot(x="threads", y="t_all",
+                               data=df[(df['array'] == val) & (df['b'] == n_buckets) & (df['alg'] == alg)], legend=True,
+                               ci='sd')
+            sns.pointplot(x="threads", y="t_bck",
+                          data=df[(df['array'] == val) & (df['b'] == n_buckets) & (df['alg'] == alg)], legend=True,
+                          ci='sd', ax=ax, color='r')
+            sns.pointplot(x="threads", y="t_sort",
+                          data=df[(df['array'] == val) & (df['b'] == n_buckets) & (df['alg'] == alg)], legend=True,
+                          ci='sd', ax=ax, color='g')
+            sns.pointplot(x="threads", y="t_cpy",
+                          data=df[(df['array'] == val) & (df['b'] == n_buckets) & (df['alg'] == alg)], legend=True,
+                          ci='sd', ax=ax, color='y')
+            sns.pointplot(x="threads", y="t_clean",
+                          data=df[(df['array'] == val) & (df['b'] == n_buckets) & (df['alg'] == alg)], legend=True,
+                          ci='sd', ax=ax, color='black')
+            ax.set(ylabel='Duration [s]')
+            ax.set_title(f'Duration based on used threads {n_buckets=}, {alg=}')
+            ax.set(xlabel='Number of threads')
 
-        custom_lines = [Line2D([0], [0], color='b', lw=4),
-                        Line2D([0], [0], color='r', lw=4),
-                        Line2D([0], [0], color='g', lw=4),
-                        Line2D([0], [0], color='y', lw=4),
-                        Line2D([0], [0], color='black', lw=4)]
-        ax.legend(custom_lines, ["All", 'Bucket split', 'sort', 'copying time', 'clean up'])
-        # ax.legend(labels=['1*10^7', '250*10^7', '1500*10^7'])
-        # ax.figure.legend(handles=[Line2D([], [], marker='_', color="b", label='Small: n=10000000'),
-        #                           Line2D([], [], marker='_', color="r", label='Medium: n=2500000000'),
-        #                           Line2D([], [], marker='_', color="g", label='Big: n=15000000000')])
-    plt.show()
+            custom_lines = [Line2D([0], [0], color='b', lw=4),
+                            Line2D([0], [0], color='r', lw=4),
+                            Line2D([0], [0], color='g', lw=4),
+                            Line2D([0], [0], color='y', lw=4),
+                            Line2D([0], [0], color='black', lw=4)]
+            ax.legend(custom_lines, ["All", 'Bucket split', 'sort', 'copying time', 'clean up'])
+            # ax.legend(labels=['1*10^7', '250*10^7', '1500*10^7'])
+            # ax.figure.legend(handles=[Line2D([], [], marker='_', color="b", label='Small: n=10000000'),
+            #                           Line2D([], [], marker='_', color="r", label='Medium: n=2500000000'),
+            #                           Line2D([], [], marker='_', color="g", label='Big: n=15000000000')])
+            plt.show()
 
 
 if __name__ == "__main__":
-    path = '../lab04/latest_log.log'
+    path = '../lab04/res/run_24_18.log'
     res = [*read_logs(path)]
     df = obj2df(res)
     plot_second(df)
