@@ -142,11 +142,25 @@ def plot_one_thrd(df: pd.DataFrame):
     plt.show()
 
 
+def plot_dist(path: str):
+    nums = []
+    with open(path, "r") as file:
+        for line in file.readlines():
+            num = line.rstrip().split(',') #using rstrip to remove the \n
+            [nums.append(int(n))for n in num if len(n) != 0 ]
+    sns.displot(nums, kind="kde", bw_adjust=.25)
+    plt.show()
+    ...
+
+
 if __name__ == "__main__":
-    path = '../lab04/res/run_alg2.log'
-    res = [*read_logs(path)]
-    df = obj2df(res)
+    # path = '../lab04/res/run_alg2.log'
+    # res = [*read_logs(path)]
+    # df = obj2df(res)
     # plot_second(df)
-    plot_one_thrd(df)
+    # plot_one_thrd(df)
     # plot_speedup(df)
     # plot_chunks(df)
+
+    path = '../lab04/cmake-build-debug/arr_t8.txt'
+    plot_dist(path)
