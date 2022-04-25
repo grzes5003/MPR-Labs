@@ -128,6 +128,58 @@ def plot_second(df):
             plt.show()
 
 
+def plot_speedup(df: pd.DataFrame):
+    val = 120000000
+    times = [
+        't_rand',
+        't_bck',
+        't_sort',
+        't_cpy',
+        't_clean'
+    ]
+
+    colors = ['b', 'r', 'g', 'y', 'black']
+
+    df = df[(df['array'] == val)]
+    for alg in df['alg'].unique():
+        if alg != 1:
+            continue
+        for n_buckets in df['b'].unique():
+            if n_buckets != 120000:
+                continue
+            # df_out = df.groupby('cores').mean()
+            # std = df.groupby('cores').std()
+            t1 = df[(df['alg'] == alg) & (df['b'] == n_buckets) & (df['threads'] == 1)].mean()
+
+            for time in times:
+                df[f'speedup_{time}'] = t1[time] / df[time]
+
+            sns.set_theme(style="darkgrid")
+            for time, color in zip(times, colors):
+                # sns.lineplot(x=[0, df[(df['array'] == val) & (df['b'] == n_buckets)
+                #                       & (df['alg'] == alg)]['threads'].max() / 2],
+                #              y=[1, df[(df['array'] == val) & (df['b'] == n_buckets)
+                #                       & (df['alg'] == alg)]['threads'].max()],
+                #              linestyle='--', lw=1, color='b')
+                sns.lineplot(x=[0, 6],
+                             y=[1, 12],
+                             linestyle='--', lw=1, color='b')
+                ax = sns.pointplot(x="threads", y=f"speedup_{time}",
+                                   data=df[(df['array'] == val) & (df['b'] == n_buckets) & (df['alg'] == alg)],
+                                   ci='sd', color=color)
+                ax.set(ylabel='Speedup')
+                ax.set_title(f'Speedup based on used threads, {alg=}, {n_buckets=}')
+                ax.set(xlabel='Number of threads')
+            custom_lines = [Line2D([0], [0], color='b', lw=4),
+                            Line2D([0], [0], color='r', lw=4),
+                            Line2D([0], [0], color='g', lw=4),
+                            Line2D([0], [0], color='y', lw=4),
+                            Line2D([0], [0], color='black', lw=4)]
+            ax.legend(custom_lines, ["All", 'Bucket split', 'Sort', 'Copying time', 'Clean up'])
+            plt.show()
+            ...
+
+
 def plot_one_thrd(df: pd.DataFrame):
     sns.set_theme(style="darkgrid")
     ax = sns.pointplot(x="b", y="t_all", data=df[(df['threads'] == 1)],
@@ -143,7 +195,7 @@ def plot_dist(path: str):
     with open(path, "r") as file:
         for line in file.readlines():
             num = line.rstrip().split(',')
-            [nums.append(int(n))for n in num if len(n) != 0 ]
+            [nums.append(int(n)) for n in num if len(n) != 0]
     sns.displot(nums, kind="kde", bw_adjust=.25)
     plt.show()
     ...
@@ -157,8 +209,8 @@ if __name__ == "__main__":
     res = [*read_logs(path), *read_logs(path2), *read_logs(path3), *read_logs(path4)]
     df = obj2df(res)
     # plot_second(df)
-    plot_one_thrd(df)
-    # plot_speedup(df)
+    # plot_one_thrd(df)
+    plot_speedup(df)
     # plot_chunks(df)
 
     # path = '../lab04/cmake-build-debug/arr_t8.txt'
