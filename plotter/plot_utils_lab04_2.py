@@ -125,10 +125,6 @@ def plot_second(df):
                             Line2D([0], [0], color='y', lw=4),
                             Line2D([0], [0], color='black', lw=4)]
             ax.legend(custom_lines, ["All", 'Bucket split', 'sort', 'copying time', 'clean up'])
-            # ax.legend(labels=['1*10^7', '250*10^7', '1500*10^7'])
-            # ax.figure.legend(handles=[Line2D([], [], marker='_', color="b", label='Small: n=10000000'),
-            #                           Line2D([], [], marker='_', color="r", label='Medium: n=2500000000'),
-            #                           Line2D([], [], marker='_', color="g", label='Big: n=15000000000')])
             plt.show()
 
 
@@ -146,7 +142,7 @@ def plot_dist(path: str):
     nums = []
     with open(path, "r") as file:
         for line in file.readlines():
-            num = line.rstrip().split(',') #using rstrip to remove the \n
+            num = line.rstrip().split(',')
             [nums.append(int(n))for n in num if len(n) != 0 ]
     sns.displot(nums, kind="kde", bw_adjust=.25)
     plt.show()
@@ -154,13 +150,16 @@ def plot_dist(path: str):
 
 
 if __name__ == "__main__":
-    # path = '../lab04/res/run_alg2.log'
-    # res = [*read_logs(path)]
-    # df = obj2df(res)
+    path = '../lab04/res/run_alg2.log'
+    path2 = '../lab04/res/run_alg2_more.log'
+    path3 = '../lab04/res/run_24_18.log'
+    path4 = '../lab04/res/run_alg1_more.log'
+    res = [*read_logs(path), *read_logs(path2), *read_logs(path3), *read_logs(path4)]
+    df = obj2df(res)
     # plot_second(df)
-    # plot_one_thrd(df)
+    plot_one_thrd(df)
     # plot_speedup(df)
     # plot_chunks(df)
 
-    path = '../lab04/cmake-build-debug/arr_t8.txt'
-    plot_dist(path)
+    # path = '../lab04/cmake-build-debug/arr_t8.txt'
+    # plot_dist(path)
