@@ -1,0 +1,353 @@
+t_rand=0.789325:t_bck=1.555719:t_sort=16.717995:t_cpy=0.057311:t_clean=0.002633:t=1:alg=1:arr=120000000:b=12:t_all=19.123552
+OkArray not sorted properly (CODE 1)
+t_rand=0.388836:t_bck=2.575159:t_sort=8.350423:t_cpy=0.063789:t_clean=0.001191:t=2:alg=1:arr=120000000:b=12:t_all=11.381168
+Array not sorted properly (CODE 1)
+t_rand=0.213111:t_bck=2.561011:t_sort=4.683611:t_cpy=0.036884:t_clean=0.000886:t=4:alg=1:arr=120000000:b=12:t_all=8.089879
+Array not sorted properly (CODE 1)
+t_rand=0.144198:t_bck=1.876593:t_sort=3.139975:t_cpy=0.009198:t_clean=0.000694:t=6:alg=1:arr=120000000:b=12:t_all=6.336002
+t_rand=0.072555:t_bck=2.303327:t_sort=1.588348:t_cpy=0.005005:t_clean=0.000327:t=12:alg=1:arr=120000000:b=12:t_all=4.619196
+Okt_rand=0.781531:t_bck=1.724744:t_sort=14.240703:t_cpy=0.059668:t_clean=0.016872:t=1:alg=1:arr=120000000:b=120:t_all=16.823621
+OkArray not sorted properly (CODE 1)
+t_rand=0.388224:t_bck=2.498278:t_sort=7.052980:t_cpy=0.038393:t_clean=0.006901:t=2:alg=1:arr=120000000:b=120:t_all=9.986504
+t_rand=0.213867:t_bck=1.942619:t_sort=3.887923:t_cpy=0.026242:t_clean=0.008256:t=4:alg=1:arr=120000000:b=120:t_all=7.039304
+OkArray not sorted properly (CODE 1)
+t_rand=0.144905:t_bck=1.672580:t_sort=2.660461:t_cpy=0.011852:t_clean=0.004114:t=6:alg=1:arr=120000000:b=120:t_all=5.663577
+Array not sorted properly (CODE 1)
+t_rand=0.108209:t_bck=1.515282:t_sort=1.949768:t_cpy=0.009518:t_clean=0.002705:t=8:alg=1:arr=120000000:b=120:t_all=4.833211
+Array not sorted properly (CODE 1)
+t_rand=0.087112:t_bck=1.431328:t_sort=1.501719:t_cpy=0.006953:t_clean=0.002200:t=10:alg=1:arr=120000000:b=120:t_all=4.340282
+/var/spool/slurmd/job20251617/slurm_script: line 37: 20346 Naruszenie ochrony pamięci   ./"$prog" -t "$threads" -b "$n_size" -a "$iter" -n "$N"
+t_rand=0.778354:t_bck=2.090211:t_sort=11.945791:t_cpy=0.074529:t_clean=0.159982:t=1:alg=1:arr=120000000:b=1200:t_all=15.049393
+OkArray not sorted properly (CODE 1)
+t_rand=0.388586:t_bck=2.459272:t_sort=5.880195:t_cpy=0.093918:t_clean=0.062916:t=2:alg=1:arr=120000000:b=1200:t_all=8.886633
+Array not sorted properly (CODE 1)
+t_rand=0.212861:t_bck=1.925070:t_sort=3.252756:t_cpy=0.023406:t_clean=0.047450:t=4:alg=1:arr=120000000:b=1200:t_all=6.425947
+Array not sorted properly (CODE 1)
+t_rand=0.144232:t_bck=1.643602:t_sort=2.188330:t_cpy=0.015437:t_clean=0.032264:t=6:alg=1:arr=120000000:b=1200:t_all=5.258393
+Array not sorted properly (CODE 1)
+t_rand=0.107733:t_bck=1.487363:t_sort=1.561995:t_cpy=0.011650:t_clean=0.024288:t=8:alg=1:arr=120000000:b=1200:t_all=4.553778
+t_rand=0.907838:t_bck=4.903904:t_sort=9.623053:t_cpy=0.211005:t_clean=1.535210:t=1:alg=1:arr=120000000:b=12000:t_all=17.181496
+OkArray not sorted properly (CODE 1)
+t_rand=0.459008:t_bck=2.595269:t_sort=4.726474:t_cpy=0.123300:t_clean=1.663758:t=2:alg=1:arr=120000000:b=12000:t_all=9.568294
+Array not sorted properly (CODE 1)
+t_rand=0.252242:t_bck=1.925778:t_sort=2.600701:t_cpy=0.079801:t_clean=0.915459:t=4:alg=1:arr=120000000:b=12000:t_all=6.686014
+Array not sorted properly (CODE 1)
+t_rand=0.170552:t_bck=1.625233:t_sort=1.713495:t_cpy=0.049877:t_clean=0.586782:t=6:alg=1:arr=120000000:b=12000:t_all=5.352435
+Array not sorted properly (CODE 1)
+t_rand=0.129876:t_bck=1.467520:t_sort=1.215560:t_cpy=0.034939:t_clean=0.410229:t=8:alg=1:arr=120000000:b=12000:t_all=4.692852
+t_rand=0.752298:t_bck=1.504378:t_sort=16.760708:t_cpy=0.056179:t_clean=0.002647:t=1:alg=1:arr=120000000:b=12:t_all=19.076619
+OkArray not sorted properly (CODE 1)
+t_rand=0.382998:t_bck=2.629624:t_sort=8.388017:t_cpy=0.060126:t_clean=0.001250:t=2:alg=1:arr=120000000:b=12:t_all=11.463445
+Array not sorted properly (CODE 1)
+t_rand=0.207400:t_bck=2.451767:t_sort=4.624865:t_cpy=0.015364:t_clean=0.000746:t=4:alg=1:arr=120000000:b=12:t_all=7.957484
+Array not sorted properly (CODE 1)
+t_rand=0.140975:t_bck=1.826405:t_sort=3.130503:t_cpy=0.009238:t_clean=0.000583:t=6:alg=1:arr=120000000:b=12:t_all=6.263219
+t_rand=0.070736:t_bck=1.944300:t_sort=1.581090:t_cpy=0.004805:t_clean=0.000324:t=12:alg=1:arr=120000000:b=12:t_all=4.472510
+Okt_rand=0.755431:t_bck=1.695404:t_sort=14.311518:t_cpy=0.059078:t_clean=0.016867:t=1:alg=1:arr=120000000:b=120:t_all=16.838395
+OkArray not sorted properly (CODE 1)
+t_rand=0.381223:t_bck=2.515280:t_sort=7.136448:t_cpy=0.038443:t_clean=0.007102:t=2:alg=1:arr=120000000:b=120:t_all=10.079892
+t_rand=0.208019:t_bck=1.937968:t_sort=3.975222:t_cpy=0.026105:t_clean=0.007884:t=4:alg=1:arr=120000000:b=120:t_all=7.134997
+OkArray not sorted properly (CODE 1)
+t_rand=0.140712:t_bck=1.654179:t_sort=2.657260:t_cpy=0.011612:t_clean=0.003491:t=6:alg=1:arr=120000000:b=120:t_all=5.639844
+Array not sorted properly (CODE 1)
+t_rand=0.105400:t_bck=1.507837:t_sort=1.940980:t_cpy=0.009460:t_clean=0.002627:t=8:alg=1:arr=120000000:b=120:t_all=4.840488
+Array not sorted properly (CODE 1)
+t_rand=0.084753:t_bck=1.418836:t_sort=1.493752:t_cpy=0.007075:t_clean=0.002181:t=10:alg=1:arr=120000000:b=120:t_all=4.321061
+t_rand=0.751483:t_bck=2.027416:t_sort=12.023818:t_cpy=0.073227:t_clean=0.160514:t=1:alg=1:arr=120000000:b=1200:t_all=15.036953
+OkArray not sorted properly (CODE 1)
+t_rand=0.382918:t_bck=2.483059:t_sort=5.970611:t_cpy=0.121794:t_clean=0.066501:t=2:alg=1:arr=120000000:b=1200:t_all=9.026297
+Array not sorted properly (CODE 1)
+t_rand=0.208740:t_bck=1.924692:t_sort=3.267971:t_cpy=0.022877:t_clean=0.047099:t=4:alg=1:arr=120000000:b=1200:t_all=6.448112
+Array not sorted properly (CODE 1)
+t_rand=0.140254:t_bck=1.640760:t_sort=2.177704:t_cpy=0.015078:t_clean=0.031509:t=6:alg=1:arr=120000000:b=1200:t_all=5.246356
+Array not sorted properly (CODE 1)
+t_rand=0.105623:t_bck=1.482719:t_sort=1.555973:t_cpy=0.011125:t_clean=0.023120:t=8:alg=1:arr=120000000:b=1200:t_all=4.555639
+t_rand=0.767222:t_bck=5.304301:t_sort=9.644954:t_cpy=0.211229:t_clean=1.597264:t=1:alg=1:arr=120000000:b=12000:t_all=17.525512
+OkArray not sorted properly (CODE 1)
+t_rand=0.386156:t_bck=2.681609:t_sort=4.820170:t_cpy=0.122346:t_clean=1.216145:t=2:alg=1:arr=120000000:b=12000:t_all=9.636582
+Array not sorted properly (CODE 1)
+t_rand=0.207153:t_bck=1.946599:t_sort=2.609633:t_cpy=0.075951:t_clean=0.926771:t=4:alg=1:arr=120000000:b=12000:t_all=6.621034
+Array not sorted properly (CODE 1)
+t_rand=0.140473:t_bck=1.647287:t_sort=1.704178:t_cpy=0.048678:t_clean=0.571075:t=6:alg=1:arr=120000000:b=12000:t_all=5.356246
+Array not sorted properly (CODE 1)
+t_rand=0.105604:t_bck=1.477556:t_sort=1.209254:t_cpy=0.034437:t_clean=0.406399:t=8:alg=1:arr=120000000:b=12000:t_all=4.696468
+t_rand=0.777029:t_bck=1.525593:t_sort=16.713352:t_cpy=0.059735:t_clean=0.002908:t=1:alg=1:arr=120000000:b=12:t_all=19.079170
+OkArray not sorted properly (CODE 1)
+t_rand=0.399509:t_bck=2.508189:t_sort=8.268765:t_cpy=0.031478:t_clean=0.001388:t=2:alg=1:arr=120000000:b=12:t_all=11.211062
+Array not sorted properly (CODE 1)
+t_rand=0.206822:t_bck=1.998078:t_sort=4.461933:t_cpy=0.016083:t_clean=0.000823:t=4:alg=1:arr=120000000:b=12:t_all=7.879541
+Array not sorted properly (CODE 1)
+t_rand=0.144451:t_bck=1.675512:t_sort=3.064895:t_cpy=0.010170:t_clean=0.000578:t=6:alg=1:arr=120000000:b=12:t_all=6.118135
+t_rand=0.114056:t_bck=2.063897:t_sort=1.581952:t_cpy=0.004883:t_clean=0.000736:t=12:alg=1:arr=120000000:b=12:t_all=4.694246
+Okt_rand=0.776349:t_bck=1.731083:t_sort=14.297752:t_cpy=0.061326:t_clean=0.017490:t=1:alg=1:arr=120000000:b=120:t_all=16.884108
+OkArray not sorted properly (CODE 1)
+t_rand=0.388106:t_bck=2.469288:t_sort=7.062585:t_cpy=0.034146:t_clean=0.007133:t=2:alg=1:arr=120000000:b=120:t_all=9.962977
+t_rand=0.206462:t_bck=1.837358:t_sort=3.734659:t_cpy=0.017694:t_clean=0.007595:t=4:alg=1:arr=120000000:b=120:t_all=6.771708
+OkArray not sorted properly (CODE 1)
+t_rand=0.145119:t_bck=1.586698:t_sort=2.572132:t_cpy=0.011542:t_clean=0.004251:t=6:alg=1:arr=120000000:b=120:t_all=5.449399
+Array not sorted properly (CODE 1)
+t_rand=0.107190:t_bck=1.487388:t_sort=1.929854:t_cpy=0.009221:t_clean=0.002710:t=8:alg=1:arr=120000000:b=120:t_all=4.883333
+Array not sorted properly (CODE 1)
+t_rand=0.085849:t_bck=1.517947:t_sort=1.531071:t_cpy=0.007837:t_clean=0.002130:t=10:alg=1:arr=120000000:b=120:t_all=4.326519
+/var/spool/slurmd/job20256533/slurm_script: line 37: 24241 Naruszenie ochrony pamięci   ./"$prog" -t "$threads" -b "$n_size" -a "$iter" -n "$N"
+t_rand=0.776674:t_bck=2.154069:t_sort=12.008887:t_cpy=0.076045:t_clean=0.164519:t=1:alg=1:arr=120000000:b=1200:t_all=15.180802
+OkArray not sorted properly (CODE 1)
+t_rand=0.388345:t_bck=2.451720:t_sort=5.857906:t_cpy=0.066784:t_clean=0.064291:t=2:alg=1:arr=120000000:b=1200:t_all=8.830767
+Array not sorted properly (CODE 1)
+t_rand=0.207102:t_bck=1.839773:t_sort=3.107662:t_cpy=0.021873:t_clean=0.046414:t=4:alg=1:arr=120000000:b=1200:t_all=6.140774
+Array not sorted properly (CODE 1)
+t_rand=0.145605:t_bck=1.589315:t_sort=2.111741:t_cpy=0.014243:t_clean=0.038804:t=6:alg=1:arr=120000000:b=1200:t_all=4.992583
+/var/spool/slurmd/job20256533/slurm_script: line 37: 24341 Naruszenie ochrony pamięci   ./"$prog" -t "$threads" -b "$n_size" -a "$iter" -n "$N"
+/var/spool/slurmd/job20256533/slurm_script: line 37: 24352 Naruszenie ochrony pamięci   ./"$prog" -t "$threads" -b "$n_size" -a "$iter" -n "$N"
+/var/spool/slurmd/job20256533/slurm_script: line 37: 24366 Naruszenie ochrony pamięci   ./"$prog" -t "$threads" -b "$n_size" -a "$iter" -n "$N"
+t_rand=0.925247:t_bck=4.917270:t_sort=9.639923:t_cpy=0.214633:t_clean=0.615468:t=1:alg=1:arr=120000000:b=12000:t_all=16.313054
+Okt_rand=0.477060:t_bck=2.795952:t_sort=4.665122:t_cpy=0.108848:t_clean=0.653553:t=2:alg=1:arr=120000000:b=12000:t_all=8.719616
+OkArray not sorted properly (CODE 1)
+t_rand=0.247752:t_bck=1.857803:t_sort=2.482332:t_cpy=0.074523:t_clean=0.211263:t=4:alg=1:arr=120000000:b=12000:t_all=5.823154
+Array not sorted properly (CODE 1)
+t_rand=0.174161:t_bck=1.582708:t_sort=1.661079:t_cpy=0.040067:t_clean=0.269062:t=6:alg=1:arr=120000000:b=12000:t_all=4.731604
+/var/spool/slurmd/job20256533/slurm_script: line 37: 24452 Naruszenie ochrony pamięci   ./"$prog" -t "$threads" -b "$n_size" -a "$iter" -n "$N"
+/var/spool/slurmd/job20256533/slurm_script: line 37: 24464 Naruszenie ochrony pamięci   ./"$prog" -t "$threads" -b "$n_size" -a "$iter" -n "$N"
+/var/spool/slurmd/job20256533/slurm_script: line 37: 24478 Naruszenie ochrony pamięci   ./"$prog" -t "$threads" -b "$n_size" -a "$iter" -n "$N"
+
+
+t_rand=0.784396:t_bck=1.524179:t_sort=16.741534:t_cpy=0.058988:t_clean=0.002740:t=1:alg=1:arr=120000000:b=12:t_all=19.112369
+OkArray not sorted properly (CODE 1)
+t_rand=0.392507:t_bck=2.443883:t_sort=8.272397:t_cpy=0.031058:t_clean=0.001327:t=2:alg=1:arr=120000000:b=12:t_all=11.142909
+Array not sorted properly (CODE 1)
+t_rand=0.206750:t_bck=1.993803:t_sort=4.412974:t_cpy=0.017170:t_clean=0.001444:t=4:alg=1:arr=120000000:b=12:t_all=7.828262
+Array not sorted properly (CODE 1)
+t_rand=0.144621:t_bck=1.660094:t_sort=3.047015:t_cpy=0.009459:t_clean=0.000592:t=6:alg=1:arr=120000000:b=12:t_all=6.161810
+t_rand=0.136266:t_bck=1.532080:t_sort=1.586454:t_cpy=0.005084:t_clean=0.000342:t=12:alg=1:arr=120000000:b=12:t_all=4.843668
+Okt_rand=0.776582:t_bck=1.727906:t_sort=14.282265:t_cpy=0.060993:t_clean=0.017822:t=1:alg=1:arr=120000000:b=120:t_all=16.865672
+OkArray not sorted properly (CODE 1)
+t_rand=0.388420:t_bck=2.468100:t_sort=7.055010:t_cpy=0.033783:t_clean=0.006909:t=2:alg=1:arr=120000000:b=120:t_all=9.953935
+t_rand=0.206667:t_bck=1.836133:t_sort=3.727875:t_cpy=0.016869:t_clean=0.012291:t=4:alg=1:arr=120000000:b=120:t_all=6.767143
+OkArray not sorted properly (CODE 1)
+t_rand=0.145269:t_bck=1.585263:t_sort=2.508069:t_cpy=0.011163:t_clean=0.004099:t=6:alg=1:arr=120000000:b=120:t_all=5.353091
+Array not sorted properly (CODE 1)
+t_rand=0.107100:t_bck=1.498090:t_sort=1.951076:t_cpy=0.008987:t_clean=0.003289:t=8:alg=1:arr=120000000:b=120:t_all=4.888456
+Array not sorted properly (CODE 1)
+t_rand=0.086128:t_bck=1.499360:t_sort=1.527523:t_cpy=0.007387:t_clean=0.002174:t=10:alg=1:arr=120000000:b=120:t_all=4.354465
+/var/spool/slurmd/job20257168/slurm_script: line 37: 24815 Naruszenie ochrony pamięci   ./"$prog" -t "$threads" -b "$n_size" -a "$iter" -n "$N"
+t_rand=0.776546:t_bck=2.154840:t_sort=11.964866:t_cpy=0.076149:t_clean=0.167843:t=1:alg=1:arr=120000000:b=1200:t_all=15.140821
+OkArray not sorted properly (CODE 1)
+t_rand=0.389960:t_bck=2.482560:t_sort=5.904495:t_cpy=0.057940:t_clean=0.063491:t=2:alg=1:arr=120000000:b=1200:t_all=8.900203
+Array not sorted properly (CODE 1)
+t_rand=0.207762:t_bck=1.838287:t_sort=3.108754:t_cpy=0.021951:t_clean=0.046390:t=4:alg=1:arr=120000000:b=1200:t_all=6.143940
+Array not sorted properly (CODE 1)
+t_rand=0.145083:t_bck=1.590387:t_sort=2.106211:t_cpy=0.014094:t_clean=0.039298:t=6:alg=1:arr=120000000:b=1200:t_all=4.989809
+/var/spool/slurmd/job20257168/slurm_script: line 37: 24876 Naruszenie ochrony pamięci   ./"$prog" -t "$threads" -b "$n_size" -a "$iter" -n "$N"
+/var/spool/slurmd/job20257168/slurm_script: line 37: 24895 Naruszenie ochrony pamięci   ./"$prog" -t "$threads" -b "$n_size" -a "$iter" -n "$N"
+/var/spool/slurmd/job20257168/slurm_script: line 37: 24907 Naruszenie ochrony pamięci   ./"$prog" -t "$threads" -b "$n_size" -a "$iter" -n "$N"
+t_rand=0.921094:t_bck=4.906734:t_sort=9.596139:t_cpy=0.214828:t_clean=0.600207:t=1:alg=1:arr=120000000:b=12000:t_all=16.239509
+Okt_rand=0.465831:t_bck=2.794817:t_sort=4.676455:t_cpy=0.107857:t_clean=0.638142:t=2:alg=1:arr=120000000:b=12000:t_all=8.701421
+OkArray not sorted properly (CODE 1)
+t_rand=0.246496:t_bck=1.866092:t_sort=2.497405:t_cpy=0.076053:t_clean=0.179935:t=4:alg=1:arr=120000000:b=12000:t_all=5.841671
+Array not sorted properly (CODE 1)
+t_rand=0.173208:t_bck=1.579159:t_sort=1.656167:t_cpy=0.040014:t_clean=0.261423:t=6:alg=1:arr=120000000:b=12000:t_all=4.738490
+/var/spool/slurmd/job20257168/slurm_script: line 37: 24972 Naruszenie ochrony pamięci   ./"$prog" -t "$threads" -b "$n_size" -a "$iter" -n "$N"
+/var/spool/slurmd/job20257168/slurm_script: line 37: 24984 Naruszenie ochrony pamięci   ./"$prog" -t "$threads" -b "$n_size" -a "$iter" -n "$N"
+/var/spool/slurmd/job20257168/slurm_script: line 37: 25005 Naruszenie ochrony pamięci   ./"$prog" -t "$threads" -b "$n_size" -a "$iter" -n "$N"
+
+
+t_rand=0.775785:t_bck=1.519129:t_sort=16.687827:t_cpy=0.056920:t_clean=0.002554:t=1:alg=1:arr=120000000:b=12:t_all=19.042656
+OkArray not sorted properly (CODE 1)
+t_rand=0.383989:t_bck=2.575367:t_sort=8.447684:t_cpy=0.063624:t_clean=0.001151:t=2:alg=1:arr=120000000:b=12:t_all=11.473428
+Array not sorted properly (CODE 1)
+t_rand=0.210349:t_bck=2.536794:t_sort=4.594813:t_cpy=0.034318:t_clean=0.000738:t=4:alg=1:arr=120000000:b=12:t_all=7.901562
+Array not sorted properly (CODE 1)
+t_rand=0.144180:t_bck=1.825831:t_sort=3.131059:t_cpy=0.009020:t_clean=0.000673:t=6:alg=1:arr=120000000:b=12:t_all=6.279227
+t_rand=0.071993:t_bck=2.061370:t_sort=1.581308:t_cpy=0.004801:t_clean=0.000292:t=12:alg=1:arr=120000000:b=12:t_all=4.671697
+Okt_rand=0.765646:t_bck=1.702444:t_sort=14.286973:t_cpy=0.059097:t_clean=0.016561:t=1:alg=1:arr=120000000:b=120:t_all=16.830819
+OkArray not sorted properly (CODE 1)
+t_rand=0.384095:t_bck=2.487120:t_sort=7.010312:t_cpy=0.038673:t_clean=0.006844:t=2:alg=1:arr=120000000:b=120:t_all=9.928690
+Array not sorted properly (CODE 1)
+t_rand=0.209705:t_bck=1.927379:t_sort=3.894766:t_cpy=0.022212:t_clean=0.006362:t=4:alg=1:arr=120000000:b=120:t_all=7.046577
+Array not sorted properly (CODE 1)
+t_rand=0.142802:t_bck=1.681863:t_sort=2.661934:t_cpy=0.011817:t_clean=0.004113:t=6:alg=1:arr=120000000:b=120:t_all=5.664044
+Array not sorted properly (CODE 1)
+t_rand=0.107667:t_bck=1.506906:t_sort=1.938090:t_cpy=0.009676:t_clean=0.002577:t=8:alg=1:arr=120000000:b=120:t_all=4.838962
+Array not sorted properly (CODE 1)
+t_rand=0.085892:t_bck=1.450300:t_sort=1.508856:t_cpy=0.007137:t_clean=0.002166:t=10:alg=1:arr=120000000:b=120:t_all=4.332198
+/var/spool/slurmd/job20259199/slurm_script: line 37: 16157 Naruszenie ochrony pamięci   ./"$prog" -t "$threads" -b "$n_size" -a "$iter" -n "$N"
+t_rand=0.773675:t_bck=2.073143:t_sort=11.904809:t_cpy=0.075178:t_clean=0.160353:t=1:alg=1:arr=120000000:b=1200:t_all=14.987593
+OkArray not sorted properly (CODE 1)
+t_rand=0.388061:t_bck=2.452457:t_sort=5.840430:t_cpy=0.095020:t_clean=0.063122:t=2:alg=1:arr=120000000:b=1200:t_all=8.840863
+Array not sorted properly (CODE 1)
+t_rand=0.211148:t_bck=1.916533:t_sort=3.229194:t_cpy=0.023321:t_clean=0.047094:t=4:alg=1:arr=120000000:b=1200:t_all=6.383004
+Array not sorted properly (CODE 1)
+t_rand=0.143976:t_bck=1.639161:t_sort=2.181172:t_cpy=0.015446:t_clean=0.031513:t=6:alg=1:arr=120000000:b=1200:t_all=5.251278
+Array not sorted properly (CODE 1)
+t_rand=0.108536:t_bck=1.485307:t_sort=1.558112:t_cpy=0.011623:t_clean=0.024429:t=8:alg=1:arr=120000000:b=1200:t_all=4.557009
+/var/spool/slurmd/job20259199/slurm_script: line 37: 16246 Naruszenie ochrony pamięci   ./"$prog" -t "$threads" -b "$n_size" -a "$iter" -n "$N"
+/var/spool/slurmd/job20259199/slurm_script: line 37: 16259 Naruszenie ochrony pamięci   ./"$prog" -t "$threads" -b "$n_size" -a "$iter" -n "$N"
+t_rand=0.785181:t_bck=5.114250:t_sort=9.623225:t_cpy=0.212158:t_clean=1.584422:t=1:alg=1:arr=120000000:b=12000:t_all=17.319915
+OkArray not sorted properly (CODE 1)
+t_rand=0.389671:t_bck=2.669721:t_sort=4.706111:t_cpy=0.126466:t_clean=1.593026:t=2:alg=1:arr=120000000:b=12000:t_all=9.486900
+Array not sorted properly (CODE 1)
+t_rand=0.213625:t_bck=1.964531:t_sort=2.629490:t_cpy=0.076358:t_clean=0.933466:t=4:alg=1:arr=120000000:b=12000:t_all=6.696232
+Array not sorted properly (CODE 1)
+t_rand=0.139832:t_bck=1.637998:t_sort=1.701853:t_cpy=0.049476:t_clean=0.569362:t=6:alg=1:arr=120000000:b=12000:t_all=5.347104
+Array not sorted properly (CODE 1)
+t_rand=0.107350:t_bck=1.472562:t_sort=1.207406:t_cpy=0.033933:t_clean=0.407415:t=8:alg=1:arr=120000000:b=12000:t_all=4.701145
+/var/spool/slurmd/job20259199/slurm_script: line 37: 16484 Naruszenie ochrony pamięci   ./"$prog" -t "$threads" -b "$n_size" -a "$iter" -n "$N"
+/var/spool/slurmd/job20259199/slurm_script: line 37: 16512 Naruszenie ochrony pamięci   ./"$prog" -t "$threads" -b "$n_size" -a "$iter" -n "$N"
+
+
+t_rand=0.763595:t_bck=1.516616:t_sort=16.706618:t_cpy=0.056487:t_clean=0.002697:t=1:alg=1:arr=120000000:b=12:t_all=19.046423
+OkArray not sorted properly (CODE 1)
+t_rand=0.390493:t_bck=2.486311:t_sort=8.244211:t_cpy=0.029182:t_clean=0.001195:t=2:alg=1:arr=120000000:b=12:t_all=11.153003
+Array not sorted properly (CODE 1)
+t_rand=0.205709:t_bck=2.020376:t_sort=4.395749:t_cpy=0.014598:t_clean=0.001316:t=4:alg=1:arr=120000000:b=12:t_all=7.754430
+Array not sorted properly (CODE 1)
+t_rand=0.143340:t_bck=1.664858:t_sort=3.048415:t_cpy=0.009417:t_clean=0.000729:t=6:alg=1:arr=120000000:b=12:t_all=6.124654
+t_rand=0.070511:t_bck=1.786793:t_sort=1.577658:t_cpy=0.004719:t_clean=0.000334:t=12:alg=1:arr=120000000:b=12:t_all=4.777964
+Okt_rand=0.766004:t_bck=1.706043:t_sort=14.267465:t_cpy=0.058785:t_clean=0.016726:t=1:alg=1:arr=120000000:b=120:t_all=16.815122
+OkArray not sorted properly (CODE 1)
+t_rand=0.382907:t_bck=2.460177:t_sort=6.994947:t_cpy=0.033351:t_clean=0.006745:t=2:alg=1:arr=120000000:b=120:t_all=9.879711
+t_rand=0.205861:t_bck=1.831749:t_sort=3.742711:t_cpy=0.017855:t_clean=0.004900:t=4:alg=1:arr=120000000:b=120:t_all=6.766956
+OkArray not sorted properly (CODE 1)
+t_rand=0.143762:t_bck=1.582508:t_sort=2.561491:t_cpy=0.010810:t_clean=0.004070:t=6:alg=1:arr=120000000:b=120:t_all=5.409332
+Array not sorted properly (CODE 1)
+t_rand=0.106107:t_bck=1.488154:t_sort=1.934953:t_cpy=0.008662:t_clean=0.002570:t=8:alg=1:arr=120000000:b=120:t_all=4.866030
+Array not sorted properly (CODE 1)
+t_rand=0.085271:t_bck=1.394206:t_sort=1.475025:t_cpy=0.007003:t_clean=0.002187:t=10:alg=1:arr=120000000:b=120:t_all=4.365127
+/var/spool/slurmd/job20260219/slurm_script: line 37: 25667 Naruszenie ochrony pamięci   ./"$prog" -t "$threads" -b "$n_size" -a "$iter" -n "$N"
+t_rand=0.765864:t_bck=2.036422:t_sort=11.947622:t_cpy=0.073593:t_clean=0.157104:t=1:alg=1:arr=120000000:b=1200:t_all=14.981030
+OkArray not sorted properly (CODE 1)
+t_rand=0.382793:t_bck=2.436883:t_sort=5.833657:t_cpy=0.066579:t_clean=0.061254:t=2:alg=1:arr=120000000:b=1200:t_all=8.782767
+Array not sorted properly (CODE 1)
+t_rand=0.204480:t_bck=1.833474:t_sort=3.103935:t_cpy=0.021138:t_clean=0.043836:t=4:alg=1:arr=120000000:b=1200:t_all=6.126239
+Array not sorted properly (CODE 1)
+t_rand=0.143563:t_bck=1.588992:t_sort=2.108182:t_cpy=0.013775:t_clean=0.038073:t=6:alg=1:arr=120000000:b=1200:t_all=4.979801
+t_rand=0.904953:t_bck=4.887056:t_sort=9.613281:t_cpy=0.211179:t_clean=1.486845:t=1:alg=1:arr=120000000:b=12000:t_all=17.103771
+OkArray not sorted properly (CODE 1)
+t_rand=0.458893:t_bck=2.631327:t_sort=4.698907:t_cpy=0.112174:t_clean=1.438108:t=2:alg=1:arr=120000000:b=12000:t_all=9.339860
+Array not sorted properly (CODE 1)
+t_rand=0.244182:t_bck=1.844240:t_sort=2.491269:t_cpy=0.075057:t_clean=0.569205:t=4:alg=1:arr=120000000:b=12000:t_all=6.259312
+Array not sorted properly (CODE 1)
+t_rand=0.171766:t_bck=1.575008:t_sort=1.663920:t_cpy=0.041264:t_clean=0.957349:t=6:alg=1:arr=120000000:b=12000:t_all=5.142022
+/var/spool/slurmd/job20260219/slurm_script: line 37: 25843 Naruszenie ochrony pamięci   ./"$prog" -t "$threads" -b "$n_size" -a "$iter" -n "$N"
+/var/spool/slurmd/job20260219/slurm_script: line 37: 25859 Naruszenie ochrony pamięci   ./"$prog" -t "$threads" -b "$n_size" -a "$iter" -n "$N"
+/var/spool/slurmd/job20260219/slurm_script: line 37: 25876 Naruszenie ochrony pamięci   ./"$prog" -t "$threads" -b "$n_size" -a "$iter" -n "$N"
+
+t_rand=0.773464:t_bck=1.530769:t_sort=16.765740:t_cpy=0.056936:t_clean=0.002597:t=1:alg=1:arr=120000000:b=12:t_all=19.130941
+OkArray not sorted properly (CODE 1)
+t_rand=0.393470:t_bck=2.519610:t_sort=8.437507:t_cpy=0.030155:t_clean=0.001143:t=2:alg=1:arr=120000000:b=12:t_all=11.383642
+Array not sorted properly (CODE 1)
+t_rand=0.205710:t_bck=1.921504:t_sort=4.562880:t_cpy=0.015093:t_clean=0.000758:t=4:alg=1:arr=120000000:b=12:t_all=7.596939
+Array not sorted properly (CODE 1)
+t_rand=0.146076:t_bck=1.642718:t_sort=3.153441:t_cpy=0.009286:t_clean=0.000551:t=6:alg=1:arr=120000000:b=12:t_all=6.103101
+t_rand=0.123120:t_bck=1.938079:t_sort=1.583882:t_cpy=0.005297:t_clean=0.000319:t=12:alg=1:arr=120000000:b=12:t_all=4.918617
+Okt_rand=0.776636:t_bck=1.726868:t_sort=15.380188:t_cpy=0.061697:t_clean=0.017032:t=1:alg=1:arr=120000000:b=120:t_all=17.962550
+OkArray not sorted properly (CODE 1)
+t_rand=0.419452:t_bck=2.755930:t_sort=7.387766:t_cpy=0.033956:t_clean=0.007063:t=2:alg=1:arr=120000000:b=120:t_all=10.605877
+Array not sorted properly (CODE 1)
+t_rand=0.211739:t_bck=1.912123:t_sort=3.986344:t_cpy=0.017123:t_clean=0.004939:t=4:alg=1:arr=120000000:b=120:t_all=7.113034
+Array not sorted properly (CODE 1)
+t_rand=0.145132:t_bck=1.637266:t_sort=2.672781:t_cpy=0.011454:t_clean=0.003463:t=6:alg=1:arr=120000000:b=120:t_all=5.639158
+Array not sorted properly (CODE 1)
+t_rand=0.108771:t_bck=1.572972:t_sort=1.962869:t_cpy=0.008803:t_clean=0.002615:t=8:alg=1:arr=120000000:b=120:t_all=4.896721
+Array not sorted properly (CODE 1)
+t_rand=0.085740:t_bck=1.412760:t_sort=1.464368:t_cpy=0.007357:t_clean=0.002573:t=10:alg=1:arr=120000000:b=120:t_all=4.399804
+/var/spool/slurmd/job20261700/slurm_script: line 37: 17505 Naruszenie ochrony pamięci   ./"$prog" -t "$threads" -b "$n_size" -a "$iter" -n "$N"
+t_rand=0.800389:t_bck=2.114369:t_sort=12.297656:t_cpy=0.075315:t_clean=0.159526:t=1:alg=1:arr=120000000:b=1200:t_all=15.447918
+OkArray not sorted properly (CODE 1)
+t_rand=0.395092:t_bck=2.439443:t_sort=5.838028:t_cpy=0.072115:t_clean=0.061842:t=2:alg=1:arr=120000000:b=1200:t_all=8.808283
+Array not sorted properly (CODE 1)
+t_rand=0.210713:t_bck=1.899686:t_sort=3.264640:t_cpy=0.020541:t_clean=0.046864:t=4:alg=1:arr=120000000:b=1200:t_all=6.416342
+Array not sorted properly (CODE 1)
+t_rand=0.144222:t_bck=1.647643:t_sort=2.188502:t_cpy=0.013894:t_clean=0.031210:t=6:alg=1:arr=120000000:b=1200:t_all=5.238792
+Array not sorted properly (CODE 1)
+t_rand=0.107899:t_bck=1.510349:t_sort=1.567427:t_cpy=0.011513:t_clean=0.024194:t=8:alg=1:arr=120000000:b=1200:t_all=4.549027
+/var/spool/slurmd/job20261700/slurm_script: line 37: 17577 Naruszenie ochrony pamięci   ./"$prog" -t "$threads" -b "$n_size" -a "$iter" -n "$N"
+/var/spool/slurmd/job20261700/slurm_script: line 37: 17589 Naruszenie ochrony pamięci   ./"$prog" -t "$threads" -b "$n_size" -a "$iter" -n "$N"
+t_rand=0.861561:t_bck=5.246135:t_sort=9.974233:t_cpy=0.222928:t_clean=1.604335:t=1:alg=1:arr=120000000:b=12000:t_all=17.909658
+OkArray not sorted properly (CODE 1)
+t_rand=0.387335:t_bck=2.996881:t_sort=5.294596:t_cpy=0.171277:t_clean=1.558271:t=2:alg=1:arr=120000000:b=12000:t_all=10.410306
+Array not sorted properly (CODE 1)
+t_rand=0.216743:t_bck=2.006329:t_sort=2.656485:t_cpy=0.074509:t_clean=0.955140:t=4:alg=1:arr=120000000:b=12000:t_all=6.683904
+Array not sorted properly (CODE 1)
+t_rand=0.144545:t_bck=1.655457:t_sort=1.713599:t_cpy=0.048613:t_clean=0.532729:t=6:alg=1:arr=120000000:b=12000:t_all=5.410686
+Array not sorted properly (CODE 1)
+t_rand=0.108696:t_bck=1.484889:t_sort=1.231902:t_cpy=0.035319:t_clean=0.563643:t=8:alg=1:arr=120000000:b=12000:t_all=4.727692
+t_rand=0.766173:t_bck=1.517512:t_sort=16.664283:t_cpy=0.056670:t_clean=0.002738:t=1:alg=1:arr=120000000:b=12:t_all=19.007915
+OkArray not sorted properly (CODE 1)
+t_rand=0.396835:t_bck=2.443542:t_sort=8.246219:t_cpy=0.029375:t_clean=0.001300:t=2:alg=1:arr=120000000:b=12:t_all=11.118923
+Array not sorted properly (CODE 1)
+t_rand=0.206496:t_bck=1.959050:t_sort=4.414484:t_cpy=0.014822:t_clean=0.000876:t=4:alg=1:arr=120000000:b=12:t_all=7.727783
+Array not sorted properly (CODE 1)
+t_rand=0.143556:t_bck=1.663287:t_sort=3.045187:t_cpy=0.009352:t_clean=0.000604:t=6:alg=1:arr=120000000:b=12:t_all=6.070898
+t_rand=0.114430:t_bck=2.218250:t_sort=1.584246:t_cpy=0.004846:t_clean=0.000304:t=12:alg=1:arr=120000000:b=12:t_all=4.547614
+Okt_rand=0.768455:t_bck=1.704545:t_sort=14.286407:t_cpy=0.059011:t_clean=0.016777:t=1:alg=1:arr=120000000:b=120:t_all=16.835295
+OkArray not sorted properly (CODE 1)
+t_rand=0.383311:t_bck=2.460965:t_sort=7.012377:t_cpy=0.032407:t_clean=0.006884:t=2:alg=1:arr=120000000:b=120:t_all=9.897546
+t_rand=0.207992:t_bck=1.835888:t_sort=3.727496:t_cpy=0.017002:t_clean=0.004936:t=4:alg=1:arr=120000000:b=120:t_all=6.754410
+OkArray not sorted properly (CODE 1)
+t_rand=0.144186:t_bck=1.583037:t_sort=2.563915:t_cpy=0.010661:t_clean=0.004061:t=6:alg=1:arr=120000000:b=120:t_all=5.424398
+Array not sorted properly (CODE 1)
+t_rand=0.106432:t_bck=1.485428:t_sort=1.933241:t_cpy=0.008655:t_clean=0.002668:t=8:alg=1:arr=120000000:b=120:t_all=4.863854
+Array not sorted properly (CODE 1)
+t_rand=0.084963:t_bck=1.403273:t_sort=1.477117:t_cpy=0.007445:t_clean=0.002107:t=10:alg=1:arr=120000000:b=120:t_all=4.349088
+/var/spool/slurmd/job20262622/slurm_script: line 37: 26435 Naruszenie ochrony pamięci   ./"$prog" -t "$threads" -b "$n_size" -a "$iter" -n "$N"
+t_rand=0.766126:t_bck=2.050173:t_sort=11.950647:t_cpy=0.073447:t_clean=0.159304:t=1:alg=1:arr=120000000:b=1200:t_all=15.000482
+OkArray not sorted properly (CODE 1)
+t_rand=0.383185:t_bck=2.457355:t_sort=5.841635:t_cpy=0.069292:t_clean=0.062624:t=2:alg=1:arr=120000000:b=1200:t_all=8.815696
+Array not sorted properly (CODE 1)
+t_rand=0.205098:t_bck=1.835767:t_sort=3.095969:t_cpy=0.021167:t_clean=0.046003:t=4:alg=1:arr=120000000:b=1200:t_all=6.138012
+Array not sorted properly (CODE 1)
+t_rand=0.143589:t_bck=1.626587:t_sort=2.143703:t_cpy=0.013543:t_clean=0.038032:t=6:alg=1:arr=120000000:b=1200:t_all=5.062223
+Array not sorted properly (CODE 1)
+t_rand=0.108034:t_bck=1.484827:t_sort=1.564634:t_cpy=0.011182:t_clean=0.029741:t=8:alg=1:arr=120000000:b=1200:t_all=4.571924
+/var/spool/slurmd/job20262622/slurm_script: line 37: 26514 Naruszenie ochrony pamięci   ./"$prog" -t "$threads" -b "$n_size" -a "$iter" -n "$N"
+/var/spool/slurmd/job20262622/slurm_script: line 37: 26527 Naruszenie ochrony pamięci   ./"$prog" -t "$threads" -b "$n_size" -a "$iter" -n "$N"
+t_rand=0.911900:t_bck=4.893503:t_sort=9.631735:t_cpy=0.211230:t_clean=1.471124:t=1:alg=1:arr=120000000:b=12000:t_all=17.120104
+OkArray not sorted properly (CODE 1)
+t_rand=0.458790:t_bck=2.625291:t_sort=4.664546:t_cpy=0.112908:t_clean=1.451033:t=2:alg=1:arr=120000000:b=12000:t_all=9.312998
+Array not sorted properly (CODE 1)
+t_rand=0.247522:t_bck=1.880560:t_sort=2.505988:t_cpy=0.075148:t_clean=0.569835:t=4:alg=1:arr=120000000:b=12000:t_all=6.128314
+Array not sorted properly (CODE 1)
+t_rand=0.172521:t_bck=1.571624:t_sort=1.670945:t_cpy=0.042171:t_clean=0.639934:t=6:alg=1:arr=120000000:b=12000:t_all=5.192870
+Array not sorted properly (CODE 1)
+t_rand=0.129413:t_bck=1.465344:t_sort=1.221291:t_cpy=0.030638:t_clean=0.510652:t=8:alg=1:arr=120000000:b=12000:t_all=4.618058
+/var/spool/slurmd/job20262622/slurm_script: line 37: 26626 Naruszenie ochrony pamięci   ./"$prog" -t "$threads" -b "$n_size" -a "$iter" -n "$N"
+/var/spool/slurmd/job20262622/slurm_script: line 37: 26642 Naruszenie ochrony pamięci   ./"$prog" -t "$threads" -b "$n_size" -a "$iter" -n "$N"
+
+t_rand=0.755355:t_bck=1.506491:t_sort=17.054063:t_cpy=0.058574:t_clean=0.002704:t=1:alg=1:arr=120000000:b=12:t_all=19.377764
+OkArray not sorted properly (CODE 1)
+t_rand=0.397211:t_bck=2.652291:t_sort=8.360638:t_cpy=0.058633:t_clean=0.001123:t=2:alg=1:arr=120000000:b=12:t_all=11.471370
+Array not sorted properly (CODE 1)
+t_rand=0.207215:t_bck=2.383802:t_sort=4.613008:t_cpy=0.034380:t_clean=0.000859:t=4:alg=1:arr=120000000:b=12:t_all=7.891396
+Array not sorted properly (CODE 1)
+t_rand=0.141156:t_bck=1.815275:t_sort=3.145428:t_cpy=0.009372:t_clean=0.000590:t=6:alg=1:arr=120000000:b=12:t_all=6.265351
+t_rand=0.071132:t_bck=1.838860:t_sort=1.584384:t_cpy=0.005403:t_clean=0.000297:t=12:alg=1:arr=120000000:b=12:t_all=4.486988
+Okt_rand=0.754479:t_bck=1.702715:t_sort=14.562070:t_cpy=0.060068:t_clean=0.016636:t=1:alg=1:arr=120000000:b=120:t_all=17.096070
+OkArray not sorted properly (CODE 1)
+t_rand=0.399351:t_bck=2.540781:t_sort=7.183252:t_cpy=0.038958:t_clean=0.006908:t=2:alg=1:arr=120000000:b=120:t_all=10.171000
+t_rand=0.212169:t_bck=1.944232:t_sort=3.998389:t_cpy=0.025370:t_clean=0.007816:t=4:alg=1:arr=120000000:b=120:t_all=7.164753
+OkArray not sorted properly (CODE 1)
+t_rand=0.141279:t_bck=1.671049:t_sort=2.658232:t_cpy=0.011747:t_clean=0.004141:t=6:alg=1:arr=120000000:b=120:t_all=5.643149
+Array not sorted properly (CODE 1)
+t_rand=0.108779:t_bck=1.513494:t_sort=1.945329:t_cpy=0.009473:t_clean=0.002658:t=8:alg=1:arr=120000000:b=120:t_all=4.830358
+Array not sorted properly (CODE 1)
+t_rand=0.084439:t_bck=1.424946:t_sort=1.497448:t_cpy=0.006940:t_clean=0.002138:t=10:alg=1:arr=120000000:b=120:t_all=4.328817
+/var/spool/slurmd/job20263865/slurm_script: line 37: 18390 Naruszenie ochrony pamięci   ./"$prog" -t "$threads" -b "$n_size" -a "$iter" -n "$N"
+t_rand=0.802306:t_bck=2.130791:t_sort=12.749487:t_cpy=0.078576:t_clean=0.172103:t=1:alg=1:arr=120000000:b=1200:t_all=15.933621
+OkArray not sorted properly (CODE 1)
+t_rand=0.429525:t_bck=2.804394:t_sort=6.264785:t_cpy=0.122051:t_clean=0.066345:t=2:alg=1:arr=120000000:b=1200:t_all=9.688665
+Array not sorted properly (CODE 1)
+t_rand=0.212167:t_bck=1.963035:t_sort=3.318790:t_cpy=0.023145:t_clean=0.047920:t=4:alg=1:arr=120000000:b=1200:t_all=6.554180
+Array not sorted properly (CODE 1)
+t_rand=0.141146:t_bck=1.643084:t_sort=2.184602:t_cpy=0.032684:t_clean=0.031861:t=6:alg=1:arr=120000000:b=1200:t_all=5.245538
+Array not sorted properly (CODE 1)
+t_rand=0.105873:t_bck=1.483762:t_sort=1.558775:t_cpy=0.011242:t_clean=0.023864:t=8:alg=1:arr=120000000:b=1200:t_all=4.545217
+t_rand=0.754645:t_bck=5.143874:t_sort=9.662456:t_cpy=0.212163:t_clean=1.583443:t=1:alg=1:arr=120000000:b=12000:t_all=17.357086
+OkArray not sorted properly (CODE 1)
+t_rand=0.377629:t_bck=2.638405:t_sort=4.676207:t_cpy=0.123289:t_clean=1.131804:t=2:alg=1:arr=120000000:b=12000:t_all=9.379122
+Array not sorted properly (CODE 1)
+t_rand=0.207502:t_bck=1.935993:t_sort=2.597856:t_cpy=0.078027:t_clean=0.953219:t=4:alg=1:arr=120000000:b=12000:t_all=6.639911
+Array not sorted properly (CODE 1)
+t_rand=0.141092:t_bck=1.636591:t_sort=1.701327:t_cpy=0.049186:t_clean=0.569049:t=6:alg=1:arr=120000000:b=12000:t_all=5.333363
+Array not sorted properly (CODE 1)
+t_rand=0.106061:t_bck=1.473726:t_sort=1.210507:t_cpy=0.036279:t_clean=0.418382:t=8:alg=1:arr=120000000:b=12000:t_all=4.686156

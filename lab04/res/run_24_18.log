@@ -1,0 +1,87 @@
+Compiling  LAB04
+ plgrid/tools/cmake/3.22.1 loaded.
+ plgrid/apps/cuda/11.2 loaded.
+ plgrid/libs/gdrcopy/2.2-cuda-11.2 loaded.
+ plgrid/libs/ucx/1.10.0-cuda-11.2 loaded.
+ plgrid/tools/binutils/2.34 loaded.
+ plgrid/tools/gcc/9.3.0 loaded.
+ plgrid/tools/nvhpc/22.3 loaded.
+ plgrid/tools/openmpi/4.1.2-nvhpc-22.3 loaded.
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /net/people/plggkulinski/MPR/MPR-Labs/lab04
+Consolidate compiler generated dependencies of target LAB04
+[100%] Built target LAB04
+Starting  LAB04
+t_rand=0.876149:t_bck=2.598938:t_sort=19.253497:t_cpy=0.126275:t_clean=0.003457:t=1:alg=2:arr=120000000:b=12:t_all=22.859585
+Ok
+t_rand=0.447604:t_bck=7.929030:t_sort=9.400461:t_cpy=0.070341:t_clean=0.004198:t=2:alg=2:arr=120000000:b=12:t_all=17.853419
+Ok
+t_rand=0.225584:t_bck=10.219248:t_sort=4.785969:t_cpy=0.042304:t_clean=0.003309:t=4:alg=2:arr=120000000:b=12:t_all=15.279057
+Ok
+t_rand=0.150898:t_bck=10.162049:t_sort=3.239638:t_cpy=0.035044:t_clean=0.003970:t=6:alg=2:arr=120000000:b=12:t_all=13.593956
+Ok
+t_rand=0.115674:t_bck=10.005908:t_sort=3.259920:t_cpy=0.031680:t_clean=0.003334:t=8:alg=2:arr=120000000:b=12:t_all=13.418504
+Ok
+t_rand=0.086450:t_bck=13.555169:t_sort=3.223287:t_cpy=0.033247:t_clean=0.004149:t=10:alg=2:arr=120000000:b=12:t_all=16.906653
+Ok
+t_rand=0.077457:t_bck=13.028003:t_sort=1.644843:t_cpy=0.017704:t_clean=0.003993:t=12:alg=2:arr=120000000:b=12:t_all=14.778270
+Ok
+t_rand=0.893417:t_bck=3.322507:t_sort=16.425264:t_cpy=0.098982:t_clean=0.021237:t=1:alg=2:arr=120000000:b=120:t_all=20.761554
+Ok
+t_rand=0.442214:t_bck=5.108830:t_sort=7.933769:t_cpy=0.065009:t_clean=0.021824:t=2:alg=2:arr=120000000:b=120:t_all=13.574059
+Ok
+t_rand=0.227566:t_bck=4.053910:t_sort=4.050141:t_cpy=0.054574:t_clean=0.021153:t=4:alg=2:arr=120000000:b=120:t_all=8.409990
+Ok
+t_rand=0.143867:t_bck=3.639574:t_sort=2.726658:t_cpy=0.040910:t_clean=0.020574:t=6:alg=2:arr=120000000:b=120:t_all=6.573651
+Ok
+t_rand=0.114404:t_bck=3.313689:t_sort=2.069111:t_cpy=0.041482:t_clean=0.021152:t=8:alg=2:arr=120000000:b=120:t_all=5.562681
+Ok
+t_rand=0.091524:t_bck=3.861374:t_sort=1.656183:t_cpy=0.040169:t_clean=0.021067:t=10:alg=2:arr=120000000:b=120:t_all=5.676707
+Ok
+t_rand=0.142076:t_bck=3.682434:t_sort=1.386681:t_cpy=0.039373:t_clean=0.021805:t=12:alg=2:arr=120000000:b=120:t_all=5.289621
+Ok
+t_rand=0.879848:t_bck=4.029428:t_sort=13.707900:t_cpy=0.105704:t_clean=0.182344:t=1:alg=2:arr=120000000:b=1200:t_all=18.905874
+Ok
+t_rand=0.442130:t_bck=4.700075:t_sort=6.650904:t_cpy=0.081250:t_clean=0.192153:t=2:alg=2:arr=120000000:b=1200:t_all=12.068334
+Ok
+t_rand=0.215922:t_bck=2.785616:t_sort=3.358433:t_cpy=0.053462:t_clean=0.186153:t=4:alg=2:arr=120000000:b=1200:t_all=6.601381
+Ok
+t_rand=0.144866:t_bck=2.036104:t_sort=2.270918:t_cpy=0.050989:t_clean=0.188994:t=6:alg=2:arr=120000000:b=1200:t_all=4.694327
+Ok
+t_rand=0.114283:t_bck=1.576634:t_sort=1.707528:t_cpy=0.056819:t_clean=0.198766:t=8:alg=2:arr=120000000:b=1200:t_all=3.657306
+Ok
+t_rand=0.165503:t_bck=1.700843:t_sort=1.371341:t_cpy=0.056628:t_clean=0.203342:t=10:alg=2:arr=120000000:b=1200:t_all=3.503599
+Ok
+t_rand=0.137402:t_bck=1.888150:t_sort=1.145915:t_cpy=0.051026:t_clean=0.194763:t=12:alg=2:arr=120000000:b=1200:t_all=3.429018
+Ok
+t_rand=0.893119:t_bck=8.136662:t_sort=11.048959:t_cpy=0.295945:t_clean=1.800423:t=1:alg=2:arr=120000000:b=12000:t_all=22.175406
+Ok
+t_rand=0.440789:t_bck=6.096720:t_sort=5.347308:t_cpy=0.153798:t_clean=1.884652:t=2:alg=2:arr=120000000:b=12000:t_all=13.925088
+Ok
+t_rand=0.217250:t_bck=3.265685:t_sort=2.697380:t_cpy=0.079061:t_clean=1.912073:t=4:alg=2:arr=120000000:b=12000:t_all=8.173825
+Ok
+t_rand=0.143894:t_bck=2.612093:t_sort=1.775990:t_cpy=0.065688:t_clean=1.807246:t=6:alg=2:arr=120000000:b=12000:t_all=6.408769
+Ok
+t_rand=0.126602:t_bck=1.694375:t_sort=1.362783:t_cpy=0.052952:t_clean=1.709986:t=8:alg=2:arr=120000000:b=12000:t_all=4.947371
+Ok
+t_rand=0.100862:t_bck=1.930010:t_sort=1.093517:t_cpy=0.051720:t_clean=1.747271:t=10:alg=2:arr=120000000:b=12000:t_all=4.925021
+Ok
+t_rand=0.085056:t_bck=1.678425:t_sort=0.912092:t_cpy=0.052863:t_clean=1.765972:t=12:alg=2:arr=120000000:b=12000:t_all=4.496526
+Ok
+t_rand=0.900433:t_bck=13.958250:t_sort=7.484234:t_cpy=14.050751:t_clean=1.720986:t=1:alg=2:arr=120000000:b=120000:t_all=38.114901
+Ok
+t_rand=0.442309:t_bck=9.106600:t_sort=3.563452:t_cpy=7.035359:t_clean=2.030640:t=2:alg=2:arr=120000000:b=120000:t_all=22.178850
+Ok
+t_rand=0.243253:t_bck=5.034727:t_sort=2.040951:t_cpy=3.868449:t_clean=2.192438:t=4:alg=2:arr=120000000:b=120000:t_all=13.380491
+Ok
+t_rand=0.166478:t_bck=3.473866:t_sort=1.447414:t_cpy=2.664067:t_clean=2.203192:t=6:alg=2:arr=120000000:b=120000:t_all=9.955688
+Ok
+t_rand=0.125566:t_bck=2.790137:t_sort=1.072378:t_cpy=2.002616:t_clean=2.254202:t=8:alg=2:arr=120000000:b=120000:t_all=8.245590
+Ok
+t_rand=0.099512:t_bck=2.766104:t_sort=0.854598:t_cpy=1.606875:t_clean=2.271956:t=10:alg=2:arr=120000000:b=120000:t_all=7.600727
+Ok
+t_rand=0.083293:t_bck=2.420590:t_sort=0.714866:t_cpy=1.335552:t_clean=2.329928:t=12:alg=2:arr=120000000:b=120000:t_all=6.886390
+Ok
+/var/spool/slurmd/job20201177/slurm_script: line 36: 16160 Killed                  ./"$prog" -t 1 -b "$n_size" -a "$iter" -n "$N"
+/var/spool/slurmd/job20201177/slurm_script: line 36: 16190 Killed                  ./"$prog" -t "$threads" -b "$n_size" -a "$iter" -n "$N"

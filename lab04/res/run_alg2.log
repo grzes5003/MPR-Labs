@@ -1,0 +1,142 @@
+Compiling  LAB04
+ plgrid/tools/cmake/3.22.1 loaded.
+ plgrid/apps/cuda/11.2 loaded.
+ plgrid/libs/gdrcopy/2.2-cuda-11.2 loaded.
+ plgrid/libs/ucx/1.10.0-cuda-11.2 loaded.
+ plgrid/tools/binutils/2.34 loaded.
+ plgrid/tools/gcc/9.3.0 loaded.
+ plgrid/tools/nvhpc/22.3 loaded.
+ plgrid/tools/openmpi/4.1.2-nvhpc-22.3 loaded.
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /net/people/plggkulinski/MPR/MPR-Labs/lab04
+Consolidate compiler generated dependencies of target LAB04
+[100%] Built target LAB04
+Starting  LAB04
+t_rand=0.776685:t_bck=2.299713:t_sort=16.673403:t_cpy=0.057535:t_clean=0.002748:t=1:alg=2:arr=120000000:b=12:t_all=19.810607
+Ok
+t_rand=0.387917:t_bck=7.158834:t_sort=8.222241:t_cpy=0.051809:t_clean=0.002996:t=2:alg=2:arr=120000000:b=12:t_all=15.825542
+Ok
+t_rand=0.210404:t_bck=9.227655:t_sort=4.585045:t_cpy=0.046864:t_clean=0.003774:t=4:alg=2:arr=120000000:b=12:t_all=14.075601
+Ok
+t_rand=0.144389:t_bck=9.704869:t_sort=3.192085:t_cpy=0.034698:t_clean=0.003521:t=6:alg=2:arr=120000000:b=12:t_all=13.081420
+Ok
+t_rand=0.108024:t_bck=9.554821:t_sort=3.206620:t_cpy=0.028864:t_clean=0.003548:t=8:alg=2:arr=120000000:b=12:t_all=12.903812
+Ok
+t_rand=0.086851:t_bck=9.391769:t_sort=3.187454:t_cpy=0.038348:t_clean=0.003595:t=10:alg=2:arr=120000000:b=12:t_all=12.709986
+Ok
+t_rand=0.072957:t_bck=9.461831:t_sort=1.633587:t_cpy=0.022712:t_clean=0.003321:t=12:alg=2:arr=120000000:b=12:t_all=11.196428
+Ok
+t_rand=0.777249:t_bck=2.917512:t_sort=14.260752:t_cpy=0.059577:t_clean=0.016858:t=1:alg=2:arr=120000000:b=120:t_all=18.032054
+Ok
+t_rand=0.387383:t_bck=4.552523:t_sort=6.979238:t_cpy=0.052396:t_clean=0.018113:t=2:alg=2:arr=120000000:b=120:t_all=11.991367
+Ok
+t_rand=0.211154:t_bck=3.874855:t_sort=3.887417:t_cpy=0.044430:t_clean=0.019630:t=4:alg=2:arr=120000000:b=120:t_all=8.039363
+Ok
+t_rand=0.144273:t_bck=3.430735:t_sort=2.702443:t_cpy=0.040550:t_clean=0.021240:t=6:alg=2:arr=120000000:b=120:t_all=6.341135
+Ok
+t_rand=0.108799:t_bck=3.113235:t_sort=2.043734:t_cpy=0.038413:t_clean=0.020476:t=8:alg=2:arr=120000000:b=120:t_all=5.326597
+Ok
+t_rand=0.086854:t_bck=2.913342:t_sort=1.634347:t_cpy=0.035452:t_clean=0.020675:t=10:alg=2:arr=120000000:b=120:t_all=4.692637
+Ok
+t_rand=0.073113:t_bck=2.778678:t_sort=1.371886:t_cpy=0.036724:t_clean=0.020868:t=12:alg=2:arr=120000000:b=120:t_all=4.283258
+Ok
+t_rand=0.775859:t_bck=3.570107:t_sort=11.932622:t_cpy=0.075156:t_clean=0.159996:t=1:alg=2:arr=120000000:b=1200:t_all=16.513849
+Ok
+t_rand=0.387885:t_bck=4.234423:t_sort=5.824543:t_cpy=0.063244:t_clean=0.162947:t=2:alg=2:arr=120000000:b=1200:t_all=10.674780
+Ok
+t_rand=0.209859:t_bck=2.691651:t_sort=3.242418:t_cpy=0.051208:t_clean=0.183359:t=4:alg=2:arr=120000000:b=1200:t_all=6.380496
+Ok
+t_rand=0.144275:t_bck=1.988375:t_sort=2.251792:t_cpy=0.051023:t_clean=0.186996:t=6:alg=2:arr=120000000:b=1200:t_all=4.625467
+Ok
+t_rand=0.107140:t_bck=1.594001:t_sort=1.693917:t_cpy=0.050808:t_clean=0.186919:t=8:alg=2:arr=120000000:b=1200:t_all=3.634614
+Ok
+t_rand=0.086010:t_bck=1.356860:t_sort=1.354635:t_cpy=0.049923:t_clean=0.194356:t=10:alg=2:arr=120000000:b=1200:t_all=3.043661
+Ok
+t_rand=0.073519:t_bck=1.170407:t_sort=1.129209:t_cpy=0.049318:t_clean=0.190248:t=12:alg=2:arr=120000000:b=1200:t_all=2.614617
+Ok
+t_rand=0.903087:t_bck=6.645466:t_sort=9.589041:t_cpy=0.210853:t_clean=1.396471:t=1:alg=2:arr=120000000:b=12000:t_all=18.745179
+Ok
+t_rand=0.444772:t_bck=5.294066:t_sort=4.619967:t_cpy=0.129950:t_clean=1.429348:t=2:alg=2:arr=120000000:b=12000:t_all=11.918564
+Ok
+t_rand=0.243668:t_bck=3.173411:t_sort=2.603846:t_cpy=0.075114:t_clean=1.542442:t=4:alg=2:arr=120000000:b=12000:t_all=7.639060
+Ok
+t_rand=0.167660:t_bck=2.231455:t_sort=1.812112:t_cpy=0.058981:t_clean=1.623582:t=6:alg=2:arr=120000000:b=12000:t_all=5.894435
+Ok
+t_rand=0.126282:t_bck=1.721388:t_sort=1.361380:t_cpy=0.052453:t_clean=1.629925:t=8:alg=2:arr=120000000:b=12000:t_all=4.892117
+Ok
+t_rand=0.101927:t_bck=1.426383:t_sort=1.089536:t_cpy=0.052327:t_clean=1.716559:t=10:alg=2:arr=120000000:b=12000:t_all=4.387456
+Ok
+t_rand=0.085800:t_bck=1.221625:t_sort=0.911744:t_cpy=0.050619:t_clean=1.751717:t=12:alg=2:arr=120000000:b=12000:t_all=4.022222
+Ok
+t_rand=0.923960:t_bck=13.895156:t_sort=7.500611:t_cpy=13.961004:t_clean=1.819856:t=1:alg=2:arr=120000000:b=120000:t_all=38.100897
+Ok
+t_rand=0.439770:t_bck=8.439914:t_sort=3.574846:t_cpy=6.997432:t_clean=1.960941:t=2:alg=2:arr=120000000:b=120000:t_all=21.413367
+Ok
+t_rand=0.242747:t_bck=5.160007:t_sort=2.052950:t_cpy=3.873423:t_clean=2.125557:t=4:alg=2:arr=120000000:b=120000:t_all=13.455228
+Ok
+t_rand=0.165953:t_bck=3.561207:t_sort=1.424620:t_cpy=2.672255:t_clean=2.181902:t=6:alg=2:arr=120000000:b=120000:t_all=10.006591
+Ok
+t_rand=0.129940:t_bck=2.682134:t_sort=1.070992:t_cpy=1.998343:t_clean=2.311311:t=8:alg=2:arr=120000000:b=120000:t_all=8.193751
+Ok
+t_rand=0.100365:t_bck=2.335923:t_sort=0.855857:t_cpy=1.600871:t_clean=2.373628:t=10:alg=2:arr=120000000:b=120000:t_all=7.267489
+Ok
+t_rand=0.083994:t_bck=1.864870:t_sort=0.715715:t_cpy=1.324373:t_clean=2.249438:t=12:alg=2:arr=120000000:b=120000:t_all=6.239685
+Ok
+t_rand=0.776097:t_bck=1.460030:t_sort=16.690611:t_cpy=0.058046:t_clean=0.002628:t=1:alg=1:arr=120000000:b=12:t_all=18.988057
+Ok
+Array not sorted properly (CODE 1)
+t_rand=0.387934:t_bck=2.599265:t_sort=8.267810:t_cpy=0.063975:t_clean=0.001167:t=2:alg=1:arr=120000000:b=12:t_all=11.321870
+Array not sorted properly (CODE 1)
+t_rand=0.209909:t_bck=2.715372:t_sort=4.555654:t_cpy=0.035403:t_clean=0.000793:t=4:alg=1:arr=120000000:b=12:t_all=7.855092
+Array not sorted properly (CODE 1)
+t_rand=0.143932:t_bck=1.884503:t_sort=3.138877:t_cpy=0.009067:t_clean=0.000560:t=6:alg=1:arr=120000000:b=12:t_all=6.283937
+t_rand=0.073557:t_bck=2.078285:t_sort=1.582081:t_cpy=0.005436:t_clean=0.000345:t=12:alg=1:arr=120000000:b=12:t_all=4.629424
+Ok
+t_rand=0.775970:t_bck=1.688048:t_sort=14.272178:t_cpy=0.059691:t_clean=0.016874:t=1:alg=1:arr=120000000:b=120:t_all=16.812869
+Ok
+Array not sorted properly (CODE 1)
+t_rand=0.387922:t_bck=2.506509:t_sort=6.989749:t_cpy=0.038200:t_clean=0.006765:t=2:alg=1:arr=120000000:b=120:t_all=9.930838
+Array not sorted properly (CODE 1)
+t_rand=0.209874:t_bck=2.011624:t_sort=3.843013:t_cpy=0.019173:t_clean=0.004972:t=4:alg=1:arr=120000000:b=120:t_all=6.968375
+Array not sorted properly (CODE 1)
+t_rand=0.144707:t_bck=1.737925:t_sort=2.664536:t_cpy=0.011819:t_clean=0.003403:t=6:alg=1:arr=120000000:b=120:t_all=5.640882
+Array not sorted properly (CODE 1)
+t_rand=0.108642:t_bck=1.565651:t_sort=1.976808:t_cpy=0.009584:t_clean=0.002578:t=8:alg=1:arr=120000000:b=120:t_all=4.826490
+Array not sorted properly (CODE 1)
+t_rand=0.087433:t_bck=1.475814:t_sort=1.518475:t_cpy=0.007034:t_clean=0.002122:t=10:alg=1:arr=120000000:b=120:t_all=4.338381
+/var/spool/slurmd/job20201495/slurm_script: line 36: 18154 Segmentation fault      ./"$prog" -t "$threads" -b "$n_size" -a "$iter" -n "$N"
+t_rand=0.774630:t_bck=2.059295:t_sort=11.931775:t_cpy=0.074744:t_clean=0.159695:t=1:alg=1:arr=120000000:b=1200:t_all=15.000861
+Ok
+Array not sorted properly (CODE 1)
+t_rand=0.387777:t_bck=2.458949:t_sort=5.829344:t_cpy=0.077702:t_clean=0.062369:t=2:alg=1:arr=120000000:b=1200:t_all=8.817882
+Array not sorted properly (CODE 1)
+t_rand=0.210409:t_bck=2.006579:t_sort=3.205877:t_cpy=0.023405:t_clean=0.046391:t=4:alg=1:arr=120000000:b=1200:t_all=6.350292
+Array not sorted properly (CODE 1)
+t_rand=0.144221:t_bck=1.717815:t_sort=2.211840:t_cpy=0.015453:t_clean=0.032056:t=6:alg=1:arr=120000000:b=1200:t_all=5.251759
+Array not sorted properly (CODE 1)
+t_rand=0.108408:t_bck=1.555024:t_sort=1.590373:t_cpy=0.012060:t_clean=0.024139:t=8:alg=1:arr=120000000:b=1200:t_all=4.551929
+t_rand=0.910220:t_bck=5.012447:t_sort=9.606136:t_cpy=0.212270:t_clean=1.481348:t=1:alg=1:arr=120000000:b=12000:t_all=17.223025
+Ok
+Array not sorted properly (CODE 1)
+t_rand=0.452680:t_bck=2.607387:t_sort=4.648323:t_cpy=0.117240:t_clean=1.436687:t=2:alg=1:arr=120000000:b=12000:t_all=9.265568
+Array not sorted properly (CODE 1)
+t_rand=0.247914:t_bck=1.971617:t_sort=2.565213:t_cpy=0.074956:t_clean=0.776735:t=4:alg=1:arr=120000000:b=12000:t_all=6.368041
+Array not sorted properly (CODE 1)
+t_rand=0.170373:t_bck=1.669147:t_sort=1.730905:t_cpy=0.049644:t_clean=0.467456:t=6:alg=1:arr=120000000:b=12000:t_all=5.204038
+Array not sorted properly (CODE 1)
+t_rand=0.130385:t_bck=1.508563:t_sort=1.246570:t_cpy=0.037238:t_clean=0.293939:t=8:alg=1:arr=120000000:b=12000:t_all=4.654364
+t_rand=0.904786:t_bck=15.054389:t_sort=7.497357:t_cpy=14.217604:t_clean=1.714201:t=1:alg=1:arr=120000000:b=120000:t_all=39.388620
+Ok
+Array not sorted properly (CODE 1)
+t_rand=0.465935:t_bck=5.225610:t_sort=3.636313:t_cpy=7.130284:t_clean=1.084294:t=2:alg=1:arr=120000000:b=120000:t_all=17.542930
+Array not sorted properly (CODE 1)
+t_rand=0.256389:t_bck=2.739788:t_sort=1.948955:t_cpy=3.893970:t_clean=1.039921:t=4:alg=1:arr=120000000:b=120000:t_all=11.131533
+Array not sorted properly (CODE 1)
+t_rand=0.175575:t_bck=2.053564:t_sort=1.229058:t_cpy=2.645881:t_clean=0.464037:t=6:alg=1:arr=120000000:b=120000:t_all=8.928039
+Array not sorted properly (CODE 1)
+t_rand=0.126358:t_bck=1.761574:t_sort=0.855591:t_cpy=2.010837:t_clean=0.335369:t=8:alg=1:arr=120000000:b=120000:t_all=7.348906
+Array not sorted properly (CODE 1)
+t_rand=0.101355:t_bck=1.635370:t_sort=0.644809:t_cpy=1.615816:t_clean=0.505674:t=10:alg=1:arr=120000000:b=120000:t_all=6.548234
+Array not sorted properly (CODE 1)
+t_rand=0.088598:t_bck=1.483008:t_sort=0.509929:t_cpy=1.348062:t_clean=0.240375:t=12:alg=1:arr=120000000:b=120000:t_all=6.033589

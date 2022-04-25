@@ -1,0 +1,76 @@
+Compiling  LAB04
+ plgrid/tools/cmake/3.22.1 loaded.
+ plgrid/apps/cuda/11.2 loaded.
+ plgrid/libs/gdrcopy/2.2-cuda-11.2 loaded.
+ plgrid/libs/ucx/1.10.0-cuda-11.2 loaded.
+ plgrid/tools/binutils/2.34 loaded.
+ plgrid/tools/gcc/9.3.0 loaded.
+ plgrid/tools/nvhpc/22.3 loaded.
+ plgrid/tools/openmpi/4.1.2-nvhpc-22.3 loaded.
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /net/people/plggkulinski/MPR/MPR-Labs/lab04
+Consolidate compiler generated dependencies of target LAB04
+[ 20%] Building C object CMakeFiles/LAB04.dir/sorts.c.o
+[ 40%] Building C object CMakeFiles/LAB04.dir/main.c.o
+[ 60%] Building C object CMakeFiles/LAB04.dir/rand_arr.c.o
+[ 80%] Linking C executable LAB04
+[100%] Built target LAB04
+Starting  LAB04
+t_rand=0.846076:t_bck=1.636533:t_sort=19.135935:t_cpy=0.099144:t_clean=0.003096:t=1:alg=1:arr=120000000:b=12:t_all=21.721818
+Ok
+Array not sorted properly (CODE 1)
+t_rand=0.429279:t_bck=2.858239:t_sort=9.604472:t_cpy=0.059207:t_clean=0.001246:t=2:alg=1:arr=120000000:b=12:t_all=12.954883
+Array not sorted properly (CODE 1)
+t_rand=0.219345:t_bck=2.255899:t_sort=4.833243:t_cpy=0.050707:t_clean=0.000877:t=4:alg=1:arr=120000000:b=12:t_all=8.477053
+Array not sorted properly (CODE 1)
+t_rand=0.144520:t_bck=1.966461:t_sort=3.233027:t_cpy=0.009347:t_clean=0.001086:t=6:alg=1:arr=120000000:b=12:t_all=6.390291
+t_rand=0.138034:t_bck=2.879207:t_sort=1.641350:t_cpy=0.005462:t_clean=0.000497:t=12:alg=1:arr=120000000:b=12:t_all=4.947807
+Ok
+t_rand=0.844215:t_bck=1.894543:t_sort=16.333498:t_cpy=0.084939:t_clean=0.020076:t=1:alg=1:arr=120000000:b=120:t_all=19.177885
+Ok
+Array not sorted properly (CODE 1)
+t_rand=0.437906:t_bck=2.938966:t_sort=8.180125:t_cpy=0.056111:t_clean=0.008212:t=2:alg=1:arr=120000000:b=120:t_all=11.623846
+Array not sorted properly (CODE 1)
+t_rand=0.218793:t_bck=2.134648:t_sort=4.106169:t_cpy=0.023960:t_clean=0.005545:t=4:alg=1:arr=120000000:b=120:t_all=7.477857
+Array not sorted properly (CODE 1)
+t_rand=0.164630:t_bck=1.870225:t_sort=2.756474:t_cpy=0.015722:t_clean=0.003842:t=6:alg=1:arr=120000000:b=120:t_all=5.864598
+Array not sorted properly (CODE 1)
+t_rand=0.118558:t_bck=1.582022:t_sort=2.002039:t_cpy=0.010142:t_clean=0.003843:t=8:alg=1:arr=120000000:b=120:t_all=5.082801
+Array not sorted properly (CODE 1)
+t_rand=0.087546:t_bck=1.581814:t_sort=1.571352:t_cpy=0.008973:t_clean=0.002375:t=10:alg=1:arr=120000000:b=120:t_all=4.535173
+/var/spool/slurmd/job20216249/slurm_script: line 36: 19016 Segmentation fault      ./"$prog" -t "$threads" -b "$n_size" -a "$iter" -n "$N"
+t_rand=0.858896:t_bck=2.520999:t_sort=13.789856:t_cpy=0.115098:t_clean=0.182186:t=1:alg=1:arr=120000000:b=1200:t_all=17.468022
+Ok
+Array not sorted properly (CODE 1)
+t_rand=0.432344:t_bck=2.868132:t_sort=6.834520:t_cpy=0.055962:t_clean=0.072476:t=2:alg=1:arr=120000000:b=1200:t_all=10.265359
+Array not sorted properly (CODE 1)
+t_rand=0.216258:t_bck=2.139010:t_sort=3.415712:t_cpy=0.026660:t_clean=0.049784:t=4:alg=1:arr=120000000:b=1200:t_all=6.757545
+Array not sorted properly (CODE 1)
+t_rand=0.144160:t_bck=1.776148:t_sort=2.283700:t_cpy=0.018980:t_clean=0.033142:t=6:alg=1:arr=120000000:b=1200:t_all=5.413355
+Array not sorted properly (CODE 1)
+t_rand=0.109547:t_bck=1.600257:t_sort=1.642511:t_cpy=0.013250:t_clean=0.025068:t=8:alg=1:arr=120000000:b=1200:t_all=4.693892
+/var/spool/slurmd/job20216249/slurm_script: line 36: 19095 Segmentation fault      ./"$prog" -t "$threads" -b "$n_size" -a "$iter" -n "$N"
+/var/spool/slurmd/job20216249/slurm_script: line 36: 19108 Segmentation fault      ./"$prog" -t "$threads" -b "$n_size" -a "$iter" -n "$N"
+t_rand=0.920582:t_bck=5.493441:t_sort=11.042704:t_cpy=0.266330:t_clean=1.810881:t=1:alg=1:arr=120000000:b=12000:t_all=19.534068
+Ok
+Array not sorted properly (CODE 1)
+t_rand=0.432959:t_bck=3.101571:t_sort=5.478039:t_cpy=0.182493:t_clean=1.595301:t=2:alg=1:arr=120000000:b=12000:t_all=10.791956
+Array not sorted properly (CODE 1)
+t_rand=0.216151:t_bck=2.146795:t_sort=2.743649:t_cpy=0.080364:t_clean=0.895931:t=4:alg=1:arr=120000000:b=12000:t_all=6.885146
+Array not sorted properly (CODE 1)
+t_rand=0.144600:t_bck=1.741265:t_sort=1.796851:t_cpy=0.051963:t_clean=0.459450:t=6:alg=1:arr=120000000:b=12000:t_all=5.508194
+t_rand=1.072429:t_bck=15.040061:t_sort=8.607627:t_cpy=16.211411:t_clean=2.214741:t=1:alg=1:arr=120000000:b=120000:t_all=43.146558
+Ok
+t_rand=0.548952:t_bck=6.870158:t_sort=4.248744:t_cpy=8.295752:t_clean=1.481076:t=2:alg=1:arr=120000000:b=120000:t_all=22.444514
+Ok
+Array not sorted properly (CODE 1)
+t_rand=0.284123:t_bck=3.161768:t_sort=2.136498:t_cpy=4.111769:t_clean=2.433384:t=4:alg=1:arr=120000000:b=120000:t_all=12.282354
+Array not sorted properly (CODE 1)
+t_rand=0.185164:t_bck=2.282359:t_sort=1.301758:t_cpy=2.852693:t_clean=0.518402:t=6:alg=1:arr=120000000:b=120000:t_all=9.353672
+Array not sorted properly (CODE 1)
+t_rand=0.137083:t_bck=1.916298:t_sort=0.938802:t_cpy=2.070813:t_clean=0.422460:t=8:alg=1:arr=120000000:b=120000:t_all=8.135499
+Array not sorted properly (CODE 1)
+t_rand=0.110932:t_bck=1.723253:t_sort=0.677338:t_cpy=1.684098:t_clean=0.334250:t=10:alg=1:arr=120000000:b=120000:t_all=7.106974
+Array not sorted properly (CODE 1)
+t_rand=0.092555:t_bck=1.616737:t_sort=0.573131:t_cpy=1.392239:t_clean=0.274253:t=12:alg=1:arr=120000000:b=120000:t_all=6.561195
