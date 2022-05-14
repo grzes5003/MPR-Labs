@@ -234,6 +234,27 @@ def plot_dist(path: str):
     ...
 
 
+def plot_serial(df: pd.DataFrame):
+    times = [
+        't_rand',
+        't_bck',
+        't_sort',
+        't_cpy',
+        't_clean'
+    ]
+    names = ["Combined", 'Bucket split', 'Sort', 'Copying time', 'Clean up']
+
+    for time, name in zip(times, names):
+        sns.set_theme(style="darkgrid")
+        ax = sns.pointplot(x="b", y=time,
+                           data=df, legend=True,
+                           ci='sd', hue='array')
+        ax.set(ylabel=f'Duration of {name} [s]')
+        ax.set_title(f'{name} Duration based on used bucket sizes')
+        ax.set(xlabel='Number of buckets')
+        plt.show()
+
+
 if __name__ == "__main__":
     path = '../lab04/res/run_alg2.log'
     path2 = '../lab04/res/run_alg2_more.log'
@@ -241,15 +262,17 @@ if __name__ == "__main__":
     path4 = '../lab04/res/run_alg1_more.log'
     path5 = '../lab04/results.log'
     path6 = '../lab04/latest_log.log'
+    path7 = '../lab04/res/res_single_2.log'
     # res = [*read_logs(path), *read_logs(path2), *read_logs(path3), *read_logs(path4)]
-    res = [*read_logs(path6)]
+    res = [*read_logs(path7)]
     df = obj2df(res)
     # plot_second(df)
     # plot_one_thrd(df)
     # plot_speedup(df)
     # plot_chunks(df)
     # plot_lab04(df)
-    plot_lab04(df)
+    # plot_lab04(df)
+    plot_serial(df)
 
     # path = '../lab04/cmake-build-debug/arr_t8.txt'
     # plot_dist(path)
