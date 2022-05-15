@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 use std::env;
 use std::fs::File;
-use std::io::{BufRead, BufReader};
+use std::io::{BufRead, BufReader, BufWriter, Write};
 
 fn count_words(path: String, dict: &mut HashMap<String, u64>) -> Result<(), std::io::Error> {
     let file = File::open(path)?;
@@ -28,6 +28,13 @@ fn count_words(path: String, dict: &mut HashMap<String, u64>) -> Result<(), std:
     Ok(())
 }
 
+fn save_results(path: String, dict: &HashMap<String, u64>) -> Result<(), std::io::Error> {
+    let file = File::create(path)?;
+    let mut f = BufWriter::new(file);
+    dict.iter().map(|record| {
+        f.write_all(format!("{:?}:{:?}\n", record.0, record.1).as_bytes())
+    }).collect()
+}
 
 fn main() -> Result<(), std::io::Error> {
     let mut dict = HashMap::new();
@@ -38,7 +45,7 @@ fn main() -> Result<(), std::io::Error> {
         .collect();
 
     match result {
-        Ok(_) => Ok(()),
+        Ok(_) => save_results("output.log".to_string(), &dict),
         Err(e) => {
             println!("{:?}", e);
             Err(e)
