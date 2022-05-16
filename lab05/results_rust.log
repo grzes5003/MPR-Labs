@@ -1,0 +1,42 @@
+[hadoop@ip-172-31-63-106 release]$ time ./lab05 ../../../../gutenberg-1G.txt
+
+real    0m45.731s
+user    0m44.335s
+sys     0m0.599s
+
+[hadoop@ip-172-31-63-106 release]$ time ./lab05 ../../../../gutenberg-1G.txt
+
+real    1m0.521s
+user    0m51.526s
+sys     0m0.629s
+
+[hadoop@ip-172-31-63-106 release]$ time ./lab05 ../../../../gutenberg-1G.txt
+
+real    0m55.110s
+user    0m51.845s
+sys     0m0.745s
+
+[hadoop@ip-172-31-63-106 release]$ time ./lab05 ../../../../gutenberg-1G.txt ../../../../gutenberg-1G.txt ../../../../gutenberg-1G.txt ../../../../gutenberg-1G.txt ../../../../gutenberg-1G.txt
+
+real    3m55.877s
+user    3m47.955s
+sys     0m2.270s
+
+[hadoop@ip-172-31-63-106 release]$ time ./lab05 ../../../../gutenberg-1G.txt ../../../../gutenberg-1G.txt ../../../../gutenberg-1G.txt ../../../../gutenberg-1G.txt ../../../../gutenberg-1G.txt
+
+real    4m0.321s
+user    3m51.756s
+sys     0m2.443s
+
+
+[hadoop@ip-172-31-63-106 release]$ time ./lab05 ../../../../gutenberg-1G.txt ../../../../gutenberg-1G.txt ../../../../gutenberg-1G.txt ../../../../gutenberg-1G.txt ../../../../gutenberg-1G.txt ../../../../gutenberg-1G.txt ../../../../gutenberg-1G.txt ../../../../gutenberg-1G.txt ../../../../gutenberg-1G.txt ../../../../gutenberg-1G.txt
+
+real    8m6.133s
+user    7m44.103s
+sys     0m4.586s
+
+[hadoop@ip-172-31-63-106 release]$ time ./lab05 ../../../../gutenberg-1G.txt ../../../../gutenberg-1G.txt ../../../../gutenberg-1G.txt ../../../../gutenberg-1G.txt ../../../../gutenberg-1G.txt ../../../../gutenberg-1G.txt ../../../../gutenberg-1G.txt ../../../../gutenberg-1G.txt ../../../../gutenberg-1G.txt ../../../../gutenberg-1G.txt
+
+real    7m57.494s
+user    7m41.622s
+sys     0m4.475s
