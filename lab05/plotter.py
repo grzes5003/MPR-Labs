@@ -6,7 +6,8 @@ prices = {'18 vcores (m4.large)': 0.1 * 18,
           '8 vcores (m4.large)': 0.1 * 8,
           '8 vcores (m5.xlarge)': 0.195 * 8,
           '16 vcores (m5.xlarge)': 0.195 * 16,
-          'sequential (m4.large)': 0.1 * 1}
+          'sequential (m4.large)': 0.1 * 1,
+          'sequential (m5.large)': 0.195 * 1}
 
 # m4.large 1
 # m4.large 4
@@ -46,16 +47,29 @@ d = pd.DataFrame([
 ])
 
 custom = pd.DataFrame([
+    {'size': 1, 'time': 0.32404, 'alg': 'custom', 'cores': 'sequential (m5.large)'},
+    {'size': 1, 'time': 0.3255, 'alg': 'custom', 'cores': 'sequential (m5.large)'},
+    {'size': 1, 'time': 0.32289, 'alg': 'custom', 'cores': 'sequential (m5.large)'},
     {'size': 1, 'time': 0.4573, 'alg': 'custom', 'cores': 'sequential (m4.large)'},
     {'size': 1, 'time': 1.052, 'alg': 'custom', 'cores': 'sequential (m4.large)'},
     {'size': 1, 'time': 0.5511, 'alg': 'custom', 'cores': 'sequential (m4.large)'},
     {'size': 1, 'time': 0.5587, 'alg': 'custom', 'cores': 'sequential (m4.large)'},
+    {'size': 5, 'time': 2.3996, 'alg': 'custom', 'cores': 'sequential (m5.large)'},
+    {'size': 5, 'time': 2.39456, 'alg': 'custom', 'cores': 'sequential (m5.large)'},
     {'size': 5, 'time': 3.55877, 'alg': 'custom', 'cores': 'sequential (m4.large)'},
     {'size': 5, 'time': 4.0321, 'alg': 'custom', 'cores': 'sequential (m4.large)'},
+    {'size': 10, 'time': 5.9326, 'alg': 'custom', 'cores': 'sequential (m5.large)'},
+    {'size': 10, 'time': 5.5393, 'alg': 'custom', 'cores': 'sequential (m5.large)'},
     {'size': 10, 'time': 8.6133, 'alg': 'custom', 'cores': 'sequential (m4.large)'},
     {'size': 10, 'time': 7.57464, 'alg': 'custom', 'cores': 'sequential (m4.large)'},
 ])
 df = pd.concat([custom, b, c, d, a])
+
+sizes = {
+    1: 0.32,
+    5: 2.39,
+    10: 5.62
+}
 
 
 def cost():
@@ -63,11 +77,11 @@ def cost():
     # df['cost'] = prices[df['cores']] * (df['time'] / 60)
     result = df.groupby(['size', 'cores']).mean()
     # s = result.style.highlight_min(color='red', axis=1).highlight_max(color='lightgreen', axis=1)
-    s = result.style.highlight_max(
-        props='cellcolor:{yellow}; color:{red};'
-              'textit:--rwrap; textbf:--rwrap;'
-    )
-    print(s.to_latex())
+    # s = result.style.highlight_max(
+    #     props='cellcolor:{yellow}; color:{red};'
+    #           'textit:--rwrap; textbf:--rwrap;'
+    # )
+    print(result.to_latex())
 
 
 def plot():
@@ -83,7 +97,9 @@ def plot():
 
     plt.show()
 
-    df['speed up'] = 0.52 / df['time']
+    df['speed up'] = [sizes[size] / time for size, time in df[['size', 'time']].values]
+    # df['speed up'] = df.apply(lambda row: sizes[row['size']] / row['time'])
+        # 0.52 / df['size' == 1]['time']
     ax = sns.pointplot(x="cores", y="speed up", data=df,
                        hue='size', legend='full', ci='sd')
     # ax.set(yscale="log")
@@ -107,4 +123,4 @@ def plot():
 
 if __name__ == '__main__':
     cost()
-    plot()
+    # plot()
