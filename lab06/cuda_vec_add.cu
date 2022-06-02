@@ -2,11 +2,7 @@
 // Created by xgg on 2 Jun 2022.
 //
 #include <cstdio>
-#include <cstdlib>
 #include <cmath>
-#include <utility>
-#include "Utility.h"
-#include "GpuTimer.h"
 
 
 // CUDA kernel. Each thread takes care of one element of c
@@ -20,14 +16,10 @@ __global__ void vecAdd(const double *a, const double *b, double *c, const int n)
 }
 
 namespace gpu {
-    std::pair<float, int> vec_add(const int n, const int block_size) {
-        GpuTimer gpuTimer;
+    int vec_add(const double *h_a, const double *h_b, double *h_c, const int n, const int block_size) {
 
-        // Host input vectors
-        double *h_a;
-        double *h_b;
-        // Host output vector
-        double *h_c;
+        // Size, in bytes, of each vector
+        size_t bytes = n * sizeof(double);
 
         // Device input vectors
         double *d_a;
@@ -35,28 +27,10 @@ namespace gpu {
         //Device output vector
         double *d_c;
 
-        // Size, in bytes, of each vector
-        size_t bytes = n * sizeof(double);
-
-        // Allocate memory for each vector on host
-        h_a = (double *) malloc(bytes);
-        h_b = (double *) malloc(bytes);
-        h_c = (double *) malloc(bytes);
-
         // Allocate memory for each vector on GPU
         cudaMalloc(&d_a, bytes);
         cudaMalloc(&d_b, bytes);
         cudaMalloc(&d_c, bytes);
-
-        int i;
-        // Initialize vectors on host
-        for (i = 0; i < n; i++) {
-            h_a[i] = sin(i) * sin(i);
-            h_b[i] = cos(i) * cos(i);
-        }
-
-        // Start time measurement
-        gpuTimer.start();
 
         // Copy host vectors to device
         cudaMemcpy(d_a, h_a, bytes, cudaMemcpyHostToDevice);
@@ -73,20 +47,11 @@ namespace gpu {
         // Copy array back to host
         cudaMemcpy(h_c, d_c, bytes, cudaMemcpyDeviceToHost);
 
-        gpuTimer.stop();
-
-        int result = Utility::check_result(h_c, n);
-
         // Release device memory
         cudaFree(d_a);
         cudaFree(d_b);
         cudaFree(d_c);
 
-        // Release host memory
-        free(h_a);
-        free(h_b);
-        free(h_c);
-
-        return std::pair<float, int>{gpuTimer.elapsed(), result};
+        return 0;
     }
 }

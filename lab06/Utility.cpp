@@ -3,6 +3,7 @@
 //
 
 #include "Utility.h"
+#include <cmath>
 
 Utility::Utility() {
 
@@ -19,6 +20,11 @@ int Utility::check_result(const double *c, size_t n) {
     return 1;
 }
 
-int Utility::generate_vectors(double *a, double *b, size_t n) {
+int Utility::init_vectors(double *h_a, double *h_b, size_t n) {
+    int i;
+    for (i = 0; i < n; i++) {
+        h_a[i] = sin(i) * sin(i);
+        h_b[i] = cos(i) * cos(i);
+    }
     return 0;
 }

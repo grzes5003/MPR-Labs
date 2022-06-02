@@ -6,7 +6,9 @@
 #define LAB06_GPUTIMER_H
 
 
-class GpuTimer {
+#include "Timer.h"
+
+class GpuTimer : public Timer {
     cudaEvent_t _start;
     cudaEvent_t _stop;
 public:

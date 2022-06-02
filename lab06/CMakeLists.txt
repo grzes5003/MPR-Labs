@@ -10,7 +10,7 @@ ENDIF()
 set(CMAKE_CUDA_STANDARD 14)
 
 
-add_executable(lab06 main.cu cpu_vec_add.cpp GpuTimer.cu GpuTimer.h args_parser.cpp args.h Utility.cpp Utility.h)
+add_executable(lab06 main.cu cpu_vec_add.cpp GpuTimer.cu GpuTimer.h args_parser.cpp args.h Utility.cpp Utility.h Timer.h)
 target_compile_features(lab06 PUBLIC cxx_std_14)
 target_link_libraries(lab06 -static)
 target_link_libraries(lab06 ${Boost_LIBRARIES})

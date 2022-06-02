@@ -8,12 +8,10 @@
 
 class Utility {
     constexpr static const double expected_result = 1.0f;
-
     Utility();
-
 public:
     static int check_result(const double *c, size_t n);
-    int generate_vectors(double *a, double *b, size_t n);
+    static int init_vectors(double *h_a, double *h_b, size_t n);
 };
 
 
