@@ -1,16 +1,16 @@
 //
 // Created by xgg on 2 Jun 2022.
 //
+#include <iostream>
+#include "args.h"
+
 #include <boost/program_options.hpp>
 #include <boost/optional.hpp>
 namespace po = boost::program_options;
 
-#include <iostream>
-#include <iterator>
-#include "args.h"
 
-boost::optional<args> parse(int argc, char *argv[]) {
-    args _args;
+inline boost::optional<args> parse(int argc, char *argv[]) {
+    args _args{};
 
     po::options_description desc("Allowed options");
     desc.add_options()

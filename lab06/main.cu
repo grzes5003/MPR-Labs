@@ -1,10 +1,10 @@
 #include "cuda_vec_add.cu"
 #include <iostream>
-#include "args_parser.cpp"
-#include "Utility.h"
-#include "Timer.h"
-#include "GpuTimer.h"
+#include "Utility.hpp"
+#include "timers/Timeit.hpp"
+#include "timers/GpuTimer.cuh"
 #include <boost/format.hpp>
+#include "args_parser.cpp"
 
 int main(int argc, char *argv[]) {
     boost::optional<args> _args = parse(argc, argv);
@@ -27,16 +27,16 @@ int main(int argc, char *argv[]) {
     h_b = (double *) malloc(bytes);
     h_c = (double *) malloc(bytes);
 
-    Utility::init_vectors(h_a, h_b, bytes);
+    Utility util;
+    Timeit timer;
+    util.init_vectors(h_a, h_b, _args->vector_size);
 
     AddArgs addArgs = AddArgs{
             h_a, h_b, h_b, _args->vector_size, _args->blocks
     };
 
-    GpuTimer gpuTimer;
-
-    auto gpu_time = Timeit::timeit(gpu::vec_add, addArgs, gpuTimer);
-    auto gpu_result = Utility::check_result(h_c, _args->vector_size);
+    auto gpu_time = timer.timeit<GpuTimer>(gpu::vec_add, addArgs);
+    auto gpu_result = util.check_result(h_c, _args->vector_size);
 
     // Release host memory
     free(h_a);

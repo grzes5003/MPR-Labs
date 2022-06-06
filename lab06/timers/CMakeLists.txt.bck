@@ -1,0 +1,15 @@
+cmake_minimum_required(VERSION 3.16)
+project(Timer
+        VERSION 0.1
+        LANGUAGES CXX CUDA
+        )
+find_package(CUDA)
+
+set(CMAKE_CUDA_STANDARD 14)
+
+add_library(Timer STATIC Timeit.hpp Timeit.cpp GpuTimer.hpp GpuTimer.cu CpuTimer.cpp CpuTimer.hpp)
+
+set_target_properties(Timer PROPERTIES CUDA_ARCHITECTURES "30")
+
+install(TARGETS Timer DESTINATION lib)
+install(FILES Timer.hpp GpuTimer.hpp CpuTimer.hpp Timeit.hpp DESTINATION include)
