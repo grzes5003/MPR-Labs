@@ -16,7 +16,7 @@ __global__ void vecAdd(const double *a, const double *b, double *c, const int n)
 }
 
 namespace gpu {
-    int vec_add(const double *h_a, const double *h_b, double *h_c, const int n, const int block_size) {
+    int vec_add(const double *h_a, const double *h_b, double *h_c, const int n, const int threads) {
 
         // Size, in bytes, of each vector
         size_t bytes = n * sizeof(double);
@@ -39,10 +39,10 @@ namespace gpu {
         int gridSize;
 
         // Number of thread blocks in grid
-        gridSize = (int) ceil((float) n / block_size);
+        gridSize = (int) ceil((float) n / threads);
 
         // Execute the kernel
-        vecAdd<<<gridSize, block_size>>>(d_a, d_b, d_c, n);
+        vecAdd<<<gridSize, threads>>>(d_a, d_b, d_c, n);
 
         // Copy array back to host
         cudaMemcpy(h_c, d_c, bytes, cudaMemcpyDeviceToHost);

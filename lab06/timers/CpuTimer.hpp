@@ -8,7 +8,11 @@
 
 #include "Timer.hpp"
 
+#ifdef __linux__
+
 class CpuTimer : public virtual Timer  {
+private:
+    long cur_time_;
 public:
     virtual void start();
 
@@ -18,5 +22,23 @@ public:
 
 };
 
+#elif _WIN32 || _WIN64
+
+struct PrivateTimingCPU;
+
+class CpuTimer : public virtual Timer  {
+    PrivateTimingCPU *privateTimingCpu;
+public:
+    CpuTimer();
+
+    virtual void start();
+
+    virtual void stop();
+
+    virtual float elapsed();
+
+};
+
+#endif
 
 #endif //LAB06_CPUTIMER_HPP

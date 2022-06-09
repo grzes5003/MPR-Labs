@@ -12,8 +12,6 @@ struct PrivateTimingGPU;
 
 class GpuTimer : public virtual Timer {
     PrivateTimingGPU *privateTimingGPU;
-//    cudaEvent_t _start;
-//    cudaEvent_t _stop;
 public:
     GpuTimer();
     ~GpuTimer();
