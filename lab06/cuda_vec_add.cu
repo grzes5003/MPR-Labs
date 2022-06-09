@@ -42,7 +42,7 @@ namespace gpu {
         gridSize = (int) ceil((float) n / threads);
 
         // Execute the kernel
-        vecAdd<<<gridSize, threads>>>(d_a, d_b, d_c, n);
+        vecAdd<<<threads, gridSize>>>(d_a, d_b, d_c, n);
 
         // Copy array back to host
         cudaMemcpy(h_c, d_c, bytes, cudaMemcpyDeviceToHost);
