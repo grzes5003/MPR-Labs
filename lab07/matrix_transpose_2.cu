@@ -3,9 +3,7 @@
 #include <boost/format.hpp>
 #include "arg_parser.cpp"
 #include "BLOCK_SIZE.h"
-
-//#define N 1024
-//#define BLOCK_SIZE 32
+#include "GpuTimer.h"
 
 __global__ void matrix_transpose_naive(int *input, int *output, int n) {
 
@@ -88,6 +86,10 @@ int main(int argc, char *argv[]) {
     fill_array(a, n);
     b = (int *) malloc(size);
 
+    // start timer
+    GpuTimer gpuTimer = GpuTimer();
+    gpuTimer.start();
+
     // Alloc space for device copies of a, b, c
     cudaMalloc((void **) &d_a, size);
     cudaMalloc((void **) &d_b, size);
@@ -110,6 +112,10 @@ int main(int argc, char *argv[]) {
     // Copy result back to host
     cudaMemcpy(b, d_b, size, cudaMemcpyDeviceToHost);
     // print_output(a,b);
+
+    // stop timer
+    gpuTimer.stop();
+    std::cout << boost::format("gpu_1:t=%1%:n=%2%:b=%3%\n") % gpuTimer.elapsed() % _args->vector_size % BLOCK_SIZE;
 
     // terminate memories
     free(a);

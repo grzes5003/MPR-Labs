@@ -19,7 +19,11 @@ inline boost::optional<args> parse(int argc, char *argv[]) {
     po::store(po::command_line_parser(argc, argv).options(desc).run(), vm);
     po::notify(vm);
     // Check if there are enough args or if --help is given
-    if (vm.count("help") || !vm.count("vec_size") || !vm.count("blocks")) {
+    if (!vm.count("blocks")) {
+        _args.blocks = 0;
+    }
+
+    if (vm.count("help") || !vm.count("vec_size")) {
         std::cerr << desc << "\n";
         return boost::none;
     }

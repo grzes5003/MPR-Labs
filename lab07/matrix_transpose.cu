@@ -1,24 +1,25 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include<cstdio>
+#include<cstdlib>
+#include <boost/format.hpp>
+#include "arg_parser.cpp"
+#include "BLOCK_SIZE.h"
+#include "GpuTimer.h"
 
-#define N 2048
-#define BLOCK_SIZE 32
-
-__global__ void matrix_transpose_naive(int *input, int *output) {
+__global__ void matrix_transpose_naive(int *input, int *output, int n) {
 
     int indexX = threadIdx.x + blockIdx.x * blockDim.x;
     int indexY = threadIdx.y + blockIdx.y * blockDim.y;
-    int index = indexY * N + indexX;
-    int transposedIndex = indexX * N + indexY;
+    int index = indexY * n + indexX;
+    int transposedIndex = indexX * n + indexY;
 
-    // this has discoalesced global memory store  
+    // this has discoalesced global memory store
     output[transposedIndex] = input[index];
 
     // this has discoalesced global memore load
     // output[index] = input[transposedIndex];
 }
 
-__global__ void matrix_transpose_shared(int *input, int *output) {
+__global__ void matrix_transpose_shared(int *input, int *output, int n) {
 
     __shared__ int sharedMemory[BLOCK_SIZE][BLOCK_SIZE];
 
@@ -34,8 +35,8 @@ __global__ void matrix_transpose_shared(int *input, int *output) {
     int localIndexX = threadIdx.x;
     int localIndexY = threadIdx.y;
 
-    int index = indexY * N + indexX;
-    int transposedIndex = tindexY * N + tindexX;
+    int index = indexY * n + indexX;
+    int transposedIndex = tindexY * n + tindexX;
 
     // reading from global memory in coalesed manner and performing tanspose in shared memory
     sharedMemory[localIndexX][localIndexY] = input[index];
@@ -47,36 +48,47 @@ __global__ void matrix_transpose_shared(int *input, int *output) {
 }
 
 //basically just fills the array with index.
-void fill_array(int *data) {
-    for (int idx = 0; idx < (N * N); idx++)
+void fill_array(int *data, int n) {
+    for (int idx = 0; idx < (n * n); idx++)
         data[idx] = idx;
 }
 
-void print_output(int *a, int *b) {
+void print_output(int *a, int *b, int n) {
     printf("\n Original Matrix::\n");
-    for (int idx = 0; idx < (N * N); idx++) {
-        if (idx % N == 0)
+    for (int idx = 0; idx < (n * n); idx++) {
+        if (idx % n == 0)
             printf("\n");
         printf(" %d ", a[idx]);
     }
     printf("\n Transposed Matrix::\n");
-    for (int idx = 0; idx < (N * N); idx++) {
-        if (idx % N == 0)
+    for (int idx = 0; idx < (n * n); idx++) {
+        if (idx % n == 0)
             printf("\n");
         printf(" %d ", b[idx]);
     }
 }
 
-int main(void) {
+int main(int argc, char *argv[]) {
     int *a, *b;
     int *d_a, *d_b; // device copies of a, b, c
 
-    int size = N * N * sizeof(int);
+    boost::optional<args> _args = parse(argc, argv);
+    if (!_args) {
+        std::cerr << "Invalid parsing; exiting" << std::endl;
+        return 1;
+    }
+
+    int n = _args->vector_size;
+    int size = n * n * sizeof(int);
 
     // Alloc space for host copies of a, b, c and setup input values
     a = (int *) malloc(size);
-    fill_array(a);
+    fill_array(a, n);
     b = (int *) malloc(size);
+
+    // start timer
+    GpuTimer gpuTimer = GpuTimer();
+    gpuTimer.start();
 
     // Alloc space for device copies of a, b, c
     cudaMalloc((void **) &d_a, size);
@@ -87,19 +99,24 @@ int main(void) {
     cudaMemcpy(d_b, b, size, cudaMemcpyHostToDevice);
 
     dim3 blockSize(BLOCK_SIZE, BLOCK_SIZE, 1);
-    dim3 gridSize(N / BLOCK_SIZE, N / BLOCK_SIZE, 1);
+    dim3 gridSize(n / BLOCK_SIZE, n / BLOCK_SIZE, 1);
 
-    matrix_transpose_naive<<<gridSize, blockSize>>>(d_a, d_b);
+    matrix_transpose_naive<<<gridSize, blockSize>>>(d_a, d_b, n);
 
     // Copy result back to host
     // cudaMemcpy(b, d_b, size, cudaMemcpyDeviceToHost);
     // print_output(a,b);
 
-    matrix_transpose_shared<<<gridSize, blockSize>>>(d_a, d_b);
+    matrix_transpose_shared<<<gridSize, blockSize>>>(d_a, d_b, n);
 
     // Copy result back to host
     cudaMemcpy(b, d_b, size, cudaMemcpyDeviceToHost);
     // print_output(a,b);
+
+    // stop timer
+    gpuTimer.stop();
+    std::cout << boost::format("gpu_1:t=%1%:n=%2%:b=%3%\n") % gpuTimer.elapsed() % _args->vector_size % BLOCK_SIZE;
+
 
     // terminate memories
     free(a);
