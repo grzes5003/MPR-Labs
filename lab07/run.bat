@@ -19,7 +19,7 @@ set "comp_t2=%comp_t2% --build %~dp0\cmake-build-debug_vs --target matrix_transp
 
 set /a "n = 124"
 :loop_n
-    for %%b in (2 4 8 16 32 64 128 220) do (
+    for %%b in (2 4 8 16 32 64 128 210) do (
         echo #ifndef IMAGE_SCALING_N_SIZE_H > BLOCK_SIZE.h
         echo #define IMAGE_SCALING_N_SIZE_H >> BLOCK_SIZE.h
         echo #define BLOCK_SIZE %%b >> BLOCK_SIZE.h

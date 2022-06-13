@@ -88,7 +88,7 @@ int main(int argc, char *argv[]) {
 
     // start timer
     GpuTimer gpuTimer = GpuTimer();
-    gpuTimer.start();
+    GpuTimer gpuTimer2 = GpuTimer();
 
     // Alloc space for device copies of a, b, c
     cudaMalloc((void **) &d_a, size);
@@ -101,21 +101,29 @@ int main(int argc, char *argv[]) {
     dim3 blockSize(BLOCK_SIZE, BLOCK_SIZE, 1);
     dim3 gridSize(n / BLOCK_SIZE, n / BLOCK_SIZE, 1);
 
+    gpuTimer.start();
+
     matrix_transpose_naive<<<gridSize, blockSize>>>(d_a, d_b, n);
 
+    gpuTimer.stop();
     // Copy result back to host
     // cudaMemcpy(b, d_b, size, cudaMemcpyDeviceToHost);
     // print_output(a,b);
 
+    gpuTimer2.start();
+
     matrix_transpose_shared<<<gridSize, blockSize>>>(d_a, d_b, n);
+
+    gpuTimer2.stop();
 
     // Copy result back to host
     cudaMemcpy(b, d_b, size, cudaMemcpyDeviceToHost);
     // print_output(a,b);
 
     // stop timer
-    gpuTimer.stop();
-    std::cout << boost::format("gpu_1:t=%1%:n=%2%:b=%3%\n") % gpuTimer.elapsed() % _args->vector_size % BLOCK_SIZE;
+
+    std::cout << boost::format("t1:gpu_1:t=%1%:n=%2%:b=%3%\n") % gpuTimer.elapsed() % _args->vector_size % BLOCK_SIZE;
+    std::cout << boost::format("t1:gpu_2:t=%1%:n=%2%:b=%3%\n") % gpuTimer2.elapsed() % _args->vector_size % BLOCK_SIZE;
 
 
     // terminate memories
