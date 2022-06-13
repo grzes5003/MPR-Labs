@@ -1,4 +1,4 @@
 #ifndef IMAGE_SCALING_N_SIZE_H 
 #define IMAGE_SCALING_N_SIZE_H 
-#define BLOCK_SIZE 4 
+#define BLOCK_SIZE 220 
 #endif //IMAGE_SCALING_N_SIZE_H 

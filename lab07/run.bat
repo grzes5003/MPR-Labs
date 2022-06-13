@@ -17,7 +17,7 @@ set "comp_t2=C:\Users\xgg\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.57
 set "comp_t2=%comp_t2% --build %~dp0\cmake-build-debug_vs --target matrix_transpose_2 -j 9"
 
 
-set /a "n = 10000"
+set /a "n = 124"
 :loop_n
     for %%b in (2 4 8 16 32 64 128 220) do (
         echo #ifndef IMAGE_SCALING_N_SIZE_H > BLOCK_SIZE.h
@@ -35,7 +35,7 @@ set /a "n = 10000"
         %exe_path_t2% -n %n% >> %filename_t2%
         %exe_path_t2% -n %n% >> %filename_t2%
     )
-if %n% leq 10000000 (
+if %n% leq 10000 (
     set /a "n = n * 2"
     goto :loop_n
 )
