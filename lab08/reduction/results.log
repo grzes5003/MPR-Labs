@@ -1,0 +1,26 @@
+global:
+<<24
+Time= 34.338 msec, bandwidth= 1.954354 GB/s
+host: 65281.992188, device 65281.992188
+
+<<12
+Time= 0.091 msec, bandwidth= 0.179627 GB/s
+host: 15.668996, device 15.668997
+
+<<6
+Time= 0.062 msec, bandwidth= 0.004125 GB/s
+host: 0.243355, device 0.243355
+
+
+shared:
+<<24
+Time= 6.964 msec, bandwidth= 9.636932 GB/s
+host: 65281.992188, device 65281.992188
+
+<<12
+Time= 0.020 msec, bandwidth= 0.815408 GB/s
+host: 15.668996, device 15.668997
+
+<<6
+Time= 0.012 msec, bandwidth= 0.021817 GB/s
+host: 0.243355, device 0.243355

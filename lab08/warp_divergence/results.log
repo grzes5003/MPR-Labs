@@ -1,0 +1,26 @@
+seq:
+<<24
+Time= 5.134 msec, bandwidth= 13.071254 GB/s
+host: 65281.992188, device 65281.992188
+
+<<12
+Time= 0.030 msec, bandwidth= 0.547228 GB/s
+host: 15.668996, device 15.668997
+
+<<6
+Time= 0.022 msec, bandwidth= 0.011490 GB/s
+host: 0.243355, device 0.243355
+
+inter:
+<<24
+Time= 6.561 msec, bandwidth= 10.227702 GB/s
+host: 65281.992188, device 65281.992188
+
+<<12
+Time= 0.033 msec, bandwidth= 0.494089 GB/s
+host: 15.668996, device 15.668997
+
+<<6
+Time= 0.024 msec, bandwidth= 0.010676 GB/s
+host: 0.243355, device 0.243355
+

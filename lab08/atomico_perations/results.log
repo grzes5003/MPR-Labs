@@ -1,0 +1,28 @@
+BLK:
+<<24
+Time= 1.809 msec, bandwidth= 37.097813 GB/s
+host: 65281.992188, device 65281.992188
+
+<<12
+Time= 0.011 msec, bandwidth= 1.488102 GB/s
+host: 15.668996, device 15.676046
+
+
+kernel:
+<<24
+Time= 69.833 msec, bandwidth= 0.960996 GB/s
+host: 65281.992188, device 65533.957031
+
+<<12
+Time= 0.024 msec, bandwidth= 0.676438 GB/s
+host: 15.668996, device 15.675690
+
+
+wrp:
+<<24
+Time= 1.786 msec, bandwidth= 37.579037 GB/s
+host: 65281.992188, device 65281.980469
+
+<<12
+Time= 0.010 msec, bandwidth= 1.577508 GB/s
+host: 15.668996, device 15.676046
